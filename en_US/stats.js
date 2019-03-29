@@ -77,7 +77,7 @@ angular.module('splatApp').stats = function ($scope) {
 
       this.value = swim_speed;
       this.percentage = delta;
-      this.label = "{value} DU/f".format({value: this.value.toFixed(4)});
+      this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
       this.desc = "Distance Units/frame";
       return this.value.toFixed(4);
     }, 2.4),
@@ -107,12 +107,12 @@ angular.module('splatApp').stats = function ($scope) {
 
         this.value = run_speed;
         this.percentage = delta;
-        this.label = "{value} DU/f".format({value: this.value.toFixed(4)})
+        this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)})
         this.desc = "Distance Units/frame";
         return this.value.toFixed(4);
       }, 1.44),
 
-    'Run Speed (Enemy Ink)': new Stat("Run Speed (Enemy Ink)", function(loadout) {
+    'Run Speed (Enemy Ink)': new Stat("Run Speed (Enemy Ink) *", function(loadout) {
         // TODO: Verify these results with Leanny
         var ink_resistance_parameters = $scope.parameters["Ink Resistance"]["Run"];
         var abilityScore = loadout.calcAbilityScore('Ink Resistance Up');
@@ -132,23 +132,19 @@ angular.module('splatApp').stats = function ($scope) {
 
         this.value = run_speed
         this.percentage = delta;
-        this.label = "{value} DU/f".format({value: this.value.toFixed(4)});
+        this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
         this.desc = "Distance Units/frame";
         return this.value.toFixed(4);
       }, 0.72),
 
     'Run Speed (Firing)': new Stat("Run Speed (Firing)", function(loadout) {
-      // TODO: Figure out rolling speed calculation  
       if(loadout.weapon.name.toLowerCase().indexOf('brush') != -1 || loadout.weapon.name.toLowerCase().indexOf('roller') != -1) {
+          this.value = loadout.weapon.baseSpeed;
+          this.percentage = 0.0;
           this.name = "Run Speed (Rolling)"
-          this.value = 0;
-          this.label = "Unavailable";
-          this.desc = null;
-          return this.value;
-          //var speed = loadout.weapon.baseSpeed;
-          //this.value = speed;
-          //this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
-          //return speed.toFixed(2);
+          this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
+          this.desc = "Roll Speed for Rollers and Brushes is constant.";
+          return this.value.toFixed(2);
         }
         else {
           this.name = "Run Speed (Firing)"
@@ -167,8 +163,9 @@ angular.module('splatApp').stats = function ($scope) {
 
         this.value = run_speed
         this.percentage = delta;
-        this.label = "{value} DU/f".format({value: this.value.toFixed(4)});
+        this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
         this.desc = "Distance Units/frame";
+
         if(isNaN(this.value)) {
           this.value = 0;
           this.label = "Unavailable";
@@ -253,52 +250,92 @@ angular.module('splatApp').stats = function ($scope) {
     }, 100),
 
     'Ink Consumption (Sub)': new Stat("Ink Consumption (Sub)", function(loadout) {
-      var abilityScore = loadout.calcAbilityScore('Ink Saver (Sub)');
-      this.name = "Ink Consumption (Sub)"
-      var coeff = (600 / 7)
-      var sub = $scope.getSubByName(loadout.weapon.sub)
-      if(sub.inkSaver == 'Low') coeff = 100
-      var reduction =  this.calcMod(abilityScore) / coeff
-      // TODO: Hacky 2.0 balance fix. Possibly inaccurate.
-      switch(sub.name) {
-        case 'Burst Bomb':
-          reduction *= (2/3)
-          this.name = "Ink Consumption (Sub) *"
-          break
-        case 'Toxic Mist':
-          reduction *= 0.86
-          this.name = "Ink Consumption (Sub) *"
-          break
+      var ink_saver_sub_parameters = null;
+      if(loadout.weapon.inkSaver == 'Low') {
+        ink_saver_sub_parameters = $scope.parameters["Ink Saver Sub"]["Low"];
       }
-      var costPerSub = sub.cost * (1 - reduction)
+      if(loadout.weapon.inkSaver == 'Middle') {
+        ink_saver_sub_parameters = $scope.parameters["Ink Saver Sub"]["Mid"];
+      }
+      if(loadout.weapon.inkSaver == "High") {
+        ink_saver_sub_parameters = $scope.parameters["Ink Saver Sub"]["High"];
+      }      
+      var abilityScore = loadout.calcAbilityScore('Ink Saver (Sub)');
+      var p = this.calcP(abilityScore);       
+      var s = this.calcS(ink_saver_sub_parameters);
+      var reduction = this.calcRes(ink_saver_sub_parameters, p, s);
+      
+      var sub = $scope.getSubByName(loadout.weapon.sub)
+      var costPerSub = sub.cost * reduction;
+
+      this.desc = "{reduction}% reduction".format({reduction: (100 - (reduction*100)).toFixed(1)})
+      this.label = "{value}% tank".format({value: $scope.toFixedTrimmed(costPerSub,3)})      
+      this.localizedDesc = { reduction: (100 - (reduction*100)).toFixed(1), desc: 'DESC_SUB_COST' };
       this.value = costPerSub;
-      this.localizedDesc = { reduction: reduction.toFixed(1), desc: 'DESC_SUB_COST' };
-      this.desc = "{reduction}% reduction".format({reduction: reduction.toFixed(1)})
-      this.label = "{value}% tank".format({value: this.value.toFixed(2)})
+      this.percentage = (100 - (reduction*100)).toFixed(1);
+
+      // Debug log
+      var ink_saver_sub_debug_log = {"Ink Saver (Sub)":costPerSub,"AP":abilityScore,"P":p,"S":s,"Delta":reduction}
+      console.log(ink_saver_sub_debug_log);
+
       return costPerSub;
     }, 100),
+
     'Special Charge Speed': new Stat("Special Charge Speed", function(loadout) {
+      var special_charge_speed_parameters = $scope.parameters["Special Charge Up"]["default"]
       var abilityScore = loadout.calcAbilityScore('Special Charge Up');
-      var chargeSpeed = (1 + this.calcMod(abilityScore) / 100)
-      this.value = chargeSpeed;
-      this.desc = "{value}p for special".format({value: Math.round(loadout.weapon.specialCost / chargeSpeed)})
+      var p = this.calcP(abilityScore);       
+      var s = this.calcS(special_charge_speed_parameters);
+      var special_charge_speed = this.calcRes(special_charge_speed_parameters, p, s);      
+
+      this.value = special_charge_speed;
+      this.percentage = ((special_charge_speed*100) - 100).toFixed(1);
+      this.desc = "{value}p for special".format({value: Math.round(loadout.weapon.specialCost / special_charge_speed)})
       this.label = "{value}%".format({value: (this.value*100).toFixed(1)});
-      return (chargeSpeed * 100).toFixed(1);
+
+      // Debug log
+      var special_charge_speed_debug_log = {"Special Charge Speed":special_charge_speed,"AP":abilityScore,"P":p,"S":s,"Delta":this.percentage}
+      console.log(special_charge_speed_debug_log);
+
+      return (special_charge_speed * 100).toFixed(1);
     }, 1.3),
+
     'Special Saved': new Stat("Special Saved", function(loadout) {
-      var abilityScore = loadout.calcAbilityScore('Special Saver');
-      this.localizedDesc = { desc: null };
-      var y = this.calcMod(abilityScore)
-      var kept = (1/4500) * Math.pow(y,2) + (1/100)*y + 0.5
-      if(loadout.hasAbility('Respawn Punisher')) {
-        kept -= .225;
-        this.desc = "Effects with Respawn Punisher aren't fully understood.";
+      var special_saver_parameters = null;
+      if(loadout.weapon.special == "Splashdown") {
+        special_saver_parameters = $scope.parameters["Special Saver"]["Splashdown"];
       }
-      this.value = kept;
-      this.label = "{value}%".format({value: (this.value*100).toFixed(1)});
-      return (kept * 100).toFixed(1);
-    }, 1),
-//TODO: clean this up a bit
+      else {
+        special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
+      }
+      
+      var abilityScore = loadout.calcAbilityScore('Special Saver');
+      if(loadout.hasAbility('Respawn Punisher')) {
+        abilityScore = abilityScore * 0.7;
+        this.desc = "Respawn Punisher is affecting this stat.";
+      }
+
+      var p = this.calcP(abilityScore);       
+      var s = this.calcS(special_saver_parameters);
+      var modifier = this.calcRes(special_saver_parameters, p, s);
+      
+      var special_saved = 100.0 * modifier;
+
+      if(loadout.hasAbility('Respawn Punisher')) {
+        special_saved = special_saved * .225;
+      }
+
+      // Debug log
+      var special_saver_debug_log = {"Special Saver":special_saved,"AP":abilityScore,"Delta":modifier}
+      console.log(special_saver_debug_log);
+
+      this.value = special_saved;
+      this.percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
+      this.localizedDesc = { desc: null }; // TODO: Verify what this actually does      
+      this.label = "{value}%".format({value: (special_saved).toFixed(1)});
+      return special_saved.toFixed(1);
+    }, 100),
+
     'Special Power': new Stat("Special Power", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Special Power Up');
       var equippedSpecial = $scope.getSpecialByName(loadout.weapon.special)
@@ -307,21 +344,31 @@ angular.module('splatApp').stats = function ($scope) {
       var results = 0;
       this.desc = null;
       this.name = "Special Power<br>(???)"
+
+      var special_power_up_parameters = null;
       switch(equippedSpecial.name) {
         case 'Suction-Bomb Launcher':
         case 'Burst-Bomb Launcher':
         case 'Curling-Bomb Launcher':
         case 'Autobomb Launcher':
         case 'Splat-Bomb Launcher':
-          coeff = 90;
-          base = 360;
-          this.max = 8.1;
+          special_power_up_parameters = $scope.parameters["Special Power Up"]["Bomb Launcher"];
+          var p = this.calcP(abilityScore);      
+          var s = this.calcS(special_power_up_parameters);
+          var modifier = this.calcRes(special_power_up_parameters, p, s);
+          var max_duration = special_power_up_parameters[0] * equippedSpecial.duration;
+
           this.name = "Special Power<br>(Duration)"
-          results = (base * (1 +this.calcMod(abilityScore) / coeff))/60
-          this.value = results;
-          this.label = "{value}s".format({value: this.value.toFixed(2)});
-          return results.toFixed(2);
-          break;
+          results = equippedSpecial.duration * modifier
+
+          var special_power_up_log = {"Special Power Up":results,"AP:":abilityScore,"P":p,"S":s,"Delta:":modifier}
+          console.log(special_power_up_log);
+
+          this.percentage = ((modifier - 1) * 100).toFixed(1);
+          this.value = $scope.toFixedTrimmed((results/max_duration) * 100,2);
+          this.label = "{value}s".format({value: results.toFixed(2)});
+          return results;
+          // break; // These shouldn't be needed after returns
         case 'Ink Armor':
           coeff = 60;
           base = 360;
@@ -458,7 +505,7 @@ angular.module('splatApp').stats = function ($scope) {
       var mod = this.calcMod(abilityScore)/60
       if(loadout.hasAbility('Respawn Punisher')) {
         this.name = "Quick Respawn Time *";
-        this.desc = "Effects with Respawn Punisher aren't fully understood.";
+        this.desc = "Respawn Punisher is affecting this stat.";
         mod *= 0.5;
         splatcam += 74;
       }
