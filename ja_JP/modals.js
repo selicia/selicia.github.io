@@ -291,7 +291,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $uibModal, $
     お問い合わせ
     </div>
     <div class="row basic-content readable" id="about">
-    <p>主にAngularJS 1.6.5とBootstrap 3で作られています。<br><br> このツールは<a href='https://twitter.com/LeanYoshi' target='_blank'>Lean</a>さんや、InkademyとSplatoon DevelopersのDiscordの皆さんから教えていただいた情報と資産を基にして開発された。 <br><br>データの収集や応援をしてくれた皆様に感謝を申し上げます。<br><br> ほとんどの計算式がInkipediaの<a href='https://splatoonwiki.org/wiki/User:Heddy/Charts' target='_blank'>Heddy's charts</a>でみられる<br><br> バグの報告・改善の提案などがありましたら、<a href='https://github.com/DeviPotato/splat2-calc' target='_blank'>GitHub</a>のプロジェクトに報告・提案してください。<br> <a href='https://twitter.com/loadout_ink' target='_blank'>ツイッター</a>でも自由に連絡ください。</p>
+    <p>Built primarily with AngularJS 1.6.5 and Bootstrap 3.<br><br> This tool was developed using info and assets datamined by <a href='https://twitter.com/LeanYoshi' target='_blank'>Lean</a>, as well as information provided by several members of the Inkademy and Splatoon Developers servers on Discord. <br><br>Thanks to everyone who gave me help and data!<br><br> Many of the formulas used can be seen on <a href='https://splatoonwiki.org/wiki/User:Heddy/Charts' target='_blank'>Heddy's charts</a> on Inkipedia.<br><br> Any feature suggestions, bug reports, and feedback can be left as issues on the project's <a href='https://github.com/DeviPotato/splat2-calc' target='_blank'>GitHub</a>. <br> You can also reach me on the project's <a href='https://twitter.com/loadout_ink' target='_blank'>twitter</a>.</p>
     <p>
     Splatoon 2 UI Dialog/Buttons by <a href="https://github.com/lah7" target="_blank">Luke Horwell.</a>
     </p>
