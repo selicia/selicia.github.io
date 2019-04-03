@@ -244,7 +244,7 @@
                       <uib-progressbar type="pink" value="stat.value" max="stat.max" tooltip-placement="bottom" uib-tooltip="{{stat.desc}}" class="statbar"><span class="labelright readable">{{stat.label}} (&#177;{{stat.percentage}}%)</span></uib-progressbar>
                     </div>
                   </div>
-                  <div id="disclaimer">* データ不足によって効果が異なる場合があります。</div>
+                  <!-- <div id="disclaimer">* データ不足によって効果が異なる場合があります。</div> -->
                 </div>
                 <div class="row">
                   <div class="col-md-12">
@@ -265,9 +265,9 @@
                           <tbody>
                             <tr ng-repeat="sub in getDamagingSubs()">
                               <td>{{sub.localizedName['ja_JP'] || sub.localizedName['ja_JP']}}</td>
-                              <td>{{getAdjustedSubSpeDamage(sub,loadout)["Direct"]}}</td>
-                              <td>{{getAdjustedSubSpeDamage(sub,loadout)["Near"]}}</td>
-                              <td>{{getAdjustedSubSpeDamage(sub,loadout)["Far"]}}</td>
+                              <td>{{getAdjustedSubDamage(sub,loadout)["Direct"]}}</td>
+                              <td>{{getAdjustedSubDamage(sub,loadout)["Near"]}}</td>
+                              <td>{{getAdjustedSubDamage(sub,loadout)["Far"]}}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -288,9 +288,9 @@
                           <tbody>
                             <tr ng-repeat="special in getDamagingSpecials()">
                               <td>{{special.localizedName['ja_JP'] || special.localizedName['ja_JP']}}</td>                              
-                              <td>{{getAdjustedSubSpeDamage(special,loadout)["Direct"]}}</td>
-                              <td>{{getAdjustedSubSpeDamage(special,loadout)["Near"]}}</td>
-                              <td>{{getAdjustedSubSpeDamage(special,loadout)["Far"]}}</td>
+                              <td>{{getAdjustedSpecialDamage(special,loadout)["Direct"]}}</td>
+                              <td>{{getAdjustedSpecialDamage(special,loadout)["Near"]}}</td>
+                              <td>{{getAdjustedSpecialDamage(special,loadout)["Far"]}}</td>
                             </tr>
                           </tbody>
                         </table>

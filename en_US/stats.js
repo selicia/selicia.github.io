@@ -35,7 +35,6 @@ function Stat(name, calc, max) {
     }
     if(s != 0.5) {
       return Math.pow(Math.E,-1 * (Math.log(p) * Math.log(s) / Math.log(2)))
-      //return Math.log(-1 * (Math.log(p) * Math.log(s) / Math.log(2)));
     }
   }
 }
@@ -756,88 +755,193 @@ angular.module('splatApp').stats = function ($scope) {
       return 0;
     }, 100),
 
-    'Super Jump Time (Squid)': new Stat("Super Jump Time (Squid) *", function(loadout) {
+    'Super Jump Time (Squid)': new Stat("Super Jump Time (Squid) ", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Quick Super Jump');
-      var mod = this.calcMod(abilityScore)
-      var totalFrames = (-1/75)*Math.pow(mod,2) - (84/25)*mod + 218
-      this.value = (totalFrames) / 60
-      this.label = "{value}s".format({value: this.value.toFixed(2)});
-      return ((totalFrames) / 60).toFixed(2);
-    }, 3.65),
+      var jump_parameters = $scope.parameters["Quick Super Jump"]["Jump"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(jump_parameters);
+      var jump_duration = this.calcRes(jump_parameters, p, s);
 
-    'Super Jump Time (Kid)': new Stat("Super Jump Time (Kid) *", function(loadout) {
+      var prepare_parameters = $scope.parameters["Quick Super Jump"]["Prepare"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(prepare_parameters);
+      var prepare_duration = this.calcRes(prepare_parameters, p, s);
+
+      var total_duration = (jump_duration + prepare_duration) / 60;
+      var max_duration = (jump_parameters[2] + prepare_parameters[2]) / 60;
+
+      this.percentage = Math.abs(((total_duration/max_duration - 1) * 100).toFixed(2));
+      this.value = 100 - this.percentage;
+      
+      var super_jump_squid_debug_log = {"Super Jump Time (Squid Form)":total_duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+      console.log(super_jump_squid_debug_log);
+
+      this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
+      return total_duration;
+    }, 100),
+
+    'Super Jump Time (Kid)': new Stat("Super Jump Time (Kid) ", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Quick Super Jump');
-      var mod = this.calcMod(abilityScore)
-      var totalFrames = (-1/75)*Math.pow(mod,2) - (84/25)*mod + 239
-      this.value = totalFrames / 60
-      this.label = "{value}s".format({value: this.value.toFixed(2)});
-      return (totalFrames / 60).toFixed(2);
-    }, 4),
+      var jump_parameters = $scope.parameters["Quick Super Jump"]["Jump"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(jump_parameters);
+      var jump_duration = this.calcRes(jump_parameters, p, s);
+
+      var prepare_parameters = $scope.parameters["Quick Super Jump"]["Prepare"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(prepare_parameters);
+      var prepare_duration = this.calcRes(prepare_parameters, p, s);
+
+      var total_duration = ((jump_duration + prepare_duration) / 60) + 0.35;
+      var max_duration = ((jump_parameters[2] + prepare_parameters[2]) / 60) + 0.35;
+
+      this.percentage = Math.abs(((total_duration/max_duration - 1) * 100).toFixed(2));
+      this.value = 100 - this.percentage;
+      
+      var super_jump_kid_debug_log = {"Super Jump Time (Kid Form)":total_duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+      console.log(super_jump_kid_debug_log);
+
+      this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
+      return total_duration;
+    }, 100),
 
     'Quick Respawn Time': new Stat("Quick Respawn Time", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Quick Respawn');
       this.name = "Quick Respawn Time";
       this.desc = "Respawn time when splatted without splatting others.";
-      var death = 30;
-      var splatcam = 354;
-      var spawn = 120;
-      var mod = this.calcMod(abilityScore)/60
-      if(loadout.hasAbility('Respawn Punisher')) {
-        this.name = "Quick Respawn Time *";
-        this.desc = "Respawn Punisher is affecting this stat.";
-        mod *= 0.5;
-        splatcam += 74;
-      }
-      var spawnFrames = death + (splatcam*(1-mod)) + spawn;
-      this.value = spawnFrames/60
-      this.label = "{value}s".format({value: this.value.toFixed(2)});
-      return this.value.toFixed(2)
-    }, 9.6),
 
-    'Tracking Time': new Stat("Tracking Time *", function(loadout) {
-      var abilityScore = loadout.calcAbilityScore('Cold-Blooded');
-      var trackReduction = this.calcMod(abilityScore) / 40
-      this.value = (8 * (1 - trackReduction))
-      this.label = "{value}s".format({value: this.value.toFixed(2)});
+      var death_frames_parameters = $scope.parameters["Quick Respawn"]["Die Frames"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(death_frames_parameters);
+      var death_duration = this.calcRes(death_frames_parameters, p, s);
+
+      var deathcam_parameters = $scope.parameters["Quick Respawn"]["Deathcam Frames"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(deathcam_parameters);
+      var deathcam_duration = this.calcRes(deathcam_parameters, p, s);
+
+      var total_duration = ((death_duration + deathcam_duration) / 60) + 2.5;
+      var max_duration = ((death_frames_parameters[2] + deathcam_parameters[2]) / 60) + 2.5;
+
+      this.percentage = Math.abs(((total_duration/max_duration - 1) * 100).toFixed(2));
+      this.value = 100 - this.percentage;
+      
+      var quick_respawn_debug_log = {"Quick Respawn":total_duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+      console.log(quick_respawn_debug_log);
+
+      this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
+      return total_duration;
+    }, 100),
+
+    'Tracking Time': new Stat("Tracking Time ", function(loadout) {
+      var abilityScore = loadout.calcAbilityScore('Bomb Defense Up DX');
+      var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Point Sensor"];
+      var p = this.calcP(abilityScore);      
+      var s = this.calcS(tracking_time_parameters);
+      var modifier = this.calcRes(tracking_time_parameters, p, s);
+
+      var duration = 8 * modifier;
+      var max_duration = 8;
+      var min_duration = tracking_time_parameters[2] * 8;
+
+      this.value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
+      this.percentage = ((duration/min_duration - 1) * 100).toFixed(1);
+      
+      var tracking_time_debug_log = {"(Bomb Defense Up DX (Tracking Time)":duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+      console.log(tracking_time_debug_log);
+
+      this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)})
       this.desc = "Point Sensor/Ink Mine duration";
-      return (8 * (1 - trackReduction)).toFixed(2);
-    }, 8)
-  }
+      return duration;
+    }, 100),
 
+    'Main Power Up': new Stat("Main Power Up *", function(loadout) {
+      this.value = 0;
+      this.label = "Unavailable";
+      this.desc = null;
+      return this.value;
+    }, 100),
+  }
 
   $scope.getStatByName = function(name) {
     return $scope.stats[name]
   }
-  $scope.getAdjustedSubSpeDamage = function(sub,loadout) {
-  var abilityScore = loadout.calcAbilityScore('Bomb Defense Up');
-  var coeff;
-  switch(sub.name) {
-    case 'Burst Bomb':
-      coeff = 75;
-      break;
-    case 'Splat Bomb':
-    case 'Suction Bomb':
-    case 'Autobomb':
-    case 'Curling Bomb':
-    case 'Ink Mine':
-      coeff = 60;
-      break;
-    default:
-      coeff = (600/7);
-      break;
-  }
-  var damageReduction = (1 - (0.99 * abilityScore - Math.pow(0.09 * abilityScore,2)) / coeff)
+
+  $scope.getAdjustedSubDamage = function(sub,loadout) {
+    var abilityScore = loadout.calcAbilityScore('Bomb Defense Up DX');
+    var modifier = null;
+
+    switch(sub.name) {
+      // TODO: Confirm with Lean that the new subs (Fizzy & Torpedo) use the same params as these other subs.
+      case "Autobomb":
+      case "Curling Bomb":
+      case "Fizzy Bomb":
+      case "Ink Mine":
+      case "Splat Bomb":
+      case "Suction Bomb":
+      case "Torpedo":
+        var bomb_defense_parameters = $scope.parameters["Bomb Defense"]["Heavy Sub"];
+        break;
+      case "Burst Bomb":
+        var bomb_defense_parameters = $scope.parameters["Bomb Defense"]["Heavy Light"];
+        break;
+      default:
+        var bomb_defense_parameters = $scope.parameters["Bomb Defense"]["Additional"];;
+    }
+
+    var p = $scope.calcP(abilityScore);      
+    var s = $scope.calcS(bomb_defense_parameters);
+    var modifier = $scope.calcRes(bomb_defense_parameters, p, s);
+
+    var sub_damage_reduction_debug_log = {"(Bomb Defense Up DX (Sub Reduction)":modifier,"AP:":abilityScore,"P":p,"S":s}
+    console.log(sub_damage_reduction_debug_log);
+
     var results = {}
     for(damageValue in sub.damage) {
       var subDamage = sub.damage[damageValue]
       if(subDamage >= 100) {
         results[damageValue] = subDamage.toFixed(1);
       } else {
-        results[damageValue] = (subDamage * damageReduction).toFixed(1);
+        results[damageValue] = (subDamage * modifier).toFixed(1);
       }
     }
     return results
   }
+
+  $scope.getAdjustedSpecialDamage = function(special,loadout) {
+    var abilityScore = loadout.calcAbilityScore('Bomb Defense Up DX');
+    var modifier = null;
+
+    switch(special.name) {
+      case "Baller":
+      case "Inkjet":
+      case "Splashdown":
+      case "Tenta Missiles":
+        var bomb_defense_parameters = $scope.parameters["Bomb Defense"]["Special"];
+        break;
+      default:
+        var bomb_defense_parameters = $scope.parameters["Bomb Defense"]["Additional"];;
+    }
+
+    var p = $scope.calcP(abilityScore);      
+    var s = $scope.calcS(bomb_defense_parameters);
+    var modifier = $scope.calcRes(bomb_defense_parameters, p, s);
+    
+    var special_damage_reduction_debug_log = {"Bomb Defense Up DX":modifier,"Special":special.name,"parameters":bomb_defense_parameters,"AP:":abilityScore,"P":p,"S":s}
+    console.log(special_damage_reduction_debug_log);
+
+    var results = {}
+    for(damageValue in special.damage) {
+      var specialDamage = special.damage[damageValue]
+      if(specialDamage >= 100) {
+        results[damageValue] = specialDamage.toFixed(1);
+      } else {
+        results[damageValue] = (specialDamage * modifier).toFixed(1);
+      }
+    }
+    return results
+  }
+
   $scope.getAdjustedSpecialCost = function(loadout) {
     var stat = $scope.getStatByName('Special Charge Speed');
     return Math.floor(loadout.weapon.specialCost / (stat.value))
