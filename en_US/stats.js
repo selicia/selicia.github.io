@@ -236,7 +236,14 @@ angular.module('splatApp').stats = function ($scope) {
       var reduction = this.calcRes(ink_saver_parameters, p, s);
       
       var costPerShot = loadout.weapon.inkPerShot * reduction;
-      this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)})
+
+      if(loadout.weapon.name.indexOf("Splattershot Jr.") !== -1) {
+        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)})                
+      }
+      else {
+        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)})        
+      }
+      
       this.label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: loadout.weapon.shotUnit})
       this.value = costPerShot;
       this.percentage = (100 - (reduction*100)).toFixed(1);
@@ -318,15 +325,9 @@ angular.module('splatApp').stats = function ($scope) {
     }, 1.3),
 
     'Special Saved': new Stat("Special Saved", function(loadout) {
-      var special_saver_parameters = null;
-      if(loadout.weapon.special == "Splashdown") {
-        special_saver_parameters = $scope.parameters["Special Saver"]["Splashdown"];
-      }
-      else {
-        special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
-      }
-      
+      var special_saver_parameters = special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
       var abilityScore = loadout.calcAbilityScore('Special Saver');
+      
       if(loadout.hasAbility('Respawn Punisher')) {
         abilityScore = abilityScore * 0.7;
         this.desc = "Respawn Punisher is affecting this stat.";
@@ -349,7 +350,45 @@ angular.module('splatApp').stats = function ($scope) {
 
       this.value = special_saved;
       this.percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
-      this.localizedDesc = { desc: null }; // TODO: Verify what this actually does      
+      this.label = "{value}%".format({value: (special_saved).toFixed(1)});
+      return special_saved.toFixed(1);
+    }, 100),
+
+    'Special Saved On Death': new Stat("Special Saved (On-Use Death)", function(loadout) {
+      var special_saver_parameters = null;
+      if(loadout.weapon.special == "Splashdown") {
+        special_saver_parameters = $scope.parameters["Special Saver"]["Splashdown"];
+      }
+      else {
+        special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
+      }
+      
+      var abilityScore = loadout.calcAbilityScore('Special Saver');
+      if(loadout.hasAbility('Respawn Punisher')) {
+        abilityScore = abilityScore * 0.7;
+        this.desc = "Respawn Punisher is affecting this stat.";
+      }
+
+      var p = this.calcP(abilityScore);       
+      var s = this.calcS(special_saver_parameters);
+      var modifier = this.calcRes(special_saver_parameters, p, s);
+      
+      var special_saved = 100.0 * modifier;
+      if(special_saved > 100) {
+        special_saved = 100.0;
+      }
+
+      if(loadout.hasAbility('Respawn Punisher')) {
+        special_saved = special_saved * .225;
+      }
+
+      if($scope.logging) {
+        var special_saver_debug_log = {"Special Saver (On Death)":special_saved,"AP":abilityScore,"Delta":modifier}
+        console.log(special_saver_debug_log);
+      }
+
+      this.value = special_saved;
+      this.percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
       this.label = "{value}%".format({value: (special_saved).toFixed(1)});
       return special_saved.toFixed(1);
     }, 100),
@@ -358,7 +397,7 @@ angular.module('splatApp').stats = function ($scope) {
       var abilityScore = loadout.calcAbilityScore('Special Power Up');
       var equippedSpecial = $scope.getSpecialByName(loadout.weapon.special)
       this.desc = null;
-      this.name = "Special Power<br>(???)"
+      this.name = "Special Power (???)"
 
       var special_power_up_parameters = null;
       switch(equippedSpecial.name) {
@@ -370,7 +409,7 @@ angular.module('splatApp').stats = function ($scope) {
           var max_duration = special_power_up_parameters[0] / 60;
           var min_duration = special_power_up_parameters[2] / 60;
 
-          this.name = "Special Power<br>(Duration)";
+          this.name = "Special Power (Duration)";
 
           if($scope.logging) {
             var special_power_up_log = {"Special Power Up (Curling Bomb Launcher)":duration,"AP:":abilityScore,"P":p,"S":s}
@@ -393,7 +432,7 @@ angular.module('splatApp').stats = function ($scope) {
           var max_duration = special_power_up_parameters[0] / 60;
           var min_duration = special_power_up_parameters[2] / 60;
 
-          this.name = "Special Power<br>(Duration)";
+          this.name = "Special Power (Duration)";
 
           if($scope.logging) {
             var special_power_up_log = {"Special Power Up (Other Bomb Launcher)":duration,"AP:":abilityScore,"P":p,"S":s}
@@ -421,7 +460,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power<br>(Duration)";
+          this.name = "Special Power (Duration)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -441,7 +480,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power<br>(Duration)";
+          this.name = "Special Power (Duration)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -461,7 +500,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power<br>(Duration)";     
+          this.name = "Special Power (Duration)";     
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -481,7 +520,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power<br>(Duration)";        
+          this.name = "Special Power (Duration)";        
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -501,7 +540,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power<br>(Baller HP)";       
+          this.name = "Special Power (Baller HP)";       
           this.label = "{value} HP".format({value: $scope.toFixedTrimmed(health,2)});
           return health;
 
@@ -521,7 +560,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power<br>(Targeting Radius)";
+          this.name = "Special Power (Targeting Radius)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(targeting_radius,2)})
           return targeting_radius;
 
@@ -541,7 +580,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power<br>(Lethal Radius)";
+          this.name = "Special Power (Lethal Radius)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(lethal_radius,2)})
           // TODO: Ask Leanny how to convert the Lethal Radius values to Distance Units (DU/f)
           // this.desc = "{value} Distance Units".format({value: (base*results).toFixed(1)})
@@ -564,7 +603,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power<br>(Max Bubble Radius)";
+          this.name = "Special Power (Max Bubble Radius)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(bubble_radius,2)})
           return bubble_radius;
 
@@ -585,7 +624,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power<br>(Max Charge Time)";
+          this.name = "Special Power (Max Charge Time)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(charge_time,4)})
           return charge_time;
       }
@@ -595,7 +634,7 @@ angular.module('splatApp').stats = function ($scope) {
     'Sub Power': new Stat("Sub Power", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Sub Power Up');
       var equippedSub = $scope.getSubByName(loadout.weapon.sub)
-      this.name = "Sub Power<br>(Bomb Range)"
+      this.name = "Sub Power (Bomb Range)"
       this.value = 0;
 
       var sub_power_up_parameters = null;
@@ -620,7 +659,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Bomb Range)";
+          this.name = "Sub Power (Bomb Range)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(sub_range,2)})
           return sub_range;
 
@@ -640,7 +679,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Bomb Range)";
+          this.name = "Sub Power (Bomb Range)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(sub_range,2)})
           return sub_range;     
 
@@ -660,7 +699,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Bomb Range)";
+          this.name = "Sub Power (Bomb Range)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(scan_radius,2)})
           return scan_radius;
 
@@ -701,7 +740,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Mine Radius)";
+          this.name = "Sub Power (Mine Radius)";
           this.label = "{value}%".format({value: $scope.toFixedTrimmed(radius*100,2)})
           return $scope.toFixedTrimmed(radius*100,2);
 
@@ -721,7 +760,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Wall HP)";
+          this.name = "Sub Power (Wall HP)";
           this.label = "{value} HP".format({value: $scope.toFixedTrimmed(wall_hp,2)})
           return wall_hp;
 
@@ -777,7 +816,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Jump Speed to Beakon)";
+          this.name = "Sub Power (Jump Speed to Beakon)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
           return total_duration;             
 
@@ -797,7 +836,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power<br>(Bomb Range)";
+          this.name = "Sub Power (Bomb Range)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(distance,2)})
           return distance;
       }
@@ -912,9 +951,92 @@ angular.module('splatApp').stats = function ($scope) {
       return duration;
     }, 100),
 
-    'Main Power Up': new Stat("Main Power Up *", function(loadout) {
+    // This is the first MPU stat. It will always have a value for every weapon.
+    'Main Power Up 1': new Stat("Main Power Up *", function(loadout) {
+      var abilityScore = loadout.calcAbilityScore('Main Power Up');
+      var parameters = null;
+
+      if(loadout.weapon.name.indexOf('Sploosh-o-matic') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Sploosh-o-matic"]["min_params"];
+        this.name = "Main Power Up (Min Damage)";
+      }
+
+      if(loadout.weapon.name.indexOf('Splattershot Jr.') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Splattershot Jr."]["params"];        
+        this.name = "Main Power Up (Ink Coverage)";
+      }
+
+      if(loadout.weapon.name.indexOf('Splash-o-matic') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Splash-o-matic"]["params"];        
+        this.name = "Main Power Up (Ink Coverage)";      
+      }
+
+      if(parameters) {
+        var p = this.calcP(abilityScore);      
+        var s = this.calcS(parameters);
+        var result = this.calcRes(parameters, p, s);
+  
+        var max_param = parameters[0];
+        var min_param = parameters[2];
+  
+        this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
+        this.percentage = ((result/min_param - 1) * 100).toFixed(1);
+  
+        if($scope.logging) {
+          var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+          console.log(main_power_up_debug_log);
+        }
+        
+        this.label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
+        return this.percentage;
+      }
+
+      // Defaults
       this.value = 0;
-      this.label = "Unavailable";
+      this.name = "Main Power Up (Unused)";
+      this.label = "Unavailable".format({value: this.value});
+      this.desc = null;
+      return this.value;
+    }, 100),
+
+    // This is the second MPU stat. It will only have values for weapons with additional MPU stats.
+    'Main Power Up 2': new Stat("Main Power Up *", function(loadout) {
+      var abilityScore = loadout.calcAbilityScore('Main Power Up');
+      var parameters = null;
+      
+      if(loadout.weapon.name.indexOf('Sploosh-o-matic') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Sploosh-o-matic"]["max_params"];   
+        this.name = "Main Power Up (Max Damage)";
+      }
+
+      if(loadout.weapon.name.indexOf('Splattershot Jr.') != -1) {
+        this.name = "Main Power Up (Unused)";
+      }
+
+      if(parameters) {
+        var p = this.calcP(abilityScore);      
+        var s = this.calcS(parameters);
+        var result = this.calcRes(parameters, p, s);
+  
+        var max_param = parameters[0];
+        var min_param = parameters[2];
+  
+        this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
+        this.percentage = ((result/min_param - 1) * 100).toFixed(1);
+  
+        if($scope.logging) {
+          var main_power_up_debug_log = {"Main Power Up":result,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+          console.log(main_power_up_debug_log);
+        }
+        
+        this.label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
+        return this.percentage;
+      }
+      
+      // Defaults
+      this.value = 0;
+      this.name = "Main Power Up (Unused)";      
+      this.label = "Unavailable".format({value: this.value});
       this.desc = null;
       return this.value;
     }, 100),
