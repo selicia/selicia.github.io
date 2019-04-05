@@ -976,7 +976,13 @@ angular.module('splatApp').stats = function ($scope) {
         this.name = "メイン性能アップ (インクカバレッジ)";      
       }
 
-      if(loadout.weapon.name.indexOf('Splattershot') != -1 && loadout.weapon.name.indexOf('Jr.') == -1 && loadout.weapon.name.indexOf('Pro') == -1) {
+      if((loadout.weapon.name.indexOf('Splattershot') != -1 || 
+          loadout.weapon.name.indexOf('Hero Shot Replica') != -1 ||
+          loadout.weapon.name.indexOf('Octo Shot Replica') != -1
+         ) && 
+         loadout.weapon.name.indexOf('Jr.') == -1 && 
+         loadout.weapon.name.indexOf('Pro') == -1)
+      {
         parameters = $scope.parameters["Main Power Up"]["Splattershot"]["params"];        
         this.name = "メイン性能アップ (ジャンプショットランダム化)";      
       }
@@ -1026,7 +1032,7 @@ angular.module('splatApp').stats = function ($scope) {
         this.name = "メイン性能アップ (高いダメージ半径)";      
       }
 
-      if(loadout.weapon.name.indexOf('Blaster') != -1 && 
+      if((loadout.weapon.name.indexOf('Blaster') != -1 || loadout.weapon.name.indexOf('Hero Blaster Replica') != -1) && 
          loadout.weapon.name.indexOf('Clash') == -1 && 
          loadout.weapon.name.indexOf('Luna') == -1 &&
          loadout.weapon.name.indexOf('Range') == -1 &&
@@ -1055,6 +1061,75 @@ angular.module('splatApp').stats = function ($scope) {
         parameters = $scope.parameters["Main Power Up"]["Rapid Blaster Pro"]["params"];        
         this.name = "メイン性能アップ (ジャンプショットランダム化)";      
       }
+
+      if(loadout.weapon.name.indexOf('Carbon Roller') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["min_params"];        
+        this.name = "メイン性能アップ (垂直最低ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Splat Roller') != -1 || loadout.weapon.name.indexOf('Hero Roller Replica') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["min_params"];        
+        this.name = "メイン性能アップ (垂直最低ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Dynamo Roller') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["min_params"];        
+        this.name = "メイン性能アップ (垂直最低ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Flingza Roller') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["min_params"];        
+        this.name = "メイン性能アップ (垂直最低ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Inkbrush') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Inkbrush"]["params"];
+        this.name = "メイン性能アップ (スプリントスピード)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Octobrush') != -1 || loadout.weapon.name.indexOf('Herobrush Replica') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Octobrush"]["params"];
+        this.name = "メイン性能アップ (スプリントスピード)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Squiffer') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Squiffer"]["params"];
+        this.name = "メイン性能アップ (最大充電距離)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Splat Charger') != -1 ||
+         loadout.weapon.name.indexOf('Kensa Charger') != -1 ||
+         loadout.weapon.name.indexOf('Hero Charger Replica') != -1)
+      {
+        parameters = $scope.parameters["Main Power Up"]["Splat Charger"]["min_params"];
+        this.name = "メイン性能アップ (部分充電最小ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Splatterscope') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Splatterscope"]["min_params"];
+        this.name = "メイン性能アップ (部分充電最小ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('E-Liter 4k') != -1 && loadout.weapon.name.indexOf('Scope') == -1) {
+        parameters = $scope.parameters["Main Power Up"]["E-Liter 4k"]["params"];
+        this.name = "メイン性能アップ (最大充電距離)";      
+      }
+
+      if(loadout.weapon.name.indexOf('E-Liter 4k Scope') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["E-Liter 4k Scope"]["params"];
+        this.name = "メイン性能アップ (最大充電距離)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Bamboozler 14') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Bamboozler 14"]["min_params"];
+        this.name = "メイン性能アップ (最低ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Goo Tuber') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Goo Tuber"]["min_params"];
+        this.name = "メイン性能アップ (部分充電最小ダメージ)";      
+      }
+
 
       if(parameters) {
         var p = this.calcP(abilityScore);      
@@ -1119,6 +1194,50 @@ angular.module('splatApp').stats = function ($scope) {
         parameters = $scope.parameters["Main Power Up"]["Squeezer"]["max_params"];        
         this.name = "メイン性能アップ (最大ダメージ)";      
       }
+
+      if(loadout.weapon.name.indexOf('Carbon Roller') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Carbon Roller"]["max_params"];        
+        this.name = "メイン性能アップ (垂直最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Splat Roller') != -1 || loadout.weapon.name.indexOf('Hero Roller Replica') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Splat Roller"]["max_params"];        
+        this.name = "メイン性能アップ (垂直最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Dynamo Roller') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Dynamo Roller"]["max_params"];        
+        this.name = "メイン性能アップ (垂直最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Flingza Roller') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Flingza Roller"]["max_params"];        
+        this.name = "メイン性能アップ (垂直最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Splat Charger') != -1 ||
+         loadout.weapon.name.indexOf('Kensa Charger') != -1 ||
+         loadout.weapon.name.indexOf('Hero Charger Replica') != -1)
+      {
+        parameters = $scope.parameters["Main Power Up"]["Splat Charger"]["max_params"];
+        this.name = "メイン性能アップ (部分チャージ最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Splatterscope') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Splatterscope"]["max_params"];
+        this.name = "メイン性能アップ (部分チャージ最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Bamboozler 14') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Bamboozler 14"]["max_params"];
+        this.name = "メイン性能アップ (最大ダメージ)";      
+      }
+
+      if(loadout.weapon.name.indexOf('Goo Tuber') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["Goo Tuber"]["max_params"];
+        this.name = "メイン性能アップ (部分チャージ最大ダメージ)";      
+      }
+
 
       if(parameters) {
         var p = this.calcP(abilityScore);      
