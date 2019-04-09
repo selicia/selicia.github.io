@@ -43,6 +43,9 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "High",
           "baseSpeed": 0.8,
+          "minDamage": 19.0,
+          "maxDamage": 38.0,
+          "mpuMaxDamage": 49.9,
           "price": 9700,
           "stats": {
             "Portée": 12,
@@ -76,6 +79,9 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "High",
           "baseSpeed": 0.8,
+          "minDamage": 19.0,
+          "maxDamage": 38.0,
+          "mpuMaxDamage": 49.9,
           "price": 12200,
           "stats": {
             "Portée": 12,
@@ -83,6 +89,33 @@ angular.module('splatApp').weapons = function($scope) {
             "Cadence": 75
           },
           "id": 1
+        },
+        {
+          "image": "../common/assets/img/weapons/Shooter_Short_02.png",
+          "name": "Sploosh-o-matic 7",
+          "localizedName": {
+            "ja_JP": "ボールドマーカー7",
+            "en_US": "Sploosh-o-matic 7"
+          },
+          "shotUnit": "coup",
+          "sub": "Splat Bomb",
+          "special": "Ultra Stamp",
+          "level": 23,
+          "specialCost": 180,
+          "inkSaver": "Middle",
+          "inkPerShot": 0.8,
+          "speedLevel": "High",
+          "baseSpeed": 0.8,
+          "minDamage": 19.0,
+          "maxDamage": 38.0,
+          "mpuMaxDamage": 49.9,
+          "price": 14600,
+          "stats": {
+            "Portée": 12,
+            "Dégâts": 52,
+            "Cadence": 75
+          },
+          "id": 2
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_First_00.png",
@@ -115,7 +148,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 2
+          "id": 3
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_First_01.png",
@@ -148,7 +181,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 3
+          "id": 4
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_First_02.png",
@@ -172,7 +205,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 4
+          "id": 5
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Precision_00.png",
@@ -205,7 +238,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 5
+          "id": 6
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Precision_01.png",
@@ -235,7 +268,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 6
+          "id": 7
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Blaze_00.png",
@@ -268,7 +301,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 10,
             "Cadence": 90
           },
-          "id": 7
+          "id": 8
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Blaze_01.png",
@@ -301,7 +334,31 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 10,
             "Cadence": 90
           },
-          "id": 8
+          "id": 9
+        },
+        {
+          "image": "../common/assets/img/weapons/Shooter_Blaze_02.png",
+          "name": "Aerospray PG",
+          "localizedName": {
+            "ja_JP": "プロモデラーPG",
+            "en_US": "Aerospray PG"
+          },
+          "shotUnit": "coup",
+          "sub": "Burst Bomb",
+          "special": "Booyah Bomb",
+          "level": 29,
+          "specialCost": 180,
+          "inkSaver": "Middle",
+          "inkPerShot": 0.55,
+          "speedLevel": "High",
+          "baseSpeed": 0.72,
+          "price": 19000,
+          "stats": {
+            "Portée": 35,
+            "Dégâts": 10,
+            "Cadence": 90
+          },
+          "id": 10
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Normal_00.png",
@@ -334,7 +391,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 45,
             "Cadence": 60
           },
-          "id": 9
+          "id": 11
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Normal_01.png",
@@ -367,7 +424,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 45,
             "Cadence": 60
           },
-          "id": 10
+          "id": 12
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Normal_02.png",
@@ -391,7 +448,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 45,
             "Cadence": 60
           },
-          "id": 11
+          "id": 13
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Normal_H.png",
@@ -424,7 +481,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 45,
             "Cadence": 60
           },
-          "id": 12
+          "id": 14
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Normal_Oct.png",
@@ -448,7 +505,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 45,
             "Cadence": 60
           },
-          "id": 13
+          "id": 15
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Gravity_00.png",
@@ -481,7 +538,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 75,
             "Cadence": 25
           },
-          "id": 14
+          "id": 16
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Gravity_01.png",
@@ -514,7 +571,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 75,
             "Cadence": 25
           },
-          "id": 15
+          "id": 17
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Gravity_02.png",
@@ -538,7 +595,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 75,
             "Cadence": 25
           },
-          "id": 16
+          "id": 18
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_QuickMiddle_00.png",
@@ -571,7 +628,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 17
+          "id": 19
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_QuickMiddle_01.png",
@@ -604,7 +661,31 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 22,
             "Cadence": 75
           },
-          "id": 18
+          "id": 20
+        },
+        {
+          "image": "../common/assets/img/weapons/Shooter_QuickMiddle_02.png",
+          "name": "N-ZAP '83",
+          "localizedName": {
+            "ja_JP": "N-ZAP83",
+            "en_US": "N-ZAP '83"
+          },
+          "shotUnit": "coup",
+          "sub": "Sprinkler",
+          "special": "Ink Storm",
+          "level": 19,
+          "specialCost": 180,
+          "inkSaver": "Middle",
+          "inkPerShot": 0.8,
+          "speedLevel": "High",
+          "baseSpeed": 0.84,
+          "price": 11100,
+          "stats": {
+            "Portée": 50,
+            "Dégâts": 22,
+            "Cadence": 75
+          },
+          "id": 21
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Expert_00.png",
@@ -631,13 +712,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.0,
           "speedLevel": "Middle",
           "baseSpeed": 0.55,
+          "minDamage": 21.0,
+          "maxDamage": 42.0,
+          "mpuMaxDamage": 49.9,
           "price": 13800,
           "stats": {
             "Portée": 70,
             "Dégâts": 60,
             "Cadence": 30
           },
-          "id": 19
+          "id": 22
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Expert_01.png",
@@ -664,13 +748,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.0,
           "speedLevel": "Middle",
           "baseSpeed": 0.55,
+          "minDamage": 21.0,
+          "maxDamage": 42.0,
+          "mpuMaxDamage": 49.9,
           "price": 20800,
           "stats": {
             "Portée": 70,
             "Dégâts": 60,
             "Cadence": 30
           },
-          "id": 20
+          "id": 23
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Expert_02.png",
@@ -688,13 +775,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.0,
           "speedLevel": "Middle",
           "baseSpeed": 0.55,
+          "minDamage": 21.0,
+          "maxDamage": 42.0,
+          "mpuMaxDamage": 49.9,
           "price": 21900,
           "stats": {
             "Portée": 70,
             "Dégâts": 60,
             "Cadence": 30
           },
-          "id": 21
+          "id": 24
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Heavy_00.png",
@@ -721,13 +811,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.5,
           "speedLevel": "Middle",
           "baseSpeed": 0.4,
+          "minDamage": 31.0,
+          "maxDamage": 62.0,
+          "mpuMaxDamage": 99.9,
           "price": 12600,
           "stats": {
             "Portée": 74,
             "Dégâts": 80,
             "Cadence": 10
           },
-          "id": 22
+          "id": 25
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Heavy_01.png",
@@ -754,13 +847,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.5,
           "speedLevel": "Middle",
           "baseSpeed": 0.4,
+          "minDamage": 31.0,
+          "maxDamage": 62.0,
+          "mpuMaxDamage": 99.9,
           "price": 16200,
           "stats": {
             "Portée": 74,
             "Dégâts": 80,
             "Cadence": 10
           },
-          "id": 23
+          "id": 26
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Long_00.png",
@@ -793,7 +889,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 30
           },
-          "id": 24
+          "id": 27
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Long_01.png",
@@ -826,7 +922,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 30
           },
-          "id": 25
+          "id": 28
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_TripleQuick_00.png",
@@ -853,13 +949,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.0,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 14.5,
+          "maxDamage": 29.0,
+          "mpuMaxDamage": 33.3,
           "price": 10400,
           "stats": {
             "Portée": 62,
             "Dégâts": 25,
             "Cadence": 65
           },
-          "id": 26
+          "id": 29
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_TripleQuick_01.png",
@@ -886,13 +985,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.0,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 14.5,
+          "maxDamage": 29.0,
+          "mpuMaxDamage": 33.3,
           "price": 12500,
           "stats": {
             "Portée": 62,
             "Dégâts": 25,
             "Cadence": 65
           },
-          "id": 27
+          "id": 30
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_TripleQuick_02.png",
@@ -910,13 +1012,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.0,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 14.5,
+          "maxDamage": 29.0,
+          "mpuMaxDamage": 33.3,
           "price": 17700,
           "stats": {
             "Portée": 62,
             "Dégâts": 25,
             "Cadence": 65
           },
-          "id": 28
+          "id": 31
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_TripleMiddle_00.png",
@@ -943,13 +1048,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.6,
+          "minDamage": 20.5,
+          "maxDamage": 41.0,
+          "mpuMaxDamage": 49.9,
           "price": 17200,
           "stats": {
             "Portée": 70,
             "Dégâts": 58,
             "Cadence": 30
           },
-          "id": 29
+          "id": 32
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_TripleMiddle_01.png",
@@ -976,13 +1084,43 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.6,
+          "minDamage": 20.5,
+          "maxDamage": 41.0,
+          "mpuMaxDamage": 49.9,
           "price": 18400,
           "stats": {
             "Portée": 70,
             "Dégâts": 58,
             "Cadence": 30
           },
-          "id": 30
+          "id": 33
+        },
+        {
+          "image": "../common/assets/img/weapons/Shooter_TripleMiddle_02.png",
+          "name": "Cherry H-3 Nozzlenose",
+          "localizedName": {
+            "ja_JP": "H3リールガンチェリー",
+            "en_US": "Cherry H-3 Nozzlenose"
+          },
+          "shotUnit": "coup",
+          "sub": "Splash Wall",
+          "special": "Bubble Blower",
+          "level": 30,
+          "specialCost": 190,
+          "inkSaver": "High",
+          "inkPerShot": 1.8,
+          "speedLevel": "Middle",
+          "baseSpeed": 0.6,
+          "minDamage": 20.5,
+          "maxDamage": 41.0,
+          "mpuMaxDamage": 49.9,
+          "price": 26600,
+          "stats": {
+            "Portée": 70,
+            "Dégâts": 58,
+            "Cadence": 30
+          },
+          "id": 34
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Flash_00.png",
@@ -1009,13 +1147,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.5,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
+          "minDamage": 19.0,
+          "maxDamage": 38.0,
+          "mpuMaxDamage": 49.9,
           "price": 9400,
           "stats": {
             "Portée": 77,
             "Dégâts": 52,
             "Cadence": 30
           },
-          "id": 31
+          "id": 35
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_Flash_01.png",
@@ -1039,13 +1180,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 2.5,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
+          "minDamage": 19.0,
+          "maxDamage": 38.0,
+          "mpuMaxDamage": 49.9,
           "price": 10900,
           "stats": {
             "Portée": 77,
             "Dégâts": 52,
             "Cadence": 30
           },
-          "id": 32
+          "id": 36
         }
       ]
     },
@@ -1320,6 +1464,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 7
         },
         {
+          "image": "../common/assets/img/weapons/Shooter_BlasterLong_02.png",
+          "name": "Grim Range Blaster",
+          "localizedName": {
+            "ja_JP": "ロングブラスターネクロ",
+            "en_US": "Grim Range Blaster"
+          },
+          "shotUnit": "coup",
+          "sub": "Burst Bomb",
+          "special": "Tenta Missiles",
+          "level": 23,
+          "specialCost": 190,
+          "inkSaver": "Middle",
+          "inkPerShot": 11.0,
+          "speedLevel": "Middle",
+          "baseSpeed": 0.4,
+          "price": 14900,
+          "stats": {
+            "Portée": 56,
+            "Dégâts": 70,
+            "Cadence": 10
+          },
+          "id": 8
+        },
+        {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLightShort_00.png",
           "name": "Clash Blaster",
           "localizedName": {
@@ -1350,7 +1518,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 25,
             "Cadence": 65
           },
-          "id": 8
+          "id": 9
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLightShort_01.png",
@@ -1383,7 +1551,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 25,
             "Cadence": 65
           },
-          "id": 9
+          "id": 10
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLight_00.png",
@@ -1416,7 +1584,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 40
           },
-          "id": 10
+          "id": 11
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLight_01.png",
@@ -1449,7 +1617,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 40
           },
-          "id": 11
+          "id": 12
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLight_02.png",
@@ -1473,7 +1641,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 40
           },
-          "id": 12
+          "id": 13
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLightLong_00.png",
@@ -1506,7 +1674,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 30
           },
-          "id": 13
+          "id": 14
         },
         {
           "image": "../common/assets/img/weapons/Wst_Shooter_BlasterLightLong_01.png",
@@ -1536,7 +1704,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 35,
             "Cadence": 30
           },
-          "id": 14
+          "id": 15
         }
       ]
     },
@@ -1987,6 +2155,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 1
         },
         {
+          "image": "../common/assets/img/weapons/Roller_BrushMini_02.png",
+          "name": "Permanent Inkbrush",
+          "localizedName": {
+            "ja_JP": "パーマネント・パブロ",
+            "en_US": "Permanent Inkbrush"
+          },
+          "shotUnit": "coup",
+          "sub": "Sprinkler",
+          "special": "Ink Armor",
+          "level": 12,
+          "specialCost": 180,
+          "inkSaver": "Middle",
+          "inkPerShot": 2.0,
+          "speedLevel": "High",
+          "baseSpeed": 1.92,
+          "price": 8400,
+          "stats": {
+            "Portée": 5,
+            "Vitesse d'encrage": 100,
+            "Légèreté": 100
+          },
+          "id": 2
+        },
+        {
           "image": "../common/assets/img/weapons/Wst_Roller_BrushNormal_00.png",
           "name": "Octobrush",
           "localizedName": {
@@ -2017,7 +2209,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse d'encrage": 80,
             "Légèreté": 85
           },
-          "id": 2
+          "id": 3
         },
         {
           "image": "../common/assets/img/weapons/Wst_Roller_BrushNormal_01.png",
@@ -2050,7 +2242,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse d'encrage": 80,
             "Légèreté": 85
           },
-          "id": 3
+          "id": 4
         },
         {
           "image": "../common/assets/img/weapons/Wst_Roller_BrushNormal_02.png",
@@ -2074,7 +2266,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse d'encrage": 80,
             "Légèreté": 85
           },
-          "id": 4
+          "id": 5
         },
         {
           "image": "../common/assets/img/weapons/Wst_Roller_BrushNormal_H.png",
@@ -2107,7 +2299,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse d'encrage": 80,
             "Légèreté": 85
           },
-          "id": 5
+          "id": 6
         }
       ]
     },
@@ -2193,6 +2385,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 1
         },
         {
+          "image": "../common/assets/img/weapons/Charger_Quick_02.png",
+          "name": "Fresh Squiffer",
+          "localizedName": {
+            "ja_JP": "スクイックリンγ",
+            "en_US": "Fresh Squiffer"
+          },
+          "shotUnit": "coup",
+          "sub": "Suction Bomb",
+          "special": "Inkjet",
+          "level": 24,
+          "specialCost": 190,
+          "inkSaver": "Middle",
+          "inkPerShot": 10.5,
+          "speedLevel": "Middle",
+          "baseSpeed": 0.3,
+          "price": 14100,
+          "stats": {
+            "Portée": 75,
+            "Vitesse de charge": 70,
+            "Mobilité": 60
+          },
+          "id": 2
+        },
+        {
           "image": "../common/assets/img/weapons/Wst_Charger_Normal_00.png",
           "name": "Splat Charger",
           "localizedName": {
@@ -2223,7 +2439,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 40
           },
-          "id": 2
+          "id": 3
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Normal_01.png",
@@ -2256,7 +2472,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 40
           },
-          "id": 3
+          "id": 4
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Normal_02.png",
@@ -2280,7 +2496,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 40
           },
-          "id": 4
+          "id": 5
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Normal_H.png",
@@ -2313,7 +2529,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 40
           },
-          "id": 5
+          "id": 6
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_NormalScope_00.png",
@@ -2346,7 +2562,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 30
           },
-          "id": 6
+          "id": 7
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_NormalScope_01.png",
@@ -2379,7 +2595,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 30
           },
-          "id": 7
+          "id": 8
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_NormalScope_02.png",
@@ -2403,7 +2619,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 50,
             "Mobilité": 30
           },
-          "id": 8
+          "id": 9
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Long_00.png",
@@ -2436,7 +2652,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 20,
             "Mobilité": 15
           },
-          "id": 9
+          "id": 10
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Long_01.png",
@@ -2466,7 +2682,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 20,
             "Mobilité": 15
           },
-          "id": 10
+          "id": 11
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_LongScope_00.png",
@@ -2499,7 +2715,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 20,
             "Mobilité": 5
           },
-          "id": 11
+          "id": 12
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_LongScope_01.png",
@@ -2529,7 +2745,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 20,
             "Mobilité": 5
           },
-          "id": 12
+          "id": 13
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Light_00.png",
@@ -2562,7 +2778,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 90,
             "Mobilité": 80
           },
-          "id": 13
+          "id": 14
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Light_01.png",
@@ -2592,7 +2808,31 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 90,
             "Mobilité": 80
           },
-          "id": 14
+          "id": 15
+        },
+        {
+          "image": "../common/assets/img/weapons/Charger_Light_02.png",
+          "name": "Bamboozler 14 Mk III",
+          "localizedName": {
+            "ja_JP": "14式竹筒銃・丙",
+            "en_US": "Bamboozler 14 Mk III"
+          },
+          "shotUnit": "coup",
+          "sub": "Fizzy Bomb",
+          "special": "Bubble Blower",
+          "level": 27,
+          "specialCost": 190,
+          "inkSaver": "Middle",
+          "inkPerShot": 7.000000000000001,
+          "speedLevel": "High",
+          "baseSpeed": 0.6,
+          "price": 14400,
+          "stats": {
+            "Portée": 78,
+            "Vitesse de charge": 90,
+            "Mobilité": 80
+          },
+          "id": 16
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Keeper_00.png",
@@ -2625,7 +2865,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 38,
             "Mobilité": 70
           },
-          "id": 15
+          "id": 17
         },
         {
           "image": "../common/assets/img/weapons/Wst_Charger_Keeper_01.png",
@@ -2658,7 +2898,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 38,
             "Mobilité": 70
           },
-          "id": 16
+          "id": 18
         }
       ]
     },
@@ -2747,6 +2987,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 1
         },
         {
+          "image": "../common/assets/img/weapons/Slosher_Strong_02.png",
+          "name": "Soda Slosher",
+          "localizedName": {
+            "ja_JP": "バケットスロッシャーソーダ",
+            "en_US": "Soda Slosher"
+          },
+          "shotUnit": "coup",
+          "sub": "Splat Bomb",
+          "special": "Burst-Bomb Launcher",
+          "level": 16,
+          "specialCost": 200,
+          "inkSaver": "Middle",
+          "inkPerShot": 7.0,
+          "speedLevel": "Middle",
+          "baseSpeed": 0.4,
+          "price": 13100,
+          "stats": {
+            "Portée": 58,
+            "Dégâts": 85,
+            "Légèreté": 50
+          },
+          "id": 2
+        },
+        {
           "image": "../common/assets/img/weapons/Wst_Slosher_Strong_H.png",
           "name": "Hero Slosher Replica",
           "localizedName": {
@@ -2777,7 +3041,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 85,
             "Légèreté": 50
           },
-          "id": 2
+          "id": 3
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Diffusion_00.png",
@@ -2810,7 +3074,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 75,
             "Légèreté": 70
           },
-          "id": 3
+          "id": 4
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Diffusion_01.png",
@@ -2841,7 +3105,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 75,
             "Légèreté": 70
           },
-          "id": 4
+          "id": 5
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Launcher_00.png",
@@ -2874,7 +3138,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 90,
             "Légèreté": 40
           },
-          "id": 5
+          "id": 6
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Launcher_01.png",
@@ -2907,7 +3171,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 90,
             "Légèreté": 40
           },
-          "id": 6
+          "id": 7
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Launcher_02.png",
@@ -2931,7 +3195,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 90,
             "Légèreté": 40
           },
-          "id": 7
+          "id": 8
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Bathtub_00.png",
@@ -2955,7 +3219,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 29,
             "Légèreté": 50
           },
-          "id": 8
+          "id": 9
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Bathtub_01.png",
@@ -2979,7 +3243,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 29,
             "Légèreté": 50
           },
-          "id": 9
+          "id": 10
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Washtub_00.png",
@@ -3003,7 +3267,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 65,
             "Légèreté": 20
           },
-          "id": 10
+          "id": 11
         },
         {
           "image": "../common/assets/img/weapons/Wst_Slosher_Washtub_01.png",
@@ -3027,7 +3291,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 65,
             "Légèreté": 20
           },
-          "id": 11
+          "id": 12
         }
       ]
     },
@@ -3206,6 +3470,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 4
         },
         {
+          "image": "../common/assets/img/weapons/Spinner_Standard_02.png",
+          "name": "Heavy Splatling Remix",
+          "localizedName": {
+            "ja_JP": "バレルスピナーリミックス",
+            "en_US": "Heavy Splatling Remix"
+          },
+          "shotUnit": "coup",
+          "sub": "Point Sensor",
+          "special": "Booyah Bomb",
+          "level": 19,
+          "specialCost": 180,
+          "inkSaver": "Middle",
+          "inkPerShot": 22.5,
+          "speedLevel": "Middle",
+          "baseSpeed": 0.66,
+          "price": 18300,
+          "stats": {
+            "Portée": 78,
+            "Vitesse de charge": 38,
+            "Mobilité": 55
+          },
+          "id": 5
+        },
+        {
           "image": "../common/assets/img/weapons/Wst_Spinner_Standard_H.png",
           "name": "Hero Splatling Replica",
           "localizedName": {
@@ -3236,7 +3524,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 38,
             "Mobilité": 50
           },
-          "id": 5
+          "id": 6
         },
         {
           "image": "../common/assets/img/weapons/Wst_Spinner_Hyper_00.png",
@@ -3269,7 +3557,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 10,
             "Mobilité": 20
           },
-          "id": 6
+          "id": 7
         },
         {
           "image": "../common/assets/img/weapons/Wst_Spinner_Hyper_01.png",
@@ -3299,7 +3587,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 10,
             "Mobilité": 20
           },
-          "id": 7
+          "id": 8
         },
         {
           "image": "../common/assets/img/weapons/Wst_Spinner_Downpour_00.png",
@@ -3323,7 +3611,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 18,
             "Mobilité": 60
           },
-          "id": 8
+          "id": 9
         },
         {
           "image": "../common/assets/img/weapons/Wst_Spinner_Downpour_01.png",
@@ -3347,7 +3635,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 18,
             "Mobilité": 60
           },
-          "id": 9
+          "id": 10
         },
         {
           "image": "../common/assets/img/weapons/Wst_Spinner_Serein_00.png",
@@ -3371,7 +3659,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 37,
             "Mobilité": 70
           },
-          "id": 10
+          "id": 11
         },
         {
           "image": "../common/assets/img/weapons/Wst_Spinner_Serein_01.png",
@@ -3395,7 +3683,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Vitesse de charge": 37,
             "Mobilité": 70
           },
-          "id": 11
+          "id": 12
         }
       ]
     },
@@ -3484,6 +3772,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 1
         },
         {
+          "image": "../common/assets/img/weapons/Twins_Short_02.png",
+          "name": "Clear Dapple Dualies",
+          "localizedName": {
+            "ja_JP": "スパッタリークリア",
+            "en_US": "Clear Dapple Dualies"
+          },
+          "shotUnit": "coup",
+          "sub": "Torpedo",
+          "special": "Splashdown",
+          "level": 30,
+          "specialCost": 170,
+          "inkSaver": "Middle",
+          "inkPerShot": 0.75,
+          "speedLevel": "High",
+          "baseSpeed": 0.8,
+          "price": 22300,
+          "stats": {
+            "Portée": 24,
+            "Dégâts": 47,
+            "Mobilité": 80
+          },
+          "id": 2
+        },        
+        {
           "image": "../common/assets/img/weapons/Wst_Twins_Normal_00.png",
           "name": "Splat Dualies",
           "localizedName": {
@@ -3508,13 +3820,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 15.0,
+          "maxDamage": 30.0,
+          "mpuMaxDamage": 33.3,
           "price": 2400,
           "stats": {
             "Portée": 50,
             "Dégâts": 29,
             "Mobilité": 70
           },
-          "id": 2
+          "id": 3
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Normal_01.png",
@@ -3541,13 +3856,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 15.0,
+          "maxDamage": 30.0,
+          "mpuMaxDamage": 33.3,
           "price": 9000,
           "stats": {
             "Portée": 50,
             "Dégâts": 29,
             "Mobilité": 70
           },
-          "id": 3
+          "id": 4
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Normal_02.png",
@@ -3565,13 +3883,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 15.0,
+          "maxDamage": 30.0,
+          "mpuMaxDamage": 33.3,
           "price": 13000,
           "stats": {
             "Portée": 50,
             "Dégâts": 29,
             "Mobilité": 70
           },
-          "id": 4
+          "id": 5
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Normal_H.png",
@@ -3598,13 +3919,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.8,
+          "minDamage": 15.0,
+          "maxDamage": 30.0,
+          "mpuMaxDamage": 33.3,
           "price": 3100,
           "stats": {
             "Portée": 50,
             "Dégâts": 29,
             "Mobilité": 70
           },
-          "id": 5
+          "id": 6
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Gallon_00.png",
@@ -3637,7 +3961,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 76,
             "Mobilité": 35
           },
-          "id": 6
+          "id": 7
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Gallon_01.png",
@@ -3667,7 +3991,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 76,
             "Mobilité": 35
           },
-          "id": 7
+          "id": 8
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Gallon_02.png",
@@ -3691,7 +4015,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 76,
             "Mobilité": 35
           },
-          "id": 8
+          "id": 9
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Dual_00.png",
@@ -3718,13 +4042,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.2,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
+          "minDamage": 14,
+          "maxDamage": 28,
+          "mpuMaxDamage": 33.3,
           "price": 9800,
           "stats": {
             "Portée": 70,
             "Dégâts": 22,
             "Mobilité": 70
           },
-          "id": 9
+          "id": 10
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Dual_01.png",
@@ -3748,13 +4075,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 1.2,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
+          "minDamage": 14,
+          "maxDamage": 28,
+          "mpuMaxDamage": 33.3,
           "price": 12900,
           "stats": {
             "Portée": 70,
             "Dégâts": 22,
             "Mobilité": 70
           },
-          "id": 10
+          "id": 11
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Stepper_00.png",
@@ -3781,13 +4111,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
+          "minDamage": 14,
+          "maxDamage": 28,
+          "mpuMaxDamage": 33.3,
           "price": 10700,
           "stats": {
             "Portée": 58,
             "Dégâts": 22,
             "Mobilité": 90
           },
-          "id": 11
+          "id": 12
         },
         {
           "image": "../common/assets/img/weapons/Wst_Twins_Stepper_01.png",
@@ -3811,13 +4144,16 @@ angular.module('splatApp').weapons = function($scope) {
           "inkPerShot": 0.8,
           "speedLevel": "Middle",
           "baseSpeed": 0.72,
+          "minDamage": 14,
+          "maxDamage": 28,
+          "mpuMaxDamage": 33.3,
           "price": 13300,
           "stats": {
             "Portée": 58,
             "Dégâts": 22,
             "Mobilité": 90
           },
-          "id": 12
+          "id": 13
         }
       ]
     },
@@ -3997,6 +4333,30 @@ angular.module('splatApp').weapons = function($scope) {
           "id": 4
         },
         {
+          "image": "../common/assets/img/weapons/Umbrella_Wide_02.png",
+          "name": "Tenta Camo Brella",
+          "localizedName": {
+            "ja_JP": "キャンピングシェルターカーモ",
+            "en_US": "Tenta Camo Brella"
+          },
+          "shotUnit": "coup",
+          "sub": "Ink Mine",
+          "special": "Ultra Stamp",
+          "level": 30,
+          "specialCost": 190,
+          "inkSaver": "High",
+          "inkPerShot": 10.0,
+          "speedLevel": "Low",
+          "baseSpeed": 0.5,
+          "price": 29800,
+          "stats": {
+            "Portée": 62,
+            "Dégâts": 85,
+            "Résistance": 85
+          },
+          "id": 5
+        },        
+        {
           "image": "../common/assets/img/weapons/Wst_Umbrella_Compact_00.png",
           "name": "Undercover Brella",
           "localizedName": {
@@ -4027,7 +4387,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 30,
             "Résistance": 25
           },
-          "id": 5
+          "id": 6
         },
         {
           "image": "../common/assets/img/weapons/Wst_Umbrella_Compact_01.png",
@@ -4051,7 +4411,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 30,
             "Résistance": 25
           },
-          "id": 6
+          "id": 7
         },
         {
           "image": "../common/assets/img/weapons/Wst_Umbrella_Compact_02.png",
@@ -4075,7 +4435,7 @@ angular.module('splatApp').weapons = function($scope) {
             "Dégâts": 30,
             "Résistance": 25
           },
-          "id": 7
+          "id": 8
         }
       ]
     }

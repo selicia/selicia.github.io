@@ -1212,7 +1212,7 @@ angular.module('splatApp').stats = function ($scope) {
         this.name = "Main Power Up (Canopy Regeneration Time)";
       }
 
-      if(loadout.weapon.name.indexOf('Tenta Brella') != -1 || loadout.weapon.name.indexOf('Tenta Sorella Brella') != -1) {
+      if(loadout.weapon.name.indexOf('Tenta') != -1 && loadout.weapon.name.indexOf('Brella') != -1) {
         parameters = $scope.parameters["Main Power Up"]["Tenta Brella"]["params"];
         this.name = "Main Power Up (Canopy HP)";
       }
@@ -1308,12 +1308,17 @@ angular.module('splatApp').stats = function ($scope) {
         }
 
         // CANOPY HP formatting and calculations
-        if(loadout.weapon.name.indexOf('Tenta Brella') != -1 || loadout.weapon.name.indexOf('Tenta Sorella Brella') != -1) {
+        if(loadout.weapon.name.indexOf('Tenta') != -1 && loadout.weapon.name.indexOf('Brella') != -1) {
           this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           this.percentage = ((result/min_param - 1) * 100).toFixed(1);
           result = result / 10.0;
           this.label = "{value} HP".format({value: $scope.toFixedTrimmed(result,2)});
           label_set = true;
+        }
+
+        // Adjust max damage for MPU damage caps
+        if(loadout.weapon.mpuMaxDamage != null && result >= loadout.weapon.mpuMaxDamage) {
+          result = loadout.weapon.mpuMaxDamage;
         }
 
         if(!label_set) {
@@ -1459,6 +1464,11 @@ angular.module('splatApp').stats = function ($scope) {
   
         var max_param = parameters[0];
         var min_param = parameters[2];
+
+        // Adjust max damage for MPU damage caps
+        if(loadout.weapon.mpuMaxDamage != null && result >= loadout.weapon.mpuMaxDamage) {
+          result = loadout.weapon.mpuMaxDamage;
+        }
   
         this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
         this.percentage = ((result/min_param - 1) * 100).toFixed(1);
