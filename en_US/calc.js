@@ -118,7 +118,6 @@ angular
     }
 
     $scope.equip = function(item,slot) {
-      console.log(eval("$scope.loadout." + slot + ".equipped.name") == "Splatfest Tee")
       if(eval("$scope.loadout." + slot + ".main") == null || eval("$scope.loadout." + slot + ".equipped.name") == "Splatfest Tee" || item.name == "Splatfest Tee") {
         eval(("$scope.loadout." + slot + ".main = $scope.getSkillByName('" + item.main + "')"))
       }
@@ -130,7 +129,7 @@ angular
     }
 
     $scope.calcMod = function(abilityScore) {
-      return (0.99 * abilityScore - Math.pow(0.09 * abilityScore,2))
+      return (0.99 * abilityScore - Math.pow(0.09 * abilityScore,2));
     }
 
     $scope.calcP = function(abilityScore) {
@@ -361,7 +360,7 @@ angular
             30.0
           ],
           "max_params": [
-            99.9,
+            102.0,
             93.5,
             85.0
           ]
@@ -732,13 +731,13 @@ angular
         "Splattershot Pro": {
           "desc": "Damage Up",
           "min_params": [
-            26.25,
-            23.625,
+            25.536,
+            23.268,
             21.0
           ],
           "max_params": [
-            52.5,
-            47.25,
+            51.072,
+            46.536,
             42.0
           ]
         },
