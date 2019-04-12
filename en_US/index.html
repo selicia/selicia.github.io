@@ -71,19 +71,22 @@
                 <div class="col-sm-6 col-sm-push-6 nopadding">
                   <div class="card purplestripes" id="utils">
                     <div class="row" ng-hide="screenshotMode">
-                      <div class="col-xs-3">
+                      <div class="col-xs-2">
                         <button class="icon-button" id="copybtn" data-clipboard-text="{{encodedURL()}}" uib-tooltip="Copy Link" tooltip-append-to-body="true"><span class=""><i class="fa fa-fw fa-clipboard"></i><i class="fa fa-fw fa-check green" ng-show="showCopy"></i></span></button>
-                        </div>
-                        <div class="col-xs-3">
-                          <button class="icon-button" ng-click="screenshotMode=!screenshotMode" uib-tooltip="Toggle Screenshot Mode" tooltip-append-to-body="true"><span class="fa fa-fw fa-window-maximize"></span></button>
-                        </div>
-                        <div class="col-xs-3">
-                          <button class="icon-button" ng-click="loadout.clearAbilities()" uib-tooltip="Clear Abilities" tooltip-append-to-body="true"><span class="fa fa-fw fa-undo"></span></button>
-                        </div>
-                        <div class="col-xs-3">
-                          <button class="icon-button"ng-click="resetLoadout()" uib-tooltip="Clear All" tooltip-append-to-body="true"><span class="fa fa-fw fa-bomb"></span></button>
-                        </div>
                       </div>
+                      <div class="col-xs-2">
+                        <button class="icon-button" ng-click="screenshotMode=!screenshotMode" uib-tooltip="Toggle Screenshot Mode" tooltip-append-to-body="true"><span class="fa fa-fw fa-window-maximize"></span></button>
+                      </div>
+                      <div class="col-xs-2">
+                        <button class="icon-button" ng-click="loadout.clearAbilities()" uib-tooltip="Clear Abilities" tooltip-append-to-body="true"><span class="fa fa-fw fa-undo"></span></button>
+                      </div>
+                      <div class="col-xs-2">
+                        <button class="icon-button" ng-click="resetLoadout()" uib-tooltip="Clear All" tooltip-append-to-body="true"><span class="fa fa-fw fa-bomb"></span></button>
+                      </div>
+                      <div class="col-xs-2">
+                        <button class="icon-button" ng-controller="ModalCtrl" ng-click="openSpykeModal()" uib-tooltip="Spyke Integration" tooltip-append-to-body="true"><img src="../common/assets/img/misc/spyke.png" height="37" width="37" /></button>
+                      </div>
+                    </div>
                       <div class="row" ng-hide="screenshotMode">
                         <div class="col-xs-12">
                           <span>

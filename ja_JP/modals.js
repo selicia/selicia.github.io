@@ -1,6 +1,6 @@
 var modalCloseDelay = 200;
 
-angular.module('splatApp').controller('ModalCtrl', function($scope, $uibModal, $log, $timeout) {
+angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, $uibModal, $log, $timeout) {
   $scope.animationsEnabled = true;
 
 
@@ -322,6 +322,43 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $uibModal, $
     <div class="col-xs-12">
     <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>了解～</span></button>
     </div>
+    </div>`,
+    excessiveAP: `<div class="row">
+    <div class="col-md-12">
+    <div class="card purplestripes" id="dialog">
+    <div class="row cardheader">
+    過度のAP警告
+    </div>
+    <div class="row basic-content readable" id="about">
+    <p>1つの能力を使いすぎると、収益が大幅に減少します。このギアを使用するときは慎重に進めてください。このメッセージは二度と表示されません。</p>
+    <div class="row buttons">
+    <div class="col-xs-12">
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>了解～</span></button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>`,
+    spyke: `<div class="row">
+    <div class="col-md-12">
+    <div class="card purplestripes" id="dialog">
+    <div class="row cardheader">
+    ダウニー統合
+    </div>
+    <div class="row basic-content readable" id="about">
+    <p>ダウニーDiscordアプリケーションにリダイレクトされようとしています： http://spyke.h3xmani.ac/</p>
+    <div class="row buttons">
+    <div class="col-xs-6 col-md-4 col-md-offset-2">
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>キャンセル</span></button>
+    </div>
+    <div class="col-xs-6 col-md-4">
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>OK</span></button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>`
   }
 
@@ -440,6 +477,37 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $uibModal, $
         eval(("$scope.loadout." + slot + ".main = $scope.getSkillByName('" + results.selected.main + "')"))
       }
       eval("$scope.loadout." + slot + ".equipped = results.selected")
+    }, function() {
+
+    });
+  };
+
+  $scope.openSpykeModal = function() {
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      template: templates["spyke"],
+      windowTemplateUrl: 'blankModal.html',
+      controller: 'BasicCtrl'
+    });
+
+    modalInstance.result.then(function(results) {
+      var url = "http://spyke.h3xmani.ac/app/loadout?encoding=" + $scope.encodeLoadout();
+      window.open(url,'_blank');
+    }, function() {
+
+    });    
+  };
+
+  $rootScope.openExcessiveAPModal = function() {
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      template: templates["excessiveAP"],
+      windowTemplateUrl: 'blankModal.html',
+      controller: 'BasicCtrl'
+    });
+
+    modalInstance.result.then(function(results) {
+
     }, function() {
 
     });
