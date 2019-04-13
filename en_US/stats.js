@@ -139,19 +139,22 @@ angular.module('splatApp').stats = function ($scope) {
       }, 0.72),
 
     'Run Speed (Firing)': new Stat("Run Speed (Firing)", function(loadout) {
-      if(loadout.weapon.name.toLowerCase().indexOf('brush') != -1 || loadout.weapon.name.toLowerCase().indexOf('roller') != -1) {
-          this.value = loadout.weapon.baseSpeed;
-          this.percentage = 0.0;
-          this.name = "Run Speed (Rolling)"
-          this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
-          this.desc = "Roll Speed for Rollers and Brushes is constant.";
-          return this.value.toFixed(2);
+        if(loadout.weapon.name.toLowerCase().indexOf('brush') != -1 || loadout.weapon.name.toLowerCase().indexOf('roller') != -1) {
+            this.value = loadout.weapon.baseSpeed;
+            this.percentage = 0.0;
+            this.name = "Run Speed (Rolling)"
+            this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
+            this.desc = "Roll Speed for Rollers and Brushes is constant.";
+            return this.value.toFixed(2);
+        }
+      
+        if(loadout.weapon.name.toLowerCase().indexOf('splatling') != -1 || loadout.weapon.name.toLowerCase().indexOf('nautilus') != -1) {
+          var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting, Splatling"];
         }
         else {
-          this.name = "Run Speed (Firing)"
+          var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"];
         }
 
-        var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"];
         var abilityScore = loadout.calcAbilityScore('Run Speed Up');
         var p = this.calcP(abilityScore);       
         var s = this.calcS(run_speed_parameters);
@@ -165,6 +168,7 @@ angular.module('splatApp').stats = function ($scope) {
 
         this.value = run_speed
         this.percentage = delta;
+        this.name = "Run Speed (Firing)"
         this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
         this.desc = "Distance Units/frame";
 
@@ -1116,13 +1120,14 @@ angular.module('splatApp').stats = function ($scope) {
         this.name = "Main Power Up (Partial Charge Min Damage)";      
       }
 
-      if(loadout.weapon.name.indexOf('E-Liter 4k') != -1 && loadout.weapon.name.indexOf('Scope') == -1) {
-        parameters = $scope.parameters["Main Power Up"]["E-Liter 4k"]["params"];
+      if(loadout.weapon.name.indexOf('E-liter 4K') != -1 && loadout.weapon.name.indexOf('Scope') == -1)
+      {
+        parameters = $scope.parameters["Main Power Up"]["E-liter 4K"]["params"];
         this.name = "Main Power Up (Max Charge Distance)";      
       }
 
-      if(loadout.weapon.name.indexOf('E-Liter 4k Scope') != -1) {
-        parameters = $scope.parameters["Main Power Up"]["E-Liter 4k Scope"]["params"];
+      if(loadout.weapon.name.indexOf('E-liter 4K Scope') != -1) {
+        parameters = $scope.parameters["Main Power Up"]["E-liter 4K Scope"]["params"];
         this.name = "Main Power Up (Max Charge Distance)";      
       }
 
