@@ -131,7 +131,7 @@ angular.module('splatApp').stats = function ($scope) {
             See: https://gamefaqs.gamespot.com/boards/200279-splatoon-2/75638591#5 
         */
 
-        this.value = run_speed
+        this.value = run_speed;
         this.percentage = delta;
         this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
         this.desc = "DU/f = Distance Unit Per Frame(1フレームに移動できる距離単位)で、試し撃ちラインが50D";
@@ -139,7 +139,7 @@ angular.module('splatApp').stats = function ($scope) {
       }, 0.72),
 
     'Run Speed (Firing)': new Stat("ヒト移動速度 (発射中)", function(loadout) {
-        if(loadout.weapon.name.toLowerCase().indexOf('brush') != -1 || loadout.weapon.name.toLowerCase().indexOf('roller') != -1) {
+        if(loadout.weapon.class.toLowerCase()== 'brush' || loadout.weapon.class.toLowerCase() =='roller') {
             this.value = loadout.weapon.baseSpeed;
             this.percentage = 0.0;
             this.name = "ヒト移動速度 (スライド中)"
@@ -147,14 +147,15 @@ angular.module('splatApp').stats = function ($scope) {
             this.desc = "ローラーとブラシのロール速度は一定です。";
             return this.value.toFixed(2);
         }
-      
-        if(loadout.weapon.name.toLowerCase().indexOf('splatling') != -1 || loadout.weapon.name.toLowerCase().indexOf('nautilus') != -1) {
-          var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting, Splatling"];
+
+        if(loadout.weapon.class.toLowerCase() == 'charger') {
+          this.name = "ヒト移動速度 (充電)";
         }
         else {
-          var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"];
+          this.name = "ヒト移動速度 (発射中)";
         }
-
+      
+        var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][loadout.weapon.shootingSpeed];
         var abilityScore = loadout.calcAbilityScore('Run Speed Up');
         var p = this.calcP(abilityScore);       
         var s = this.calcS(run_speed_parameters);
@@ -166,9 +167,8 @@ angular.module('splatApp').stats = function ($scope) {
           console.log(run_speed_debug_log);
         }
 
-        this.value = run_speed
+        this.value = run_speed;
         this.percentage = delta;
-        this.name = "ヒト移動速度 (発射中)"
         this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
         this.desc = "DU/f = Distance Unit Per Frame(1フレームに移動できる距離単位)で、試し撃ちラインが50D";
 
