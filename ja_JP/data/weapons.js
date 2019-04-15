@@ -246,6 +246,9 @@ angular.module('splatApp').weapons = function($scope) {
           "speedLevel": "High",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
+          "minDamage": 14,
+          "maxDamage": 28,
+          "mpuMaxDamage": 33.3,
           "price": 11200,
           "stats": {
             "射程": 42,
@@ -278,6 +281,9 @@ angular.module('splatApp').weapons = function($scope) {
           "speedLevel": "High",
           "baseSpeed": 0.72,
           "shootingSpeed": "B",
+          "minDamage": 14,
+          "maxDamage": 28,
+          "mpuMaxDamage": 33.3,
           "price": 16800,
           "stats": {
             "射程": 42,
@@ -3553,8 +3559,8 @@ angular.module('splatApp').weapons = function($scope) {
           "inkSaver": "Middle",
           "inkPerShot": 15.0,
           "speedLevel": "Middle",
-          "baseSpeed": 0.8,
-          "chargeSpeed": 0.7,
+          "baseSpeed": 0.864,
+          "chargeSpeed": 0.721,
           "shootingSpeed": "E",
           "price": 12300,
           "stats": {
@@ -3589,8 +3595,8 @@ angular.module('splatApp').weapons = function($scope) {
           "inkSaver": "Middle",
           "inkPerShot": 15.0,
           "speedLevel": "Middle",
-          "baseSpeed": 0.8,
-          "chargeSpeed": 0.7,
+          "baseSpeed": 0.864,
+          "chargeSpeed": 0.721,
           "shootingSpeed": "E",
           "price": 15400,
           "stats": {
@@ -3616,8 +3622,8 @@ angular.module('splatApp').weapons = function($scope) {
           "inkSaver": "Middle",
           "inkPerShot": 15.0,
           "speedLevel": "Middle",
-          "baseSpeed": 0.8,
-          "chargeSpeed": 0.7,
+          "baseSpeed": 0.864,
+          "chargeSpeed": 0.721,
           "shootingSpeed": "E",
           "price": 18800,
           "stats": {
@@ -3659,7 +3665,7 @@ angular.module('splatApp').weapons = function($scope) {
           "stats": {
             "射程": 78,
             "チャージ速度": 38,
-            "機動性": 50
+            "機動性": 55
           },
           "id": 3
         },
@@ -3695,7 +3701,7 @@ angular.module('splatApp').weapons = function($scope) {
           "stats": {
             "射程": 78,
             "チャージ速度": 38,
-            "機動性": 50
+            "機動性": 55
           },
           "id": 4
         },
