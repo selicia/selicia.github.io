@@ -151,6 +151,9 @@ angular.module('splatApp').stats = function ($scope) {
         if(loadout.weapon.class.toLowerCase() == 'charger') {
           this.name = "ヒト移動速度 (充電)";
         }
+        else if(loadout.weapon.class.toLowerCase() == 'splatling' || loadout.weapon.class.toLowerCase() == 'brella') {
+          this.name = "[+] ヒト移動速度 (発射中)";
+        }
         else {
           this.name = "ヒト移動速度 (発射中)";
         }

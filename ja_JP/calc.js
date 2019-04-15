@@ -165,7 +165,7 @@ angular
 
     $scope.statBarClicked = function(name) {
       if($scope.loadout.weapon.class.toLowerCase() == 'splatling' || $scope.loadout.weapon.class.toLowerCase() == 'brella') {
-        if(name == "ヒト移動速度 (発射中)") {
+        if(name == "[+] ヒト移動速度 (発射中)") {
           var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var p = $scope.calcP(abilityScore);       
@@ -173,7 +173,7 @@ angular
           var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.chargeSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.chargeSpeed - 1) * 100).toFixed(1).toString();
           
-          $scope.stats["Run Speed (Firing)"].name = "ヒト移動速度 (充電)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (充電)";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
@@ -186,7 +186,7 @@ angular
           var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.baseSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.baseSpeed - 1) * 100).toFixed(1).toString();
           
-          $scope.stats["Run Speed (Firing)"].name = "ヒト移動速度 (発射中)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (発射中)";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});        
