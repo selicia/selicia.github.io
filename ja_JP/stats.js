@@ -332,12 +332,15 @@ angular.module('splatApp').stats = function ($scope) {
     }, 1.3),
 
     'Special Saved': new Stat("復活後のスペシャルゲージの残り", function(loadout) {
-      var special_saver_parameters = special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
+      var special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
       var abilityScore = loadout.calcAbilityScore('Special Saver');
       
       if(loadout.hasAbility('Respawn Punisher')) {
         abilityScore = abilityScore * 0.7;
         this.desc = "復活ペナルティアップはこのステータスに影響を与えています。";
+      }
+      else {
+        this.desc = null;
       }
 
       var p = this.calcP(abilityScore);       
@@ -347,7 +350,7 @@ angular.module('splatApp').stats = function ($scope) {
       var special_saved = 100.0 * modifier;
 
       if(loadout.hasAbility('Respawn Punisher')) {
-        special_saved = special_saved * .225;
+        special_saved = special_saved * 0.775;
       }
 
       if($scope.logging) {
@@ -375,6 +378,9 @@ angular.module('splatApp').stats = function ($scope) {
         abilityScore = abilityScore * 0.7;
         this.desc = "復活ペナルティアップはこのステータスに影響を与えています。";
       }
+      else {
+        this.desc = null;
+      }
 
       var p = this.calcP(abilityScore);       
       var s = this.calcS(special_saver_parameters);
@@ -386,7 +392,7 @@ angular.module('splatApp').stats = function ($scope) {
       }
 
       if(loadout.hasAbility('Respawn Punisher')) {
-        special_saved = special_saved * .225;
+        special_saved = special_saved * 0.775;
       }
 
       if($scope.logging) {
@@ -940,7 +946,7 @@ angular.module('splatApp').stats = function ($scope) {
       return total_duration;
     }, 100),
 
-    'Tracking Time': new Stat("マーキング時間 ", function(loadout) {
+    'Tracking Time': new Stat("マーキング時間 (ポイントセンサー)", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Bomb Defense Up DX');
       var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Point Sensor"];
       var p = this.calcP(abilityScore);      
@@ -951,6 +957,7 @@ angular.module('splatApp').stats = function ($scope) {
       var max_duration = 8;
       var min_duration = tracking_time_parameters[2] * 8;
 
+      this.name = "[+] マーキング時間 (ポイントセンサー)"
       this.value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
       this.percentage = ((duration/min_duration - 1) * 100).toFixed(1);
       
