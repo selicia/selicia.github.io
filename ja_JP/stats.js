@@ -518,7 +518,7 @@ angular.module('splatApp').stats = function ($scope) {
           return duration;
 
         case 'Sting Ray':
-          special_power_up_parameters = $scope.parameters["Special Power Up"]["Ink Storm Duration"];
+          special_power_up_parameters = $scope.parameters["Special Power Up"]["Sting Ray Duration"];
           var p = this.calcP(abilityScore);      
           var s = this.calcS(special_power_up_parameters);
           var duration = this.calcRes(special_power_up_parameters, p, s) / 60;
@@ -529,7 +529,7 @@ angular.module('splatApp').stats = function ($scope) {
           this.percentage = ((duration/min_duration - 1) * 100).toFixed(1);
 
           if($scope.logging) {
-            var special_power_up_log = {"Special Power Up (Ink Storm)":duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+            var special_power_up_log = {"Special Power Up (Sting Ray)":duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
             console.log(special_power_up_log);
           }
           
@@ -619,6 +619,26 @@ angular.module('splatApp').stats = function ($scope) {
           this.name = "スペシャル性能<br>(泡のサイズの拡大)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(bubble_radius,2)})
           return bubble_radius;
+
+        case 'Ultra Stamp':
+        special_power_up_parameters = $scope.parameters["Special Power Up"]["Ultra Stamp Duration"];
+        var p = this.calcP(abilityScore);      
+        var s = this.calcS(special_power_up_parameters);
+        var duration = this.calcRes(special_power_up_parameters, p, s) / 60;
+        var max_duration = special_power_up_parameters[0] / 60;
+        var min_duration = special_power_up_parameters[2] / 60;
+
+        this.value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
+        this.percentage = ((duration/min_duration - 1) * 100).toFixed(1);
+
+        if($scope.logging) {
+          var special_power_up_log = {"Special Power Up (Ultra Stamp)":duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
+          console.log(special_power_up_log);
+        }
+        
+        this.name = "スペシャル性能<br>(時間)";        
+        this.label = "{value}秒".format({value: $scope.toFixedTrimmed(duration,2)});
+        return duration;
 
         case 'Booyah Bomb':
           special_power_up_parameters = $scope.parameters["Special Power Up"]["Booyah Ball Auto Charge Increase"];
@@ -1601,5 +1621,42 @@ angular.module('splatApp').stats = function ($scope) {
   $scope.getAdjustedSpecialCost = function(loadout) {
     var stat = $scope.getStatByName('Special Charge Speed');
     return Math.ceil(loadout.weapon.specialCost / (stat.value))
+  }
+
+  var inkResistanceEffects = [
+    {"name":"無敵時間","key":"Invuln Frames"},
+    {"name":"毎秒のダメージ","key":"Dmg Per Frame"},
+    {"name":"ダメージリミット", "key":"Dmg Limit"},
+    {"name":"ジャンプの高さ", "key":"Jump"}      
+  ];
+
+  $scope.getInkResistanceEffects = function () {
+    return inkResistanceEffects;
+  }
+
+  $scope.getAdjustedInkResistanceEffect = function(key, loadout) {
+    var parameters = $scope.parameters["Ink Resistance"][key];
+    var abilityScore = loadout.calcAbilityScore('Ink Resistance Up');
+    var p = $scope.calcP(abilityScore);       
+    var s = $scope.calcS(parameters);
+    var result = $scope.calcRes(parameters, p, s);
+
+    if(key == "Invuln Frames") {
+      result = $scope.toFixedTrimmed(result / 60, 2) + "s";
+    }
+    if(key == "Dmg Per Frame") {
+      result = $scope.toFixedTrimmed(result * 100 * 60, 2);
+    }
+    if(key == "Dmg Limit") {
+      result = $scope.toFixedTrimmed(result * 100, 2);
+    }
+    if(key == "Jump") {
+      if(result > 1) {
+        result = 1;
+      }
+      result = $scope.toFixedTrimmed(result * 100, 2) + "%";
+    }
+
+    return result;
   }
 }

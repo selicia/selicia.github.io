@@ -34,15 +34,27 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     </div>
     <div class="col-md-12" id="minibar-container">
-    <div class="row" ng-repeat="(stat,value) in selectedWeapon.stats">
-    <div class="col-sm-6 col-xs-3 nopadding minibar-label readable">
-    {{stat}}
+      <div class="row" ng-repeat="(stat,value) in selectedWeapon.stats">
+        <div class="col-sm-6 col-xs-3 nopadding minibar-label readable">
+          {{stat}}
+        </div>
+        <div class="col-sm-6 col-xs-9 nopadding">
+          <uib-progressbar max="100" type="pink" value="value" class="statbar mini" />
+        </div>
+      </div>
     </div>
-    <div class="col-sm-6 col-xs-9 nopadding">
-    <uib-progressbar max="100" type="pink" value="value" class="statbar mini" />
+
+    <div class="col-md-12" id="minibar-container">
+      <div class="row">
+        <div class="col-sm-6 col-xs-3 nopadding minibar-label readable">
+        X Rank Popularity
+        </div>
+        <div class="col-sm-6 col-xs-9 nopadding">
+          <uib-progressbar max="100" type="pink" tooltip-placement="bottom" uib-tooltip="How frequently the weapon is used in X rank." value="weaponRank" class="statbar mini" />
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
+
     </div>
     </div>
     </div>
@@ -541,6 +553,15 @@ angular.module('splatApp').controller('WeaponPickerCtrl', function($scope, $root
   $scope.selectedSet = selectedSet;
   $scope.weaponSets = weaponSets;
   $scope.selectedWeapon = selectedWeapon;
+
+  $scope.$watch('selectedWeapon', function (newValue, oldValue, scope) {
+    if($rootScope.splatController.weaponRanks.indexOf(newValue.name) != -1) {
+      $scope.weaponRank = 100 - $rootScope.splatController.weaponRanks.indexOf(newValue.name);
+    }
+    else {
+      $scope.weaponRank = 0;
+    }
+  });
 
   $scope.weaponSearchFilter = function(value) {
     var langs = $rootScope.splatController.languages;
