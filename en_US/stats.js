@@ -139,13 +139,39 @@ angular.module('splatApp').stats = function ($scope) {
       }, 0.72),
 
     'Run Speed (Firing)': new Stat("Run Speed (Firing)", function(loadout) {
-        if(loadout.weapon.class.toLowerCase()== 'brush' || loadout.weapon.class.toLowerCase() =='roller') {
-            this.value = loadout.weapon.baseSpeed;
-            this.percentage = 0.0;
-            this.name = "Run Speed (Rolling)"
-            this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
-            this.desc = "Roll Speed for Rollers and Brushes is constant.";
-            return this.value.toFixed(2);
+        if(loadout.weapon.class.toLowerCase() =='roller') {
+          this.value = loadout.weapon.dashSpeed;
+          this.percentage = 0.0;
+          this.name = "[+] Run Speed (Roll)";
+          this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
+          this.desc = "Roll Speed for Rollers is constant.";
+          return this.value.toFixed(2);        
+        }
+
+        // NOTE: Factor MPU bonus into Run Speed (Dash) for Brushes
+        if(loadout.weapon.class.toLowerCase() == 'brush') {
+            var parameters = null;            
+            if(loadout.weapon.name.indexOf('Inkbrush') != -1) {
+              parameters = $scope.parameters["Main Power Up"]["Inkbrush"]["params"];
+            }
+            if(loadout.weapon.name.indexOf('Octobrush') != -1 || loadout.weapon.name.indexOf('Herobrush Replica') != -1) {
+              parameters = $scope.parameters["Main Power Up"]["Octobrush"]["params"];
+            }
+            
+            var abilityScore = loadout.calcAbilityScore('Main Power Up');
+            var p = this.calcP(abilityScore);
+            var s = this.calcS(parameters);
+            var result = this.calcRes(parameters, p, s);
+      
+            var max_param = parameters[0];
+            var min_param = parameters[2];
+    
+            this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
+            this.percentage = ((result/min_param - 1) * 100).toFixed(1);            
+            this.name = "[+] Run Speed (Dash)";
+            this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
+            this.desc = "Brush Speed is affected by Main Power Up.";
+            return this.value;
         }
 
         if(loadout.weapon.class.toLowerCase() == 'charger') {
@@ -241,22 +267,29 @@ angular.module('splatApp').stats = function ($scope) {
       var p = this.calcP(abilityScore);       
       var s = this.calcS(ink_saver_parameters);
       var reduction = this.calcRes(ink_saver_parameters, p, s);
-      
-      var costPerShot = loadout.weapon.inkPerShot * reduction;
+      var costPerShot = null;
 
-      if(loadout.weapon.name.indexOf("Splattershot Jr.") !== -1) {
-        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)})                
+      if(loadout.weapon.class == "Roller" || loadout.weapon.class == "Brush") {
+        costPerShot = loadout.weapon.inkPerShotRolling * reduction * 60;
+        this.name = "[+] Ink Consumption (Main): Rolling";
+        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        this.label = "{value}/second".format({value: $scope.toFixedTrimmed(costPerShot,3)});
       }
       else {
-        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)})        
+        costPerShot = loadout.weapon.inkPerShot * reduction;
+        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        this.label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: loadout.weapon.shotUnit});
+      }
+
+      if(loadout.weapon.name.indexOf("Splattershot Jr.") !== -1) {
+        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});                
       }
       
-      this.label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: loadout.weapon.shotUnit})
       this.value = costPerShot;
       this.percentage = (100 - (reduction*100)).toFixed(1);
 
       if($scope.logging) {
-        var ink_saver_debug_log = {"Ink Saver (Main)":costPerShot,"AP":abilityScore,"P":p,"S":s,"Delta":reduction}
+        var ink_saver_debug_log = {"Ink Saver (Main)":costPerShot,"AP":abilityScore,"P":p,"S":s,"Delta":reduction};
         console.log(ink_saver_debug_log);
       }
 
@@ -270,7 +303,7 @@ angular.module('splatApp').stats = function ($scope) {
 
     'Ink Consumption (Sub)': new Stat("Ink Consumption (Sub)", function(loadout) {
       var ink_saver_sub_parameters = null;
-      var sub = $scope.getSubByName(loadout.weapon.sub)
+      var sub = $scope.getSubByName(loadout.weapon.sub);
       
       if(sub.inkSaver == 'A') {
         ink_saver_sub_parameters = $scope.parameters["Ink Saver Sub"]["A"];

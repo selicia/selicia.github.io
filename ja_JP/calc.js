@@ -182,7 +182,7 @@ angular
           var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.chargeSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.chargeSpeed - 1) * 100).toFixed(1).toString();
           
-          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (充電)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (ダッシュ)";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
@@ -201,6 +201,167 @@ angular
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});        
         }
       }
+
+      if($scope.loadout.weapon.class.toLowerCase() == 'roller') {
+        var ink_saver_parameters = null;
+        if($scope.loadout.weapon.inkSaver == 'Low') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Low"];
+        }
+        if($scope.loadout.weapon.inkSaver == 'Middle') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Mid"];
+        }
+        if($scope.loadout.weapon.inkSaver == "High") {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["High"];
+        }
+
+        /**************************
+         * INK SAVER (MAIN) STATS *
+         **************************/
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
+        var p = $scope.calcP(abilityScore);       
+        var s = $scope.calcS(ink_saver_parameters);
+        var reduction = $scope.calcRes(ink_saver_parameters, p, s);
+
+        if(name == "[+] メインウェポンの消費インク量：ローリング") {
+          costPerShot = $scope.loadout.weapon.horizontalInkPerShot * reduction;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] メインウェポンの消費インク量：水平な";
+          $scope.stats["Ink Consumption (Main)"].desc = "満タンから空まで{totalShots}回 ({reduction}% 減少)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{unit}ごとにタンクの{value}% ".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "一横振り"});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+        else if(name == "[+] メインウェポンの消費インク量：水平な") {
+          costPerShot = $scope.loadout.weapon.verticalInkPerShot * reduction;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] メインウェポンの消費インク量：垂直";
+          $scope.stats["Ink Consumption (Main)"].desc = "満タンから空まで{totalShots}回 ({reduction}% 減少)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{unit}ごとにタンクの{value}% ".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "一縦振り"});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+        else if(name == "[+] メインウェポンの消費インク量：垂直") {
+          costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] メインウェポンの消費インク量：ローリング";
+          $scope.stats["Ink Consumption (Main)"].desc = "満タンから空まで{totalShots}回 ({reduction}% 減少)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "一秒に{value}インク消費".format({value: $scope.toFixedTrimmed(costPerShot,3)});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+
+        /****************************
+         * RUN SPEED (FIRING) STATS *
+         ****************************/
+        var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
+        var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
+        var p = $scope.calcP(abilityScore);       
+        var s = $scope.calcS(run_speed_parameters);
+        var result = $scope.calcRes(run_speed_parameters, p, s);
+
+        if(name == "[+] ヒト移動速度 (転がす)") {
+          var run_speed = result * $scope.loadout.weapon.horizontalSwingMoveSpeed;
+          var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (フリック)：水平な";
+          $scope.stats["Run Speed (Firing)"].value = run_speed;
+          $scope.stats["Run Speed (Firing)"].percentage = delta;
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "DU/f = Distance Unit Per Frame(1フレームに移動できる距離単位)で、試し撃ちラインが50D";
+        }
+        else if(name == "[+] ヒト移動速度 (フリック)：水平な") {
+          var run_speed = result * $scope.loadout.weapon.verticalSwingMoveSpeed;
+          var delta = ((run_speed / $scope.loadout.weapon.verticalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (フリック)：垂直";
+          $scope.stats["Run Speed (Firing)"].value = run_speed;
+          $scope.stats["Run Speed (Firing)"].percentage = delta;
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "DU/f = Distance Unit Per Frame(1フレームに移動できる距離単位)で、試し撃ちラインが50D";
+        }
+        else if(name == "[+] ヒト移動速度 (フリック)：垂直") {
+          $scope.stats["Run Speed (Firing)"].value = $scope.loadout.weapon.dashSpeed;
+          $scope.stats["Run Speed (Firing)"].percentage = 0.0;
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (転がす)";
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.loadout.weapon.dashSpeed});
+          $scope.stats["Run Speed (Firing)"].desc = "ローラーロール速度は一定です。";
+        }
+      }
+
+      if($scope.loadout.weapon.class.toLowerCase() == 'brush') {
+        /**************************
+         * INK SAVER (MAIN) STATS *
+         **************************/
+        var ink_saver_parameters = null;
+        if($scope.loadout.weapon.inkSaver == 'Low') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Low"];
+        }
+        if($scope.loadout.weapon.inkSaver == 'Middle') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Mid"];
+        }
+        if($scope.loadout.weapon.inkSaver == "High") {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["High"];
+        }
+
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
+        var p = $scope.calcP(abilityScore);
+        var s = $scope.calcS(ink_saver_parameters);
+        var reduction = $scope.calcRes(ink_saver_parameters, p, s);
+
+        if(name == "[+] メインウェポンの消費インク量：ローリング") {
+          var costPerShot = $scope.loadout.weapon.inkPerShot * reduction;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] メインウェポンの消費インク量";
+          $scope.stats["Ink Consumption (Main)"].desc = "満タンから空まで{totalShots}回 ({reduction}% 減少)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{unit}ごとにタンクの{value}% ".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "一横振り"});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+        else if(name == "[+] メインウェポンの消費インク量") {
+          var costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] メインウェポンの消費インク量：ローリング";
+          $scope.stats["Ink Consumption (Main)"].desc = "満タンから空まで{totalShots}回 ({reduction}% 減少)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "一秒に{value}インク消費".format({value: $scope.toFixedTrimmed(costPerShot,3)});          
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+
+        /****************************
+         * RUN SPEED (FIRING) STATS *
+         ****************************/
+        if(name == "[+] ヒト移動速度 (スライド中)") {
+          var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
+          var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
+          var p = $scope.calcP(abilityScore);       
+          var s = $scope.calcS(run_speed_parameters);
+          var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.horizontalSwingMoveSpeed;
+          var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (フリック)";
+          $scope.stats["Run Speed (Firing)"].value = run_speed;
+          $scope.stats["Run Speed (Firing)"].percentage = delta;
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "DU/f = Distance Unit Per Frame(1フレームに移動できる距離単位)で、試し撃ちラインが50D";
+        }
+        else if(name == "[+] ヒト移動速度 (フリック)") {
+          var parameters = null;            
+          if($scope.loadout.weapon.name.indexOf('Inkbrush') != -1) {
+            parameters = $scope.parameters["Main Power Up"]["Inkbrush"]["params"];
+          }
+          if($scope.loadout.weapon.name.indexOf('Octobrush') != -1 || $scope.loadout.weapon.name.indexOf('Herobrush Replica') != -1) {
+            parameters = $scope.parameters["Main Power Up"]["Octobrush"]["params"];
+          }
+          
+          var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
+          var p = $scope.calcP(abilityScore);
+          var s = $scope.calcS(parameters);
+          var result = $scope.calcRes(parameters, p, s);
+    
+          var max_param = parameters[0];
+          var min_param = parameters[2];
+  
+          $scope.stats["Run Speed (Firing)"].name = "[+] ヒト移動速度 (スライド中)";
+          $scope.stats["Run Speed (Firing)"].value = $scope.toFixedTrimmed((result/max_param) * 100,2);
+          $scope.stats["Run Speed (Firing)"].percentage = ((result/min_param - 1) * 100).toFixed(1);            
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "ブラシスピードはメインパワーアップの影響を受けます。";
+        }
+      }
+
       switch(name) {
         case "[+] マーキング時間 (ポイントセンサー)":
           var abilityScore = $scope.loadout.calcAbilityScore('Bomb Defense Up DX');

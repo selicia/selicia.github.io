@@ -201,6 +201,167 @@ angular
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});        
         }
       }
+
+      if($scope.loadout.weapon.class.toLowerCase() == 'roller') {
+        var ink_saver_parameters = null;
+        if($scope.loadout.weapon.inkSaver == 'Low') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Low"];
+        }
+        if($scope.loadout.weapon.inkSaver == 'Middle') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Mid"];
+        }
+        if($scope.loadout.weapon.inkSaver == "High") {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["High"];
+        }
+
+        /**************************
+         * INK SAVER (MAIN) STATS *
+         **************************/
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
+        var p = $scope.calcP(abilityScore);       
+        var s = $scope.calcS(ink_saver_parameters);
+        var reduction = $scope.calcRes(ink_saver_parameters, p, s);
+
+        if(name == "[+] Ink Consumption (Main): Rolling") {
+          costPerShot = $scope.loadout.weapon.horizontalInkPerShot * reduction;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Horizontal";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "horizontal flick"});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+        else if(name == "[+] Ink Consumption (Main): Horizontal") {
+          costPerShot = $scope.loadout.weapon.verticalInkPerShot * reduction;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Vertical";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "vertical flick"});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+        else if(name == "[+] Ink Consumption (Main): Vertical") {
+          costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Rolling";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}/second".format({value: $scope.toFixedTrimmed(costPerShot,3)});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+
+        /****************************
+         * RUN SPEED (FIRING) STATS *
+         ****************************/
+        var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
+        var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
+        var p = $scope.calcP(abilityScore);       
+        var s = $scope.calcS(run_speed_parameters);
+        var result = $scope.calcRes(run_speed_parameters, p, s);
+
+        if(name == "[+] Run Speed (Roll)") {
+          var run_speed = result * $scope.loadout.weapon.horizontalSwingMoveSpeed;
+          var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Flicking): Horizontal";
+          $scope.stats["Run Speed (Firing)"].value = run_speed;
+          $scope.stats["Run Speed (Firing)"].percentage = delta;
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "Distance Units/frame";
+        }
+        else if(name == "[+] Run Speed (Flicking): Horizontal") {
+          var run_speed = result * $scope.loadout.weapon.verticalSwingMoveSpeed;
+          var delta = ((run_speed / $scope.loadout.weapon.verticalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Flicking): Vertical";
+          $scope.stats["Run Speed (Firing)"].value = run_speed;
+          $scope.stats["Run Speed (Firing)"].percentage = delta;
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "Distance Units/frame";
+        }
+        else if(name == "[+] Run Speed (Flicking): Vertical") {
+          $scope.stats["Run Speed (Firing)"].value = $scope.loadout.weapon.dashSpeed;
+          $scope.stats["Run Speed (Firing)"].percentage = 0.0;
+          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Roll)";
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.loadout.weapon.dashSpeed});
+          $scope.stats["Run Speed (Firing)"].desc = "Roll Speed for Rollers is constant.";
+        }
+      }
+
+      if($scope.loadout.weapon.class.toLowerCase() == 'brush') {
+        /**************************
+         * INK SAVER (MAIN) STATS *
+         **************************/
+        var ink_saver_parameters = null;
+        if($scope.loadout.weapon.inkSaver == 'Low') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Low"];
+        }
+        if($scope.loadout.weapon.inkSaver == 'Middle') {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Mid"];
+        }
+        if($scope.loadout.weapon.inkSaver == "High") {
+          ink_saver_parameters = $scope.parameters["Ink Saver Main"]["High"];
+        }
+
+        var abilityScore = $scope.loadout.calcAbilityScore('Ink Saver (Main)');
+        var p = $scope.calcP(abilityScore);
+        var s = $scope.calcS(ink_saver_parameters);
+        var reduction = $scope.calcRes(ink_saver_parameters, p, s);
+
+        if(name == "[+] Ink Consumption (Main): Rolling") {
+          var costPerShot = $scope.loadout.weapon.inkPerShot * reduction;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main)";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "horizontal flick"});
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+        else if(name == "[+] Ink Consumption (Main)") {
+          var costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Rolling";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}/second".format({value: $scope.toFixedTrimmed(costPerShot,3)});          
+          $scope.stats["Ink Consumption (Main)"].value = costPerShot;
+          $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
+        }
+
+        /****************************
+         * RUN SPEED (FIRING) STATS *
+         ****************************/
+        if(name == "[+] Run Speed (Dash)") {
+          var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
+          var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
+          var p = $scope.calcP(abilityScore);       
+          var s = $scope.calcS(run_speed_parameters);
+          var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.horizontalSwingMoveSpeed;
+          var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
+
+          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Flicking)";
+          $scope.stats["Run Speed (Firing)"].value = run_speed;
+          $scope.stats["Run Speed (Firing)"].percentage = delta;
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "Distance Units/frame";
+        }
+        else if(name == "[+] Run Speed (Flicking)") {
+          var parameters = null;            
+          if($scope.loadout.weapon.name.indexOf('Inkbrush') != -1) {
+            parameters = $scope.parameters["Main Power Up"]["Inkbrush"]["params"];
+          }
+          if($scope.loadout.weapon.name.indexOf('Octobrush') != -1 || $scope.loadout.weapon.name.indexOf('Herobrush Replica') != -1) {
+            parameters = $scope.parameters["Main Power Up"]["Octobrush"]["params"];
+          }
+          
+          var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
+          var p = $scope.calcP(abilityScore);
+          var s = $scope.calcS(parameters);
+          var result = $scope.calcRes(parameters, p, s);
+    
+          var max_param = parameters[0];
+          var min_param = parameters[2];
+  
+          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Dash)";
+          $scope.stats["Run Speed (Firing)"].value = $scope.toFixedTrimmed((result/max_param) * 100,2);
+          $scope.stats["Run Speed (Firing)"].percentage = ((result/min_param - 1) * 100).toFixed(1);            
+          $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
+          $scope.stats["Run Speed (Firing)"].desc = "Brush Speed is affected by Main Power Up.";
+        }
+      }
+
       switch(name) {
         case "[+] Tracking Time (Point Sensor)":
           var abilityScore = $scope.loadout.calcAbilityScore('Bomb Defense Up DX');
