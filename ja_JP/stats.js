@@ -277,6 +277,7 @@ angular.module('splatApp').stats = function ($scope) {
       }
       else {
         costPerShot = loadout.weapon.inkPerShot * reduction;
+        this.name = "メインウェポンの消費インク量";
         this.desc = "満タンから空まで{totalShots}回 ({reduction}% 減少)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
         this.label = "{unit}ごとにタンクの{value}% ".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: loadout.weapon.shotUnit});
       }
