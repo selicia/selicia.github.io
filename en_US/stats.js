@@ -366,78 +366,26 @@ angular.module('splatApp').stats = function ($scope) {
     }, 1.3),
 
     'Special Saved': new Stat("Special Saved", function(loadout) {
-      var special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
       var abilityScore = loadout.calcAbilityScore('Special Saver');
-      
-      if(loadout.hasAbility('Respawn Punisher')) {
-        abilityScore = abilityScore * 0.7;
+      var equippedSpecial = $scope.getSpecialByName(loadout.weapon.special)
+
+      if(equippedSpecial.name == "Splashdown" && $scope.checkIfToggledAbilityActive("STAT_SPECIAL_SAVER_ON_DEATH")) {
+        var statValues = $scope.calcStat(abilityScore, loadout.weapon.type, "STAT_SPECIAL_SAVER_ON_DEATH");
+      }
+      else {
+        var statValues = $scope.calcStat(abilityScore, loadout.weapon.type, "STAT_SPECIAL_SAVER");
+      }
+
+      if($scope.loadout.hasAbility('Respawn Punisher')) {
         this.desc = "Respawn Punisher is affecting this stat.";
-      }
-      else {
-        this.desc = null;
-      }
-
-      var p = this.calcP(abilityScore);       
-      var s = this.calcS(special_saver_parameters);
-      var modifier = this.calcRes(special_saver_parameters, p, s);
+      }      
       
-      var special_saved = 100.0 * modifier;
+      this.name = statValues.name;
+      this.value = statValues.value;
+      this.percentage = statValues.percentage;
+      this.label = statValues.label;
 
-      if(loadout.hasAbility('Respawn Punisher')) {
-        special_saved = special_saved * 0.775;
-      }
-
-      if($scope.logging) {
-        var special_saver_debug_log = {"Special Saver":special_saved,"AP":abilityScore,"Delta":modifier}
-        console.log(special_saver_debug_log);
-      }
-
-      this.value = special_saved;
-      this.percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
-      this.label = "{value}%".format({value: (special_saved).toFixed(1)});
-      return special_saved.toFixed(1);
-    }, 100),
-
-    'Special Saved On Death': new Stat("Special Saved (On-Use Death)", function(loadout) {
-      var special_saver_parameters = null;
-      if(loadout.weapon.special == "Splashdown") {
-        special_saver_parameters = $scope.parameters["Special Saver"]["Splashdown"];
-      }
-      else {
-        special_saver_parameters = $scope.parameters["Special Saver"]["default"];        
-      }
-      
-      var abilityScore = loadout.calcAbilityScore('Special Saver');
-      if(loadout.hasAbility('Respawn Punisher')) {
-        abilityScore = abilityScore * 0.7;
-        this.desc = "Respawn Punisher is affecting this stat.";
-      }
-      else {
-        this.desc = null;
-      }
-
-      var p = this.calcP(abilityScore);       
-      var s = this.calcS(special_saver_parameters);
-      var modifier = this.calcRes(special_saver_parameters, p, s);
-      
-      var special_saved = 100.0 * modifier;
-      if(special_saved > 100) {
-        special_saved = 100.0;
-      }
-
-      if(loadout.hasAbility('Respawn Punisher')) {
-        special_saved = special_saved * 0.775;
-      }
-
-      if($scope.logging) {
-        var special_saver_debug_log = {"Special Saver (On Death)":special_saved,"AP":abilityScore,"Delta":modifier}
-        console.log(special_saver_debug_log);
-      }
-
-      this.value = special_saved;
-      this.percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
-      this.label = "{value}%".format({value: (special_saved).toFixed(1)});
-      return special_saved.toFixed(1);
+      return this.percentage;
     }, 100),
 
     'Special Power': new Stat("Special Power", function(loadout) {
@@ -711,6 +659,7 @@ angular.module('splatApp').stats = function ($scope) {
         case 'Curling Bomb':
         case 'Splat Bomb':
         case 'Suction Bomb':
+        case 'Toxic Mist': // TODO: Check with Lean if Toxic Mist has its own Distance Up params
           sub_power_up_parameters = $scope.parameters["Sub Power Up"]["General Bomb Distance Up"];
           var p = this.calcP(abilityScore);      
           var s = this.calcS(sub_power_up_parameters);
@@ -751,65 +700,20 @@ angular.module('splatApp').stats = function ($scope) {
           return sub_range;     
 
         case 'Point Sensor':
-          sub_power_up_parameters = $scope.parameters["Sub Power Up"]["Point Sensor Distance Up"];
-          var p = this.calcP(abilityScore);      
-          var s = this.calcS(sub_power_up_parameters);
-          var scan_radius = this.calcRes(sub_power_up_parameters, p, s);
-          var max_scan_radius = sub_power_up_parameters[0];          
-          var min_scan_radius = sub_power_up_parameters[2];
-
-          this.value = $scope.toFixedTrimmed((scan_radius/max_scan_radius) * 100,2);
-          this.percentage = ((scan_radius/min_scan_radius - 1) * 100).toFixed(1);
-          
-          if($scope.logging) {
-            var sub_power_up_debug_log = {"Sub Power Up (Fizzy Bomb)":scan_radius,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
-            console.log(sub_power_up_debug_log);
-          }
-
-          this.name = "Sub Power (Bomb Range)";
-          this.label = "{value}".format({value: $scope.toFixedTrimmed(scan_radius,2)})
-          return scan_radius;
-
-        case 'Toxic Mist':
-          // TODO: Get confirmation from Lean that these values work for Toxic Mist
-          sub_power_up_parameters = $scope.parameters["Sub Power Up"]["Ink Mine Mark Time Duration"];
-          var p = this.calcP(abilityScore);      
-          var s = this.calcS(sub_power_up_parameters);
-          var duration = this.calcRes(sub_power_up_parameters, p, s) / 60;
-          var max_duration = sub_power_up_parameters[0] / 60;
-          var min_duration = sub_power_up_parameters[2] / 60;
-
-          this.value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
-          this.percentage = ((duration/min_duration - 1) * 100).toFixed(1);
-          
-          if($scope.logging) {
-            var sub_power_up_debug_log = {"Sub Power Up (Toxic Mist)":duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
-            console.log(sub_power_up_debug_log);
-          }
-
-          this.name = "Sub Power (Duration)";
-          this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)})
-          return duration;
+          var statValues = $scope.calcStat(abilityScore, loadout.weapon.type, "STAT_SUB_POWER_RANGE");
+          this.name = statValues.name;
+          this.value = statValues.value;
+          this.percentage = statValues.percentage;
+          this.label = statValues.label;
+          return this.percentage;
 
         case 'Ink Mine':
-          sub_power_up_parameters = $scope.parameters["Sub Power Up"]["Ink Mine Mark Radius"];
-          var p = this.calcP(abilityScore);      
-          var s = this.calcS(sub_power_up_parameters);
-          var radius = this.calcRes(sub_power_up_parameters, p, s);
-          var max_radius = sub_power_up_parameters[0];
-          var min_radius = sub_power_up_parameters[2];
-
-          this.value = $scope.toFixedTrimmed((radius/max_radius) * 100,2);
-          this.percentage = ((radius/min_radius - 1) * 100).toFixed(1);
-          
-          if($scope.logging) {
-            var sub_power_up_debug_log = {"Sub Power Up (Ink Mine)":radius,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
-            console.log(sub_power_up_debug_log);
-          }
-
-          this.name = "Sub Power (Mine Radius)";
-          this.label = "{value}%".format({value: $scope.toFixedTrimmed(radius*100,2)})
-          return $scope.toFixedTrimmed(radius*100,2);
+          var statValues = $scope.calcStat(abilityScore, loadout.weapon.type, "STAT_SUB_POWER_MINE");
+          this.name = statValues.name;
+          this.value = statValues.value;
+          this.percentage = statValues.percentage;
+          this.label = statValues.label;
+          return this.percentage;
 
         case 'Splash Wall':
           sub_power_up_parameters = $scope.parameters["Sub Power Up"]["Splash Wall Max HP"];
@@ -861,14 +765,17 @@ angular.module('splatApp').stats = function ($scope) {
           return total_duration;          
 
         case 'Squid Beakon':
-          // Squid Beakon grants the effects of Quick Super Jump.
+          /*  Patch 4.7 changed how Squid Beakon works. It now converts the SPU AP to
+              QSJ AP, and uses the QSJ parameters with the newly calculated AP value.
+          */
+          var ap = Math.floor(-0.0103187 * Math.pow(abilityScore,2) + 1.58817 * abilityScore);
           var jump_parameters = $scope.parameters["Quick Super Jump"]["Jump"];
-          var p = this.calcP(abilityScore);      
+          var p = this.calcP(ap);      
           var s = this.calcS(jump_parameters);
           var jump_duration = this.calcRes(jump_parameters, p, s);
 
           var prepare_parameters = $scope.parameters["Quick Super Jump"]["Prepare"];
-          var p = this.calcP(abilityScore);      
+          var p = this.calcP(ap);      
           var s = this.calcS(prepare_parameters);
           var prepare_duration = this.calcRes(prepare_parameters, p, s);
 
@@ -981,6 +888,7 @@ angular.module('splatApp').stats = function ($scope) {
 
       var total_duration = ((death_duration + deathcam_duration) / 60) + 2.5;
       var max_duration = ((death_frames_parameters[2] + deathcam_parameters[2]) / 60) + 2.5;
+      console.log(max_duration);
 
       if(loadout.hasAbility('Respawn Punisher')) {
         total_duration += 1.13;
@@ -989,7 +897,7 @@ angular.module('splatApp').stats = function ($scope) {
       }
 
       this.percentage = Math.abs(((total_duration/max_duration - 1) * 100).toFixed(2));
-      this.value = 100 - this.percentage;
+      this.value = total_duration;
       
       if($scope.logging) {
         var quick_respawn_debug_log = {"Quick Respawn":total_duration,"AP:":abilityScore,"P":p,"S":s,"Delta:":this.percentage}
@@ -998,7 +906,7 @@ angular.module('splatApp').stats = function ($scope) {
 
       this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
       return total_duration;
-    }, 100),
+    }, 9.62),
 
     'Tracking Time': new Stat("Tracking Time (Point Sensor)", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Bomb Defense Up DX');
