@@ -9,7 +9,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12">
     <div class="card neonstripes" id="dialog">
     <div class="row cardheader">
-    ぶき選択
+    Choix d'arme
     </div>
     <div class="row">
     <div class="col-md-4">
@@ -19,15 +19,15 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     <div class="col-md-12 col-sm-6">
     <div class="selected-label">
-    <span>{{selectedWeapon.localizedName['ja_JP']}}</span></div>
+    <span>{{selectedWeapon.localizedName['fr_FR']}}</span></div>
     <div class="col-md-12">
     <div class="row">
     <div class="col-xs-4 nopadding">
-    <img ng-src="{{getSubIcon(selectedWeapon.sub)}}" uib-tooltip="{{getSubByName(selectedWeapon.sub).localizedName['ja_JP']}}" tooltip-append-to-body="true"  class="subspeicon" />
+    <img ng-src="{{getSubIcon(selectedWeapon.sub)}}" uib-tooltip="{{getSubByName(selectedWeapon.sub).localizedName['fr_FR']}}" tooltip-append-to-body="true"  class="subspeicon" />
     </div>
     <div class="col-xs-8 nopadding">
     <div class="subspe-bubble">
-    <img ng-src="{{getSpecialIcon(selectedWeapon.special)}}" uib-tooltip="{{getSpecialByName(selectedWeapon.special).localizedName['ja_JP']}}" tooltip-append-to-body="true" class="subspeicon" />
+    <img ng-src="{{getSpecialIcon(selectedWeapon.special)}}" uib-tooltip="{{getSpecialByName(selectedWeapon.special).localizedName['fr_FR']}}" tooltip-append-to-body="true" class="subspeicon" />
     {{selectedWeapon.specialCost}}p
     </div>
     </div>
@@ -47,10 +47,10 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12" id="minibar-container">
       <div class="row">
         <div class="col-sm-6 col-xs-3 nopadding minibar-label readable">
-        人気人気ウデマエX
+        Popularité en rang X
         </div>
         <div class="col-sm-6 col-xs-9 nopadding">
-          <uib-progressbar max="100" type="pink" tooltip-placement="bottom" uib-tooltip="Xランクで武器が使われる頻度。" value="weaponRank" class="statbar mini" />
+          <uib-progressbar max="100" type="pink" tooltip-placement="bottom" uib-tooltip="La fréquence d'utilisation de cette arme en rang X." value="weaponRank" class="statbar mini" />
         </div>
       </div>
     </div>
@@ -61,15 +61,15 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-8 picker-right">
     <div class="row">
     <div class="col-md-12">
-    <select class="form-control dropdown-toggle" data-ng-options="x.localizedName['ja_JP' || 'ja_JP'] for x in weaponSets" data-ng-model="selectedSet" ng-change="switchSet()"></select>
-    <input id="weaponSearchFilterText" ng-model="weaponSearchFilterText" class="form-control form-control-sm" type="text" placeholder="サーチ...">
+    <select class="form-control dropdown-toggle" data-ng-options="x.localizedName['fr_FR' || 'fr_FR'] for x in weaponSets" data-ng-model="selectedSet" ng-change="switchSet()"></select>
+    <input id="weaponSearchFilterText" ng-model="weaponSearchFilterText" class="form-control form-control-sm" type="text" placeholder="Chercher...">
     </div>
     </div>
     <div class="col-md-12">
     <div class="row">
     <div class="picker">
     <div class="gear-wrapper" ng-repeat="weapon in availableWeapons() | filter:weaponSearchFilter">
-    <img class="gear-icon" ng-src="{{::weapon.image}}" ng-click="selectWeapon(weapon)" uib-tooltip="{{::weapon.localizedName['ja_JP']}}" tooltip-append-to-body="true"/>
+    <img class="gear-icon" ng-src="{{::weapon.image}}" ng-click="selectWeapon(weapon)" uib-tooltip="{{::weapon.localizedName['fr_FR']}}" tooltip-append-to-body="true"/>
     </div>
     </div>
     </div>
@@ -78,7 +78,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     <div class="row buttons">
     <div class="col-xs-6 col-md-4 col-md-offset-2">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>キャンセル</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>Annuler</span></button>
     </div>
     <div class="col-xs-6 col-md-4">
     <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>OK</span></button>
@@ -92,7 +92,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12">
     <div class="card {{::background}}" id="dialog">
     <div class="row cardheader">
-    ギア選択
+    Choix d'équipement
     </div>
     <div class="row">
     <div class="col-md-4">
@@ -102,12 +102,12 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     <div class="col-md-12 col-sm-6">
     <div class="selected-label" class="selected-label">
-    <span>{{selectedGear.localizedName['ja_JP']}}</span></div>
+    <span>{{selectedGear.localizedName['fr_FR']}}</span></div>
     <div id="gearpicker-stats">
-    <span ng-if="selectedGear.main != undefined"><img ng-src="{{getSkillByName(selectedGear.main).image}}"/>  {{getSkillByName(selectedGear.main).localizedName['ja_JP']}}</span>
+    <span ng-if="selectedGear.main != undefined"><img ng-src="{{getSkillByName(selectedGear.main).image}}"/>  {{getSkillByName(selectedGear.main).localizedName['fr_FR']}}</span>
     <span ng-if="selectedGear.main == undefined"><img ng-src="../common/assets/img/skills/Unknown.png"/>  ???</span>
     <br>
-    <img ng-src="{{brands[selectedGear.brand].image}}"/> {{brands[selectedGear.brand].localizedName['ja_JP']}}<br>
+    <img ng-src="{{brands[selectedGear.brand].image}}"/> {{brands[selectedGear.brand].localizedName['fr_FR']}}<br>
     <div>
     <span ng-if="brands[selectedGear.brand].common">
     <span class="fa green fa-arrow-up"></span><img ng-src="{{getSkillByName(brands[selectedGear.brand].common).image}}"/>
@@ -119,9 +119,9 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     </div>
     <div class="col-md-8 picker-right">
-    <input id="gearSearchFilterText" ng-model="gearSearchFilterText" class="form-control form-control-sm" type="text" placeholder="サーチ...">
+    <input id="gearSearchFilterText" ng-model="gearSearchFilterText" class="form-control form-control-sm" type="text" placeholder="Chercher...">
     <div class="picker">
-    <div ng-click="selectGear(item)" ng-repeat="item in filtered.primary | filter:gearSearchFilter track by item.id" uib-tooltip="{{::item.localizedName['ja_JP']}}" tooltip-append-to-body="true" class="gear-wrapper">
+    <div ng-click="selectGear(item)" ng-repeat="item in filtered.primary | filter:gearSearchFilter track by item.id" uib-tooltip="{{::item.localizedName['fr_FR']}}" tooltip-append-to-body="true" class="gear-wrapper">
     <img class="gear-icon" ng-src="{{item.image}}"/>
     <span class="brand-icon">
     <img ng-src="{{::brands[item.brand].image}}"/>
@@ -130,7 +130,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <img ng-if="item.main != undefined" ng-src="{{::getSkillByName(item.main).image}}"/>
     </span>
     </div><!--
-    --><div ng-click="selectGear(item)" ng-repeat="item in filtered.secondary | filter:gearSearchFilter track by item.id" uib-tooltip="{{::item.localizedName['ja_JP']}}" tooltip-append-to-body="true" class="gear-wrapper">
+    --><div ng-click="selectGear(item)" ng-repeat="item in filtered.secondary | filter:gearSearchFilter track by item.id" uib-tooltip="{{::item.localizedName['fr_FR']}}" tooltip-append-to-body="true" class="gear-wrapper">
     <img class="gear-icon" ng-src="{{::item.image}}"/>
     <span class="brand-icon">
     <img ng-src="{{::brands[item.brand].image}}"/>
@@ -139,7 +139,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <img ng-if="item.main != undefined" ng-src="{{::getSkillByName(item.main).image}}"/>
     </span>
     <span class="annie">
-    <img ng-if="item.brand != 'Grizzco'?item.name != 'Splatfest Tee'?true:false:false" src="../common/assets/img/misc/annie.png" tooltip-append-to-body="true" tooltip-placement="bottom" uib-tooltip="ゲソタウン限定"/>
+    <img ng-if="item.brand != 'Grizzco'?item.name != 'Splatfest Tee'?true:false:false" src="../common/assets/img/misc/annie.png" tooltip-append-to-body="true" tooltip-placement="bottom" uib-tooltip="Seulement sur SplatNet"/>
     </span>
     </div><!--
     --><div ng-repeat="item in filtered.notEligible | filter:gearSearchFilter track by item.id" class="gear-wrapper">
@@ -150,7 +150,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <span class="main-icon">
     <img ng-if="item.main != undefined" ng-src="{{::getSkillByName(item.main).image}}"/>
     </span>
-    <span class="not-possible" uib-tooltip="選択中の基本ギアパワーでは表示できません。" tooltip-append-to-body="true">
+    <span class="not-possible" uib-tooltip="Impossible avec le principal sélectionné" tooltip-append-to-body="true">
     <span class="fa fa-5x fa-ban " ng-if="!isPossibleMain(loadout.clothes.equipped,loadout.clothes.main.name)"></span>
     </span>
     </div>
@@ -160,7 +160,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     <div class="row buttons">
     <div class="col-xs-6 col-md-4 col-md-offset-2">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>キャンセル</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>Annuler</span></button>
     </div>
     <div class="col-xs-6 col-md-4">
     <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>OK</span></button>
@@ -174,7 +174,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12">
     <div class="card basic purplestripes" id="dialog">
     <div class="row cardheader">
-    更新内容
+    Quoi de neuf ?
     </div>
     <div class="row basic-content">
     <div id="changelog"</div>
@@ -448,7 +448,7 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     </div>
     <div class="row buttons">
     <div class="col-xs-12">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>了解～</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>Compris !</span></button>
     </div>
     </div>
     </div>
@@ -461,16 +461,16 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12">
     <div class="card purplestripes" id="dialog">
     <div class="row cardheader">
-    お問い合わせ
+    À propos
     </div>
     <div class="row basic-content readable" id="about">
-    <p>Built primarily with AngularJS 1.6.5 and Bootstrap 3.<br><br> This tool was developed using info and assets datamined by <a href='https://twitter.com/LeanYoshi' target='_blank'>Lean</a>, as well as information provided by several members of the Inkademy and Splatoon Developers servers on Discord. <br><br>Thanks to everyone who gave me help and data!<br><br> Many of the formulas used can be seen on <a href='https://splatoonwiki.org/wiki/User:Heddy/Charts' target='_blank'>Heddy's charts</a> on Inkipedia.<br><br> Any feature suggestions, bug reports, and feedback can be left as issues on the project's <a href='https://github.com/DeviPotato/splat2-calc' target='_blank'>GitHub</a>. <br> You can also reach me on the project's <a href='https://twitter.com/loadout_ink' target='_blank'>twitter</a>.</p>
+    <p>Construit principalement avec AngularJS 1.6.5 et Bootstrap 3.<br><br> Cet outil a été développé en utilisant des informations et des contenus récupérés par <a href='https://twitter.com/LeanYoshi' target='_blank'>Lean</a>, ainsi que des informations fournies par de nombreux membres d'Inkademy et des serveurs Splatoon Developers sur Discord. <br><br>Merci à tous pour l'aide et les doonées !<br><br> Beaucoup de formules utilisées peuvent être trouvées sur <a href='https://splatoonwiki.org/wiki/User:Heddy/Charts' target='_blank'>Heddy's charts</a> sur Inkipedia.<br><br> Tout suggestion de fonctionnalités, rapport de bug, et retour peuvent-être laissés comme tikets sur la page <a href='https://github.com/DeviPotato/splat2-calc' target='_blank'>GitHub</a> du projet. <br> Vous pouvez également me contacter sur le <a href='https://twitter.com/loadout_ink' target='_blank'>twitter</a> du projet.</p>
     <p>
     Splatoon 2 UI Dialog/Buttons by <a href="https://github.com/lah7" target="_blank">Luke Horwell.</a>
     </p>
     <div class="row buttons">
     <div class="col-xs-12">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>了解～</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>Compris !</span></button>
     </div>
     </div>
     </div>
@@ -482,31 +482,31 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12">
     <div class="card purplestripes" id="dialog">
     <div class="row cardheader">
-    更新がありました！
+    Il y a eu une mise à jour !
     </div>
     <div class="row basic-content readable" id="update">
     <img src="/common/assets/img/ui/update.jpg" width="100%" height="100%"></img>
     <h2 style="text-align:center;">
-    ギア揃え ｖ`
+    Loadout v`
     +
     $scope.appVersionToString()
     +
     `</h2></div><div class="row buttons">
     <div class="col-xs-12">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>了解～</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>Compris !</span></button>
     </div>
     </div>`,
     excessiveAP: `<div class="row">
     <div class="col-md-12">
     <div class="card purplestripes" id="dialog">
     <div class="row cardheader">
-    過度のAP警告
+    Alerte bonus excessif
     </div>
     <div class="row basic-content readable" id="about">
-    <p>1つの能力を使いすぎると、収益が大幅に減少します。このギアを使用するときは慎重に進めてください。このメッセージは二度と表示されません。</p>
+    <p>Attention ! Utiliser trop d'un même bonus à des effets décroissant important. Ce message ne s'affichera plus.</p>
     <div class="row buttons">
     <div class="col-xs-12">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>了解～</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>Compris !</span></button>
     </div>
     </div>
     </div>
@@ -517,13 +517,13 @@ angular.module('splatApp').controller('ModalCtrl', function($scope, $rootScope, 
     <div class="col-md-12">
     <div class="card purplestripes" id="dialog">
     <div class="row cardheader">
-    ダウニー統合
+    Intègration Kipik
     </div>
     <div class="row basic-content readable" id="about">
-    <p>ダウニーDiscordアプリケーションにリダイレクトされようとしています： http://spyke.h3xmani.ac/</p>
+    <p>Tu va être redirigé vers l'application Kipik Discord: http://spyke.h3xmani.ac/</p>
     <div class="row buttons">
     <div class="col-xs-6 col-md-4 col-md-offset-2">
-    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>キャンセル</span></button>
+    <button class="btn" type="button" onclick="animateButton(this)" ng-click="cancel()"><span>Annuler</span></button>
     </div>
     <div class="col-xs-6 col-md-4">
     <button class="btn" type="button" onclick="animateButton(this)" ng-click="ok()"><span>OK</span></button>

@@ -265,7 +265,7 @@ angular
         var desc = null;
         if($scope.loadout.hasAbility('Respawn Punisher')) {
           ap = ap * 0.7;
-          desc = "Respawn Punisher is affecting this stat.";
+          desc = "Retour Perdant affecte cette stat.";
         }
   
         var p = $scope.calcP(ap);       
@@ -280,10 +280,10 @@ angular
         // Only enable toggle if the Special is Splashdown
         var equippedSpecial = $scope.getSpecialByName($scope.loadout.weapon.special)
         if(equippedSpecial.name == "Splashdown") {
-          var name = "[+] Special Saved";
+          var name = "[+] Spécial sauvé";
         }
         else {
-          var name = "Special Saved";
+          var name = "Spécial sauvé";
         }
         var value = special_saved;
         var percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
@@ -314,7 +314,7 @@ angular
         var desc = null;
         if($scope.loadout.hasAbility('Respawn Punisher')) {
           ap = ap * 0.7;
-          desc = "Respawn Punisher is affecting this stat.";
+          desc = "Retour Perdant affecte cette stat.";
         }
   
         var p = $scope.calcP(ap);       
@@ -335,7 +335,7 @@ angular
           console.log(special_saver_debug_log);
         }
 
-        var name = "[+] Special Saved (On-Use Death)";
+        var name = "[+] Spécial sauvé (Mort pendant activation)";
         var value = special_saved;
         var percentage = $scope.toFixedTrimmed((modifier - 0.5) * 100, 2);
         var label = "{value}%".format({value: (special_saved).toFixed(1)});
@@ -358,7 +358,7 @@ angular
             var max_param = parameters[0];          
             var min_param = parameters[2];
 
-            var name = "[+] Sub Power (Bomb Range)";
+            var name = "[+] Arme secondaire + (Portée de la bombe)";
             var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
             var percentage = ((result/min_param - 1) * 100).toFixed(1);
             var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)})
@@ -386,7 +386,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "[+] Sub Power (Tracking Time)";
+          var name = "[+] Arme secondaire + (Durée de détection)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result,2)});
@@ -410,7 +410,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "[+] Sub Power (Tracking Time)";
+          var name = "[+] Arme secondaire + (Durée de détection)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result,2)});
@@ -436,7 +436,7 @@ angular
         var max_param = parameters[0];
         var min_param = parameters[2];
 
-        var name = "[+] Sub Power (Mine Radius)";
+        var name = "[+] Arme secondaire + (Rayon de la mine)";
         var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
         var percentage = ((result/min_param - 1) * 100).toFixed(1);
         var label = "{value}%".format({value: $scope.toFixedTrimmed(result*100,2)})
@@ -461,7 +461,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -482,7 +482,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Ground Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs au sol)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -511,7 +511,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -538,7 +538,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -561,7 +561,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";      
+          var name = "Arme principale + (Zone encrée)";      
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -590,7 +590,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
   
-          var name = "[+] Main Power Up (Min Damage)";
+          var name = "[+] Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -620,7 +620,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
   
-          var name = "[+] Main Power Up (Max Damage)";
+          var name = "[+] Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -649,7 +649,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
           }
 
-          var name = "[+] Main Power Up (Repeat Min Damage)";
+          var name = "[+] Arme principale + (Répéter: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -678,7 +678,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
           }
   
-          var name = "[+] Main Power Up (Repeat Max Damage)";
+          var name = "[+] Arme principale + (Répéter: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -709,7 +709,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Min Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -738,7 +738,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Max Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -767,7 +767,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Min Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -796,7 +796,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Max Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -822,7 +822,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -845,7 +845,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -874,7 +874,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Min Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -904,7 +904,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Max Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -934,7 +934,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Min Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -964,7 +964,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Max Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -994,7 +994,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Min Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1024,7 +1024,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Max Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1050,7 +1050,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -1079,7 +1079,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1106,7 +1106,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1135,7 +1135,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1162,7 +1162,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1191,7 +1191,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Min Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1221,7 +1221,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Max Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1251,7 +1251,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Min Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1281,7 +1281,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Max Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1311,7 +1311,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Min Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1341,7 +1341,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Max Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1367,7 +1367,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "[+] Main Power Up (Full Charge Distance)";
+          var name = "[+] Arme principale + (Distance de la charge max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -1391,7 +1391,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "[+] Main Power Up (Partial Charge Distance)";
+          var name = "[+] Arme principale + (Distance de la charge partielle)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -1415,7 +1415,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -1438,7 +1438,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "[+] Main Power Up (Full Charge Distance)";
+          var name = "[+] Arme principale + (Distance de la charge max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -1462,7 +1462,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "[+] Main Power Up (Partial Charge Distance)";
+          var name = "[+] Arme principale + (Distance de la charge partielle)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -1486,7 +1486,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -1509,7 +1509,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -1538,7 +1538,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Min Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1568,7 +1568,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Max Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1598,7 +1598,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Min Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1628,7 +1628,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Max Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1658,7 +1658,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Min Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1688,7 +1688,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Max Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1720,7 +1720,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
   
-          var name = "[+] Main Power Up (Min Damage)";
+          var name = "[+] Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1750,7 +1750,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
   
-          var name = "[+] Main Power Up (Max Damage)";
+          var name = "[+] Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1780,7 +1780,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.burst;
           }
   
-          var name = "[+] Main Power Up (Burst Min Damage)";
+          var name = "[+] Arme principale + (Éclater: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1810,7 +1810,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.burst;
           }
   
-          var name = "[+] Main Power Up (Burst Max Damage)";
+          var name = "[+] Arme principale + (Éclater: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1841,7 +1841,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Min Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1870,7 +1870,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Max Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1899,7 +1899,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Min Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1928,7 +1928,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Max Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -1960,7 +1960,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -1987,7 +1987,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2010,7 +2010,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "Main Power Up (First Ring Burst Duration)";
+          var name = "Arme principale + (Durée d'une charge première)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.firstRingBurstDuration,2)});
@@ -2031,7 +2031,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "Main Power Up (Second Ring Burst Duration)";
+          var name = "Arme principale + (Durée d'une charge seconde)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.secondRingBurstDuration,2)});
@@ -2060,7 +2060,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Min Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -2090,7 +2090,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Max Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2120,7 +2120,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Min Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -2150,7 +2150,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Max Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2176,7 +2176,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Dash Speed)";
+          var name = "Arme principale + (Vitesse de sprint)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
@@ -2197,7 +2197,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Ink Trail Size)";
+          var name = "Arme principale + (Taille de traînée d'encre)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -2220,7 +2220,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Ground Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs au sol)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2241,7 +2241,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Bullet Velocity)";
+          var name = "Arme principale + (Vitesses des balles)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2270,7 +2270,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -2297,7 +2297,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2320,7 +2320,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (High Damage Radius)";
+          var name = "Arme principale + (Zone dégâts haut)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2341,7 +2341,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -2364,7 +2364,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "Main Power Up (First Ring Burst Duration)";
+          var name = "Arme principale + (Durée d'une charge première)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.firstRingBurstDuration,2)});
@@ -2385,7 +2385,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "Main Power Up (Second Ring Burst Duration)";
+          var name = "Arme principale + (Durée d'une charge seconde)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.secondRingBurstDuration,2)});
@@ -2408,7 +2408,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Ground Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs au sol)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2429,7 +2429,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";      
+          var name = "Arme principale + (Zone encrée)";      
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2452,7 +2452,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "Main Power Up (First Ring Burst Duration)";
+          var name = "Arme principale + (Durée d'une charge première)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.firstRingBurstDuration,2)});
@@ -2473,7 +2473,7 @@ angular
           var max_param = parameters[0] / 60;
           var min_param = parameters[2] / 60;
   
-          var name = "Main Power Up (Second Ring Burst Duration)";
+          var name = "Arme principale + (Durée d'une charge seconde)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}s".format({value: $scope.toFixedTrimmed(result * $scope.loadout.weapon.secondRingBurstDuration,2)});
@@ -2496,7 +2496,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Dash Speed)";
+          var name = "Arme principale + (Vitesse de sprint)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
@@ -2517,7 +2517,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Ink Trail Size)";
+          var name = "Arme principale + (Taille de traînée d'encre)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -2540,7 +2540,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2563,7 +2563,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2584,7 +2584,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Damage Radius)";
+          var name = "Arme principale + (Zone dégâts)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2607,7 +2607,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2628,7 +2628,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Damage Radius)";
+          var name = "Arme principale + (Zone dégâts)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -2651,7 +2651,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Max Damage Range)";
+          var name = "Arme principale + (Portée dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -2674,7 +2674,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -2703,7 +2703,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -2730,7 +2730,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2752,7 +2752,7 @@ angular
         var max_param = parameters[0] / 60;
         var min_param = parameters[2] / 60;
 
-        var name = "Main Power Up (Canopy Regeneration Time)";
+        var name = "Arme principale + (Durée de régénération)";
         var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
         var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
         var label = "{value}s".format({value: $scope.toFixedTrimmed(result,2)});
@@ -2779,7 +2779,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Min Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2808,7 +2808,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Max Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2837,7 +2837,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Min Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2866,7 +2866,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Max Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2898,7 +2898,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -2925,7 +2925,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -2954,7 +2954,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Min Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -2984,7 +2984,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.rolling;
           }
   
-          var name = "[+] Main Power Up (Rolling Max Damage)";
+          var name = "[+] Arme principale + (Roulante: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3014,7 +3014,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Min Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3044,7 +3044,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.standing;
           }
   
-          var name = "[+] Main Power Up (Standing Max Damage)";
+          var name = "[+] Arme principale + (Permanente: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3074,7 +3074,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Min Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3104,7 +3104,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.jumping;
           }
   
-          var name = "[+] Main Power Up (Jumping Max Damage)";
+          var name = "[+] Arme principale + (Sauter: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3135,7 +3135,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Min Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3164,7 +3164,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.partial;
           }
   
-          var name = "[+] Main Power Up (Partial Charge Max Damage)";
+          var name = "[+] Arme principale + (Charge partielle: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3193,7 +3193,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Min Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3222,7 +3222,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.full;
           }
   
-          var name = "[+] Main Power Up (Full Charge Max Damage)";
+          var name = "[+] Arme principale + (Pleine charge: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3248,7 +3248,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";      
+          var name = "Arme principale + (Zone encrée)";      
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = ((result/min_param - 1) * 100).toFixed(1);
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -3277,7 +3277,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3304,7 +3304,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3327,7 +3327,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Jump Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs sauté)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -3348,7 +3348,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          var name = "Main Power Up (Ground Shot Randomization)";
+          var name = "Arme principale + (Trajectoire tirs au sol)";
           var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed(((result/min_param) * 100),3)});
@@ -3377,7 +3377,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3404,7 +3404,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3433,7 +3433,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
   
-          var name = "[+] Main Power Up (Min Damage)";
+          var name = "[+] Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3463,7 +3463,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.normal;
           }
   
-          var name = "[+] Main Power Up (Max Damage)";
+          var name = "[+] Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3492,7 +3492,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
           }
 
-          var name = "[+] Main Power Up (Repeat Min Damage)";
+          var name = "[+] Arme principale + (Répéter: dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3521,7 +3521,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage.repeat;
           }
   
-          var name = "[+] Main Power Up (Repeat Max Damage)";
+          var name = "[+] Arme principale + (Répéter: dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3547,7 +3547,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "[+] Main Power Up (Full Charge Distance)";
+          var name = "[+] Arme principale + (Distance de la charge max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -3571,7 +3571,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
 
-          var name = "[+] Main Power Up (Partial Charge Distance)";
+          var name = "[+] Arme principale + (Distance de la charge partielle)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -3595,7 +3595,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -3618,7 +3618,7 @@ angular
           var max_param = parameters[0] / 10;
           var min_param = parameters[2] / 10;
   
-          var name = "Main Power Up (Canopy HP)";
+          var name = "Arme principale + (PV du Para-encre)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(result,2)});
@@ -3647,7 +3647,7 @@ angular
             min_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Min Damage)";
+          var name = "Arme principale + (Dégâts min)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(min_damage,2)});
@@ -3674,7 +3674,7 @@ angular
             max_damage = $scope.loadout.weapon.mpuMaxDamage;
           }
   
-          var name = "Main Power Up (Max Damage)";
+          var name = "Arme principale + (Dégâts max)";
           var value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}".format({value: $scope.toFixedTrimmed(max_damage,2)});
@@ -3697,7 +3697,7 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
           
-          var name = "Main Power Up (Ink Coverage)";
+          var name = "Arme principale + (Zone encrée)";
           var value = (result/max_param * 100).toFixed(1);
           var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
           var label = "{value}%".format({value: $scope.toFixedTrimmed((result * 100),3)});
@@ -3719,7 +3719,7 @@ angular
         var max_param = parameters[0] / 60;
         var min_param = parameters[2] / 60;
 
-        var name = "Main Power Up (Canopy Regeneration Time)";
+        var name = "Arme principale + (Durée de régénération)";
         var value = 100 - Math.abs(((result/min_param - 1) * 100).toFixed(1));
         var percentage = Math.abs(((result/min_param - 1) * 100).toFixed(1));
         var label = "{value}s".format({value: $scope.toFixedTrimmed(result,2)});
@@ -3736,22 +3736,22 @@ angular
 
     $scope.statBarClicked = function(name) {
       if($scope.loadout.weapon.type == "Ballpoint Splatling") {
-        if(name == "[+] Main Power Up (Min Damage)") {
+        if(name == "[+] Arme principale + (Dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_REPEAT_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Max Damage)") {
+        if(name == "[+] Arme principale + (Dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
         }
-        if(name == "[+] Main Power Up (Repeat Min Damage)") {
+        if(name == "[+] Arme principale + (Répéter: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Repeat Max Damage)") {
+        if(name == "[+] Arme principale + (Répéter: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
@@ -3759,22 +3759,22 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Bamboozler 14") {
-        if(name == "[+] Main Power Up (Partial Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3782,32 +3782,32 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Carbon Roller") {
-        if(name == "[+] Main Power Up (Rolling Min Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Rolling Max Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Min Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Max Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Min Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Max Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3815,32 +3815,32 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Dynamo Roller") {
-        if(name == "[+] Main Power Up (Rolling Min Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Rolling Max Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Min Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Max Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Min Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Max Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3848,12 +3848,12 @@ angular
       }
 
       if($scope.loadout.weapon.type == "E-liter 4K Scope") {
-        if(name == "[+] Main Power Up (Full Charge Distance)") {
+        if(name == "[+] Arme principale + (Distance de la charge max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Distance)") {
+        if(name == "[+] Arme principale + (Distance de la charge partielle)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3861,12 +3861,12 @@ angular
       }
 
       if($scope.loadout.weapon.type == "E-liter 4K") {
-        if(name == "[+] Main Power Up (Full Charge Distance)") {
+        if(name == "[+] Arme principale + (Distance de la charge max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Distance)") {
+        if(name == "[+] Arme principale + (Distance de la charge partielle)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3874,32 +3874,32 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Flingza Roller") {
-        if(name == "[+] Main Power Up (Rolling Min Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Rolling Max Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Min Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Max Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Min Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Max Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3907,22 +3907,22 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Glooga Dualies") {
-        if(name == "[+] Main Power Up (Min Damage)") {
+        if(name == "[+] Arme principale + (Dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_BURST_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Max Damage)") {
+        if(name == "[+] Arme principale + (Dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_BURST_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Burst Min Damage)") {
+        if(name == "[+] Arme principale + (Éclater: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Burst Max Damage)") {
+        if(name == "[+] Arme principale + (Éclater: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3930,22 +3930,22 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Goo Tuber") {
-        if(name == "[+] Main Power Up (Partial Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3953,22 +3953,22 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Hydra Splatling") {
-        if(name == "[+] Main Power Up (Partial Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3976,22 +3976,22 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Splat Charger") {
-        if(name == "[+] Main Power Up (Partial Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -3999,32 +3999,32 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Splat Roller") {
-        if(name == "[+] Main Power Up (Rolling Min Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Rolling Max Damage)") {
+        if(name == "[+] Arme principale + (Roulante: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_STANDING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Min Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Standing Max Damage)") {
+        if(name == "[+] Arme principale + (Permanente: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_JUMPING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Min Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Jumping Max Damage)") {
+        if(name == "[+] Arme principale + (Sauter: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_ROLLING_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -4032,22 +4032,22 @@ angular
       }
 
       if($scope.loadout.weapon.type == "Splatterscope") {
-        if(name == "[+] Main Power Up (Partial Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Charge partielle: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Min Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Full Charge Max Damage)") {
+        if(name == "[+] Arme principale + (Pleine charge: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -4055,22 +4055,22 @@ angular
       }
       
       if($scope.loadout.weapon.type == "Squeezer") {
-        if(name == "[+] Main Power Up (Min Damage)") {
+        if(name == "[+] Arme principale + (Dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_REPEAT_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Max Damage)") {
+        if(name == "[+] Arme principale + (Dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_REPEAT_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
         }
-        if(name == "[+] Main Power Up (Repeat Min Damage)") {
+        if(name == "[+] Arme principale + (Répéter: dégâts min)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MIN_DAMAGE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Repeat Max Damage)") {
+        if(name == "[+] Arme principale + (Répéter: dégâts max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_MAX_DAMAGE", true);
           $scope.displayStat("Main Power Up 2", statValues.name, statValues.value, statValues.percentage, statValues.label);        
@@ -4078,12 +4078,12 @@ angular
       }      
 
       if($scope.loadout.weapon.type == "Squiffer") {
-        if(name == "[+] Main Power Up (Full Charge Distance)") {
+        if(name == "[+] Arme principale + (Distance de la charge max)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_PARTIAL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
         }
-        if(name == "[+] Main Power Up (Partial Charge Distance)") {
+        if(name == "[+] Arme principale + (Distance de la charge partielle)") {
           var abilityScore = $scope.loadout.calcAbilityScore('Main Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_MAIN_POWER_UP_FULL_CHARGE_DISTANCE", true);
           $scope.displayStat("Main Power Up 1", statValues.name, statValues.value, statValues.percentage, statValues.label);
@@ -4092,7 +4092,7 @@ angular
 
       // TODO: Add Charging run speeds for Charger weapons
       if($scope.loadout.weapon.class.toLowerCase() == 'splatling' || $scope.loadout.weapon.class.toLowerCase() == 'brella') {
-        if(name == "[+] Run Speed (Firing)") {
+        if(name == "[+] Vitesse à pieds (En tirant)") {
           var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var p = $scope.calcP(abilityScore);       
@@ -4100,7 +4100,7 @@ angular
           var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.chargeSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.chargeSpeed - 1) * 100).toFixed(1).toString();
           
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Charging)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse à pieds (En chargeant)";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
@@ -4113,7 +4113,7 @@ angular
           var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.baseSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.baseSpeed - 1) * 100).toFixed(1).toString();
           
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Firing)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse à pieds (En tirant)";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});        
@@ -4140,27 +4140,27 @@ angular
         var s = $scope.calcS(ink_saver_parameters);
         var reduction = $scope.calcRes(ink_saver_parameters, p, s);
 
-        if(name == "[+] Ink Consumption (Main): Rolling") {
+        if(name == "[+] Cons. d'encre (Pr.): En roulant") {
           costPerShot = $scope.loadout.weapon.horizontalInkPerShot * reduction;
-          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Horizontal";
-          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-          $scope.stats["Ink Consumption (Main)"].label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "horizontal flick"});
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Cons. d'encre (Pr.): Horizontal";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}% réservoir/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "coup horizontal"});
           $scope.stats["Ink Consumption (Main)"].value = costPerShot;
           $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
         }
-        else if(name == "[+] Ink Consumption (Main): Horizontal") {
+        else if(name == "[+] Cons. d'encre (Pr.): Horizontal") {
           costPerShot = $scope.loadout.weapon.verticalInkPerShot * reduction;
-          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Vertical";
-          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-          $scope.stats["Ink Consumption (Main)"].label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "vertical flick"});
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Cons. d'encre (Pr.): Vertical";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}% réservoir/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "coup vertical"});
           $scope.stats["Ink Consumption (Main)"].value = costPerShot;
           $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
         }
-        else if(name == "[+] Ink Consumption (Main): Vertical") {
+        else if(name == "[+] Cons. d'encre (Pr.): Vertical") {
           costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
-          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Rolling";
-          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-          $scope.stats["Ink Consumption (Main)"].label = "{value}/second".format({value: $scope.toFixedTrimmed(costPerShot,3)});
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Cons. d'encre (Pr.): En roulant";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}/seconde".format({value: $scope.toFixedTrimmed(costPerShot,3)});
           $scope.stats["Ink Consumption (Main)"].value = costPerShot;
           $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
         }
@@ -4174,30 +4174,30 @@ angular
         var s = $scope.calcS(run_speed_parameters);
         var result = $scope.calcRes(run_speed_parameters, p, s);
 
-        if(name == "[+] Run Speed (Roll)") {
+        if(name == "[+] Vitesse en roulant") {
           var run_speed = result * $scope.loadout.weapon.horizontalSwingMoveSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Flicking): Horizontal";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse à pieds : Coup Horizontal";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
-          $scope.stats["Run Speed (Firing)"].desc = "Distance Units/frame";
+          $scope.stats["Run Speed (Firing)"].desc = "Unités de distance/frame";
         }
-        else if(name == "[+] Run Speed (Flicking): Horizontal") {
+        else if(name == "[+] Vitesse à pieds : Coup Horizontal") {
           var run_speed = result * $scope.loadout.weapon.verticalSwingMoveSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.verticalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Flicking): Vertical";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse à pieds : Coup Vertical";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
-          $scope.stats["Run Speed (Firing)"].desc = "Distance Units/frame";
+          $scope.stats["Run Speed (Firing)"].desc = "Unités de distance/frame";
         }
-        else if(name == "[+] Run Speed (Flicking): Vertical") {
+        else if(name == "[+] Vitesse à pieds : Coup Vertical") {
           $scope.stats["Run Speed (Firing)"].value = $scope.loadout.weapon.dashSpeed;
           $scope.stats["Run Speed (Firing)"].percentage = 0.0;
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Roll)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse en roulant";
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.loadout.weapon.dashSpeed});
-          $scope.stats["Run Speed (Firing)"].desc = "Roll Speed for Rollers is constant.";
+          $scope.stats["Run Speed (Firing)"].desc = "La vitesse des rouleaux est constante.";
         }
       }
 
@@ -4221,19 +4221,19 @@ angular
         var s = $scope.calcS(ink_saver_parameters);
         var reduction = $scope.calcRes(ink_saver_parameters, p, s);
 
-        if(name == "[+] Ink Consumption (Main): Rolling") {
+        if(name == "[+] Cons. d'encre (Pr.): En roulant") {
           var costPerShot = $scope.loadout.weapon.inkPerShot * reduction;
-          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main)";
-          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-          $scope.stats["Ink Consumption (Main)"].label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "horizontal flick"});
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Consommation d'encre (Principal)";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}% réservoir/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: "coup horizontal"});
           $scope.stats["Ink Consumption (Main)"].value = costPerShot;
           $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
         }
-        else if(name == "[+] Ink Consumption (Main)") {
+        else if(name == "[+] Consommation d'encre (Principal)") {
           var costPerShot = $scope.loadout.weapon.inkPerShotRolling * reduction * 60;
-          $scope.stats["Ink Consumption (Main)"].name = "[+] Ink Consumption (Main): Rolling";
-          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-          $scope.stats["Ink Consumption (Main)"].label = "{value}/second".format({value: $scope.toFixedTrimmed(costPerShot,3)});          
+          $scope.stats["Ink Consumption (Main)"].name = "[+] Cons. d'encre (Pr.): En roulant";
+          $scope.stats["Ink Consumption (Main)"].desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+          $scope.stats["Ink Consumption (Main)"].label = "{value}/seconde".format({value: $scope.toFixedTrimmed(costPerShot,3)});          
           $scope.stats["Ink Consumption (Main)"].value = costPerShot;
           $scope.stats["Ink Consumption (Main)"].percentage = (100 - (reduction*100)).toFixed(1);
         }
@@ -4241,7 +4241,7 @@ angular
         /****************************
          * RUN SPEED (FIRING) STATS *
          ****************************/
-        if(name == "[+] Run Speed (Dash)") {
+        if(name == "[+] Vitesse max en roulant") {
           var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][$scope.loadout.weapon.shootingSpeed];
           var abilityScore = $scope.loadout.calcAbilityScore('Run Speed Up');
           var p = $scope.calcP(abilityScore);
@@ -4249,13 +4249,13 @@ angular
           var run_speed = $scope.calcRes(run_speed_parameters, p, s) * $scope.loadout.weapon.horizontalSwingMoveSpeed;
           var delta = ((run_speed / $scope.loadout.weapon.horizontalSwingMoveSpeed - 1) * 100).toFixed(1).toString();        
 
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Flicking)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse à pieds (En secouant)";
           $scope.stats["Run Speed (Firing)"].value = run_speed;
           $scope.stats["Run Speed (Firing)"].percentage = delta;
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(run_speed,4)});
-          $scope.stats["Run Speed (Firing)"].desc = "Distance Units/frame";
+          $scope.stats["Run Speed (Firing)"].desc = "Unités de distance/frame";
         }
-        else if(name == "[+] Run Speed (Flicking)") {
+        else if(name == "[+] Vitesse à pieds (En secouant)") {
           var parameters = null;            
           if($scope.loadout.weapon.name.indexOf('Inkbrush') != -1) {
             parameters = $scope.parameters["Main Power Up"]["Inkbrush"]["DashSpeed"]["params"];
@@ -4272,16 +4272,16 @@ angular
           var max_param = parameters[0];
           var min_param = parameters[2];
   
-          $scope.stats["Run Speed (Firing)"].name = "[+] Run Speed (Dash)";
+          $scope.stats["Run Speed (Firing)"].name = "[+] Vitesse max en roulant";
           $scope.stats["Run Speed (Firing)"].value = $scope.toFixedTrimmed((result/max_param) * 100,2);
           $scope.stats["Run Speed (Firing)"].percentage = ((result/min_param - 1) * 100).toFixed(1);            
           $scope.stats["Run Speed (Firing)"].label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
-          $scope.stats["Run Speed (Firing)"].desc = "Brush Speed is affected by Main Power Up.";
+          $scope.stats["Run Speed (Firing)"].desc = "La vitesse des épinceaux est affecté par Arme principale +.";
         }
       }
 
       switch(name) {
-        case "[+] Tracking Time (Point Sensor)":
+        case "[+] Durée de détection (Détecteur)":
           var abilityScore = $scope.loadout.calcAbilityScore('Bomb Defense Up DX');
           var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Ink Mine"];
           var p = this.calcP(abilityScore);      
@@ -4292,14 +4292,14 @@ angular
           var max_duration = 5;
           var min_duration = tracking_time_parameters[2] * 5;
     
-          $scope.stats["Tracking Time"].name = "[+] Tracking Time (Ink Mine)"
+          $scope.stats["Tracking Time"].name = "[+] Durée de détection (Mine)"
           $scope.stats["Tracking Time"].value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
           $scope.stats["Tracking Time"].percentage = ((duration/min_duration - 1) * 100).toFixed(1);
           $scope.stats["Tracking Time"].label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)})
-          $scope.stats["Tracking Time"].desc = "Point Sensor/Ink Mine duration";
+          $scope.stats["Tracking Time"].desc = "Durée du détecteur/mine";
           break;
           
-        case "[+] Tracking Time (Ink Mine)":
+        case "[+] Durée de détection (Mine)":
           var abilityScore = $scope.loadout.calcAbilityScore('Bomb Defense Up DX');
           var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Point Sensor"];
           var p = this.calcP(abilityScore);      
@@ -4310,32 +4310,32 @@ angular
           var max_duration = 8;
           var min_duration = tracking_time_parameters[2] * 8;
     
-          $scope.stats["Tracking Time"].name = "[+] Tracking Time (Point Sensor)"
+          $scope.stats["Tracking Time"].name = "[+] Durée de détection (Détecteur)"
           $scope.stats["Tracking Time"].value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
           $scope.stats["Tracking Time"].percentage = ((duration/min_duration - 1) * 100).toFixed(1);
           $scope.stats["Tracking Time"].label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)})
-          $scope.stats["Tracking Time"].desc = "Point Sensor/Ink Mine duration";
+          $scope.stats["Tracking Time"].desc = "Durée du détecteur/mine";
           break;
 
-        case "[+] Special Saved":
+        case "[+] Spécial sauvé":
           var abilityScore = $scope.loadout.calcAbilityScore('Special Saver');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SPECIAL_SAVER_ON_DEATH", true);
           $scope.displayStat("Special Saved", statValues.name, statValues.value, statValues.percentage, statValues.label);
           break;
 
-        case "[+] Special Saved (On-Use Death)":
+        case "[+] Spécial sauvé (Mort pendant activation)":
           var abilityScore = $scope.loadout.calcAbilityScore('Special Saver');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SPECIAL_SAVER", true);
           $scope.displayStat("Special Saved", statValues.name, statValues.value, statValues.percentage, statValues.label);
           break;
 
-        case "[+] Sub Power (Bomb Range)":
+        case "[+] Arme secondaire + (Portée de la bombe)":
           var abilityScore = $scope.loadout.calcAbilityScore('Sub Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SUB_POWER_TRACKING_TIME", true);
           $scope.displayStat("Sub Power", statValues.name, statValues.value, statValues.percentage, statValues.label);
           break;
 
-        case "[+] Sub Power (Tracking Time)":
+        case "[+] Arme secondaire + (Durée de détection)":
           var abilityScore = $scope.loadout.calcAbilityScore('Sub Power Up');
           var equippedSub = $scope.getSubByName($scope.loadout.weapon.sub);
 
@@ -4349,7 +4349,7 @@ angular
           $scope.displayStat("Sub Power", statValues.name, statValues.value, statValues.percentage, statValues.label);
           break;
 
-        case "[+] Sub Power (Mine Radius)":
+        case "[+] Arme secondaire + (Rayon de la mine)":
           var abilityScore = $scope.loadout.calcAbilityScore('Sub Power Up');
           var statValues = $scope.calcStat(abilityScore, $scope.loadout.weapon.type, "STAT_SUB_POWER_TRACKING_TIME", true);
           $scope.displayStat("Sub Power", statValues.name, statValues.value, statValues.percentage, statValues.label);

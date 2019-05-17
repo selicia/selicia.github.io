@@ -6,7 +6,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "わかばイカＴ",
       "en_US": "Basic Tee",
-      "en_US": "Basic Tee",
+      "en_GB": "Basic Tee",
       "es_ES": "Camiseta básica",
       "es_MX": "Camiseta básica",
       "fr_FR": "T-shirt basique",
@@ -27,7 +27,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Fresh Octo Tee",
     "localizedName": {
       "ja_JP": "わかばタコT",
-      "en_US": "Fresh Octo Tee"
+      "en_US": "Fresh Octo Tee",
+      "en_GB": "Fresh Octo Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt basique Octa",
+      "fr_CA": "T-shirt basique Octa",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Sub)",
     "brand": "Cuttlegear",
@@ -41,7 +50,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "イカホワイト",
       "en_US": "White Tee",
-      "en_US": "White Tee",
+      "en_GB": "White Tee",
       "es_ES": "Camiseta blanca",
       "es_MX": "Camiseta blanca",
       "fr_FR": "T-shirt blanc",
@@ -63,7 +72,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "イカノメＴ ブラック",
       "en_US": "Black Squideye",
-      "en_US": "Black Squideye",
+      "en_GB": "Black Squideye",
       "es_ES": "Ojos calamar negra",
       "es_MX": "Ojos calamar negra",
       "fr_FR": "T-shirt OculR noir",
@@ -85,7 +94,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "イカノメＴ ライトブルー",
       "en_US": "Sky-Blue Squideye",
-      "en_US": "Sky-Blue Squideye",
+      "en_GB": "Sky-Blue Squideye",
       "es_ES": "Ojos calamar azul",
       "es_MX": "Ojos calamar azul",
       "fr_FR": "T-shirt OculR bleu clair",
@@ -107,7 +116,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "ロッケンベルグＴ ホワイト",
       "en_US": "Rockenberg White",
-      "en_US": "Rockenberg White",
+      "en_GB": "Rockenberg White",
       "es_ES": "Rockenberg blanca",
       "es_MX": "Rockenberg blanca",
       "fr_FR": "T-shirt Iormungand blanc",
@@ -128,7 +137,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Rockenberg Black",
     "localizedName": {
       "ja_JP": "ロッケンベルグＴ ブラック",
-      "en_US": "Rockenberg Black"
+      "en_US": "Rockenberg Black",
+      "en_GB": "Rockenberg Black",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt Iormungand noir",
+      "fr_CA": "T-shirt Iormungand noir",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Respawn Punisher",
     "brand": "Rockenberg",
@@ -142,7 +160,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "イカブラック",
       "en_US": "Black Tee",
-      "en_US": "Black Tee",
+      "en_GB": "Black Tee",
       "es_ES": "Camiseta negra",
       "es_MX": "Camiseta negra",
       "fr_FR": "T-shirt noir",
@@ -164,7 +182,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "サニーオレンジＴ",
       "en_US": "Sunny-Day Tee",
-      "en_US": "Sunny-Day Tee",
+      "en_GB": "Sunny-Day Tee",
       "es_ES": "Camiseta sol",
       "es_MX": "Camiseta sol",
       "fr_FR": "T-shirt belle journée",
@@ -186,7 +204,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "レイニーブルーＴ",
       "en_US": "Rainy-Day Tee",
-      "en_US": "Rainy-Day Tee",
+      "en_GB": "Rainy-Day Tee",
       "es_ES": "Camiseta lluvia",
       "es_MX": "Camiseta lluvia",
       "fr_FR": "T-shirt jour de pluie",
@@ -208,7 +226,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "イカジャマイカ",
       "en_US": "Reggae Tee",
-      "en_US": "Reggae Tee",
+      "en_GB": "Reggae Tee",
       "es_ES": "Charanga calamar",
       "es_MX": "Charanga calamar",
       "fr_FR": "T-shirt psychédélique",
@@ -230,7 +248,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "マルフグＴ",
       "en_US": "Fugu Tee",
-      "en_US": "Fugu Tee",
+      "en_GB": "Fugu Tee",
       "es_ES": "Camiseta pez globo",
       "es_MX": "Camiseta pez globo",
       "fr_FR": "T-shirt Friture",
@@ -252,7 +270,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "ミントＴ",
       "en_US": "Mint Tee",
-      "en_US": "Mint Tee",
+      "en_GB": "Mint Tee",
       "es_ES": "Camiseta turquesa",
       "es_MX": "Camiseta turquesa",
       "fr_FR": "T-shirt menthe",
@@ -274,7 +292,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "グレープＴ",
       "en_US": "Grape Tee",
-      "en_US": "Grape Tee",
+      "en_GB": "Grape Tee",
       "es_ES": "Camiseta morada",
       "es_MX": "Camiseta morada",
       "fr_FR": "T-shirt violet",
@@ -296,7 +314,7 @@ angular.module('splatApp').clothes = function($scope) {
     "localizedName": {
       "ja_JP": "ベクトルパターン レッド",
       "en_US": "Red Vector Tee",
-      "en_US": "Red Vector Tee",
+      "en_GB": "Red Vector Tee",
       "es_ES": "Vectores roja",
       "es_MX": "Vectores roja",
       "fr_FR": "T-shirt fléché rouge",
@@ -317,7 +335,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Gray Vector Tee",
     "localizedName": {
       "ja_JP": "ベクトルパターン グレー",
-      "en_US": "Gray Vector Tee"
+      "en_US": "Gray Vector Tee",
+      "en_GB": "Gray Vector Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt fléché gris",
+      "fr_CA": "T-shirt fléché gris",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Super Jump",
     "brand": "Takoroka",
@@ -351,8 +378,17 @@ angular.module('splatApp').clothes = function($scope) {
     "image": "../common/assets/img/gear/clothes/Clt_TES016.png",
     "name": "Ivory Peaks Tee",
     "localizedName": {
-      "ja_JP": "\u30e4\u30de\u30d3\u30b3\uff34 \u30a2\u30a4\u30dc\u30ea\u30fc",
-      "en_US": "Ivory Peaks Tee"
+      "ja_JP": "ヤマビコＴ アイボリー",
+      "en_US": "Ivory Peaks Tee",
+      "en_GB": "Ivory Peaks Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt Abysma ivoire",
+      "fr_CA": "T-shirt Abysma ivoire",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Haunt",
     "brand": "Inkline",
@@ -364,8 +400,17 @@ angular.module('splatApp').clothes = function($scope) {
     "image": "../common/assets/img/gear/clothes/Clt_TES017.png",
     "name": "Squid-Stitch Tee",
     "localizedName": {
-      "ja_JP": "\u30c1\u30c9\u30ea\u30e1\u30ed\u30f3\uff34",
-      "en_US": "Squid-Stitch Tee"
+      "ja_JP": "チドリメロンＴ",
+      "en_US": "Squid-Stitch Tee",
+      "en_GB": "Squid-Stitch Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt pied-de-poulpe",
+      "fr_CA": "T-shirt pied-de-poulpe",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Swim Speed Up",
     "brand": "Skalop",
@@ -554,7 +599,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Octo Tee",
     "localizedName": {
       "ja_JP": "タコＴ",
-      "en_US": "Octo Tee"
+      "en_US": "Octo Tee",
+      "en_GB": "Octo Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt octarien",
+      "fr_CA": "T-shirt octarien",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Haunt",
     "brand": "Cuttlegear",
@@ -567,7 +621,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Herbivore Tee",
     "localizedName": {
       "ja_JP": "ソウショクＴ",
-      "en_US": "Herbivore Tee"
+      "en_US": "Herbivore Tee",
+      "en_GB": "Herbivore Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt proie",
+      "fr_CA": "T-shirt proie",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ninja Squid",
     "brand": "Firefin",
@@ -954,7 +1017,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Annaki Polpo-Pic Tee",
     "localizedName": {
       "ja_JP": "アナアキT ポルポピック",
-      "en_US": "Annaki Polpo-Pic Tee"
+      "en_US": "Annaki Polpo-Pic Tee",
+      "en_GB": "Annaki Polpo-Pic Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Débardeur poulpe Aroz",
+      "fr_CA": "Débardeur poulpe Aroz",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Run Speed Up",
     "brand": "Annaki",
@@ -1033,7 +1105,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Missus Shrug Tee",
     "localizedName": {
       "ja_JP": "ミズシュラッグT",
-      "en_US": "Missus Shrug Tee"
+      "en_US": "Missus Shrug Tee",
+      "en_GB": "Missus Shrug Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt Madame Plouf",
+      "fr_CA": "T-shirt Madame Plouf",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Sub)",
     "brand": "Krak-On",
@@ -1046,7 +1127,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "League Tee",
     "localizedName": {
       "ja_JP": "リーグT",
-      "en_US": "League Tee"
+      "en_US": "League Tee",
+      "en_GB": "League Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt match de ligue",
+      "fr_CA": "T-shirt match de ligue",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Power Up",
     "brand": "SquidForce",
@@ -1059,7 +1149,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Friend Tee",
     "localizedName": {
       "ja_JP": "フレンドT",
-      "en_US": "Friend Tee"
+      "en_US": "Friend Tee",
+      "en_GB": "Friend Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt match amical",
+      "fr_CA": "T-shirt match amical",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Thermal Ink",
     "brand": "SquidForce",
@@ -1116,7 +1215,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Octoking HK Jersey",
     "localizedName": {
       "ja_JP": "キングオクトHKシャツ",
-      "en_US": "Octoking HK Jersey"
+      "en_US": "Octoking HK Jersey",
+      "en_GB": "Octoking HK Jersey",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Maillot de hockey OCTADUX",
+      "fr_CA": "Maillot de hockey OCTADUX",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Charge Up",
     "brand": "Enperry",
@@ -1129,7 +1237,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Dakro Nana Tee",
     "localizedName": {
       "ja_JP": "デカロTキウイ",
-      "en_US": "Dakro Nana Tee"
+      "en_US": "Dakro Nana Tee",
+      "en_GB": "Dakro Nana Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt jaune à logo",
+      "fr_CA": "T-shirt jaune à logo",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Respawn",
     "brand": "Zink",
@@ -1142,7 +1259,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Dakro Golden Tee",
     "localizedName": {
       "ja_JP": "デカロTゴールデン",
-      "en_US": "Dakro Golden Tee"
+      "en_US": "Dakro Golden Tee",
+      "en_GB": "Dakro Golden Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt à logo doré",
+      "fr_CA": "T-shirt à logo doré",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Thermal Ink",
     "brand": "Zink",
@@ -1155,7 +1281,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Black Velour Octoking Tee",
     "localizedName": {
       "ja_JP": "キングオクトTブラックベロア",
-      "en_US": "Black Velour Octoking Tee "
+      "en_US": "Black Velour Octoking Tee",
+      "en_GB": "Black Velour Octoking Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt noir OCTADUX",
+      "fr_CA": "T-shirt noir OCTADUX",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Main Power Up",
     "brand": "Enperry",
@@ -1168,7 +1303,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Green Velour Octoking Tee",
     "localizedName": {
       "ja_JP": "キングオクトTミドリベロア",
-      "en_US": "Green Velour Octoking Tee"
+      "en_US": "Green Velour Octoking Tee",
+      "en_GB": "Green Velour Octoking Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt vert OCTADUX",
+      "fr_CA": "T-shirt vert OCTADUX",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Saver",
     "brand": "Enperry",
@@ -1181,7 +1325,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "SWC Logo Tee",
     "localizedName": {
       "ja_JP": "SWCロゴT",
-      "en_US": "SWC Logo Tee"
+      "en_US": "SWC Logo Tee",
+      "en_GB": "SWC Logo Tee",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "T-shirt SWC",
+      "fr_CA": "T-shirt SWC",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Swim Speed Up",
     "brand": "SquidForce",
@@ -1370,7 +1523,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "White LS",
     "localizedName": {
       "ja_JP": "バトロング ホワイト",
-      "en_US": "White LS"
+      "en_US": "White LS",
+      "en_GB": "White LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut blanc",
+      "fr_CA": "Haut blanc",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Recovery Up",
     "brand": "SquidForce",
@@ -1427,7 +1589,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Zink LS",
     "localizedName": {
       "ja_JP": "アイロニックロング",
-      "en_US": "Zink LS"
+      "en_US": "Zink LS",
+      "en_GB": "Zink LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut Leviathus",
+      "fr_CA": "Haut Leviathus",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Power Up",
     "brand": "Zink",
@@ -1440,7 +1611,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Striped Peaks LS",
     "localizedName": {
       "ja_JP": "ヤマビコボーダー",
-      "en_US": "Striped Peaks LS"
+      "en_US": "Striped Peaks LS",
+      "en_GB": "Striped Peaks LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut Abysma",
+      "fr_CA": "Haut Abysma",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Super Jump",
     "brand": "Inkline",
@@ -1607,7 +1787,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Black Cuttlegear LS",
     "localizedName": {
       "ja_JP": "タコロンT 黒",
-      "en_US": "Black Cuttlegear LS"
+      "en_US": "Black Cuttlegear LS",
+      "en_GB": "Black Cuttlegear LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat noir Macalamar",
+      "fr_CA": "Sweat noir Macalamar",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Swim Speed Up",
     "brand": "Cuttlegear",
@@ -1620,7 +1809,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Takoroka Crazy Baseball LS",
     "localizedName": {
       "ja_JP": "ヤコラグランクレイジー",
-      "en_US": "Takoroka Crazy Baseball LS"
+      "en_US": "Takoroka Crazy Baseball LS",
+      "en_GB": "Takoroka Crazy Baseball LS",
+      "es_ES": "Camiseta béisbol octo",
+      "es_MX": "Camiseta béisbol octo",
+      "fr_FR": "Haut sportif Cubic",
+      "fr_CA": "Haut sportif Cubic",
+      "de_DE": "Kalamati-Baseball-Shirt",
+      "it_IT": "Maglia Sepia baseball",
+      "nl_NL": "Takoroka-honkbalshirt",
+      "ru_RU": "Половинчатая футболка"
     },
     "main": "Ninja Squid",
     "brand": "Takoroka",
@@ -1633,7 +1831,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Red Cuttlegear LS",
     "localizedName": {
       "ja_JP": "タコロンT 赤",
-      "en_US": "Red Cuttlegear LS"
+      "en_US": "Red Cuttlegear LS",
+      "en_GB": "Red Cuttlegear LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat rouge Macalamar",
+      "fr_CA": "Sweat rouge Macalamar",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Bomb Defense Up DX",
     "brand": "Cuttlegear",
@@ -1646,7 +1853,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Khaki 16-Bit FishFry",
     "localizedName": {
       "ja_JP": "ヤキフグ16bit カーキ",
-      "en_US": "Khaki 16-Bit FishFry"
+      "en_US": "Khaki 16-Bit FishFry",
+      "en_GB": "Khaki 16-Bit FishFry",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut 16 bits kaki",
+      "fr_CA": "Haut 16 bits kaki",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Recovery Up",
     "brand": "Firefin",
@@ -1659,7 +1875,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Blue 16-Bit FishFry",
     "localizedName": {
       "ja_JP": "ヤキフグ16bit ブルー",
-      "en_US": "Blue 16-Bit FishFry"
+      "en_US": "Blue 16-Bit FishFry",
+      "en_GB": "Blue 16-Bit FishFry",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut 16 bits bleu",
+      "fr_CA": "Haut 16 bits bleu",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Saver",
     "brand": "Firefin",
@@ -1716,7 +1941,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Camo Layered LS",
     "localizedName": {
       "ja_JP": "カモガサネ",
-      "en_US": "Camo Layered LS"
+      "en_US": "Camo Layered LS",
+      "en_GB": "Camo Layered LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut double à motif",
+      "fr_CA": "Haut double à motif",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Charge Up",
     "brand": "SquidForce",
@@ -1729,7 +1963,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Black Layered LS",
     "localizedName": {
       "ja_JP": "レイヤード ブラック",
-      "en_US": "Black Layered LS"
+      "en_US": "Black Layered LS",
+      "en_GB": "Black Layered LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut double noir",
+      "fr_CA": "Haut double noir",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Main)",
     "brand": "SquidForce",
@@ -1940,7 +2183,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Squid Yellow Layered LS",
     "localizedName": {
       "ja_JP": "イカイエローVガサネ",
-      "en_US": "Squid Yellow Layered LS"
+      "en_US": "Squid Yellow Layered LS",
+      "en_GB": "Squid Yellow Layered LS",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut double calamar jaune",
+      "fr_CA": "Haut double calamar jaune",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Swim Speed Up",
     "brand": "SquidForce",
@@ -1975,7 +2227,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Striped Rugby",
     "localizedName": {
       "ja_JP": "オレンジボーダーラガー",
-      "en_US": "Striped Rugby"
+      "en_US": "Striped Rugby",
+      "en_GB": "Striped Rugby",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Haut rayé rugby",
+      "fr_CA": "Haut rayé rugby",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Run Speed Up",
     "brand": "Takoroka",
@@ -2252,7 +2513,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Green Cardigan",
     "localizedName": {
       "ja_JP": "レタード グリーン",
-      "en_US": "Green Cardigan"
+      "en_US": "Green Cardigan",
+      "en_GB": "Green Cardigan",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet vert",
+      "fr_CA": "Gilet vert",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Sub)",
     "brand": "Splash Mob",
@@ -2309,7 +2579,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Retro Gamer Jersey",
     "localizedName": {
       "ja_JP": "FCジャージー",
-      "en_US": "Retro Gamer Jersey"
+      "en_US": "Retro Gamer Jersey",
+      "en_GB": "Retro Gamer Jersey",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Blouson rétro",
+      "fr_CA": "Blouson rétro",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Respawn",
     "brand": "Zink",
@@ -2366,7 +2645,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Forge Octarian Jacket",
     "localizedName": {
       "ja_JP": "F-010",
-      "en_US": "Forge Octarian Jacket"
+      "en_US": "Forge Octarian Jacket",
+      "en_GB": "Forge Octarian Jacket",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Parka Focus OCT",
+      "fr_CA": "Parka Focus OCT",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Haunt",
     "brand": "Forge",
@@ -2665,7 +2953,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Deep-Octo Satin Jacket",
     "localizedName": {
       "ja_JP": "ウラタコスカジャン",
-      "en_US": "Deep-Octo Satin Jacket"
+      "en_US": "Deep-Octo Satin Jacket",
+      "en_GB": "Deep-Octo Satin Jacket",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Blouson poulpe",
+      "fr_CA": "Blouson poulpe",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Main Power Up",
     "brand": "Zekko",
@@ -2942,7 +3239,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "White Leather F-3",
     "localizedName": {
       "ja_JP": "F-3 ホワイトレザー",
-      "en_US": "White Leather F-3"
+      "en_US": "White Leather F-3",
+      "en_GB": "White Leather F-3",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Blouson fourré F-3 blanc",
+      "fr_CA": "Blouson fourré F-3 blanc",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Respawn Punisher",
     "brand": "Forge",
@@ -2955,7 +3261,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Chili-Pepper Ski Jacket",
     "localizedName": {
       "ja_JP": "マウンテンチリペッパー",
-      "en_US": "Chili-Pepper Ski Jacket"
+      "en_US": "Chili-Pepper Ski Jacket",
+      "en_GB": "Chili-Pepper Ski Jacket",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Anorak piment rouge",
+      "fr_CA": "Anorak piment rouge",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Resistance Up",
     "brand": "Inkline",
@@ -2968,7 +3283,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Whale-Knit Sweater",
     "localizedName": {
       "ja_JP": "ハウスタグホエールニット",
-      "en_US": "Whale-Knit Sweater"
+      "en_US": "Whale-Knit Sweater",
+      "en_GB": "Whale-Knit Sweater",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet de laine baleines",
+      "fr_CA": "Gilet de laine baleines",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Run Speed Up",
     "brand": "Splash Mob",
@@ -2981,7 +3305,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Rockin' Leather Jacket",
     "localizedName": {
       "ja_JP": "ロッケンブレイクジャケット",
-      "en_US": "Rockin' Leather Jacket"
+      "en_US": "Rockin' Leather Jacket",
+      "en_GB": "Rockin' Leather Jacket",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Blouson en cuir rock",
+      "fr_CA": "Blouson en cuir rock",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Sub Power Up",
     "brand": "Annaki",
@@ -2994,7 +3327,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Kung-Fu Zip-Up",
     "localizedName": {
       "ja_JP": "クンフージャージ",
-      "en_US": "Kung-Fu Zip-Up"
+      "en_US": "Kung-Fu Zip-Up",
+      "en_GB": "Kung-Fu Zip-Up",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Veste de kung-fu",
+      "fr_CA": "Veste de kung-fu",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ninja Squid",
     "brand": "Toni Kensa",
@@ -3007,7 +3349,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Panda Kung-Fu Zip-Up",
     "localizedName": {
       "ja_JP": "クンフーパンジャージ",
-      "en_US": "Panda Kung-Fu Zip-Up"
+      "en_US": "Panda Kung-Fu Zip-Up",
+      "en_GB": "Panda Kung-Fu Zip-Up",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Veste de kung-fu orque",
+      "fr_CA": "Veste de kung-fu orque",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Sub Power Up",
     "brand": "Toni Kensa",
@@ -3020,7 +3371,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Sennyu Suit",
     "localizedName": {
       "ja_JP": "センニュースーツ",
-      "en_US": "Sennyu Suit"
+      "en_US": "Sennyu Suit",
+      "en_GB": "Sennyu Suit",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Costume d'infiltration",
+      "fr_CA": "Costume d'infiltration",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ninja Squid",
     "brand": "Cuttlegear",
@@ -3143,7 +3503,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Lob-Stars Jersey",
     "localizedName": {
       "ja_JP": "ロブスターズユニ",
-      "en_US": "Lob-Stars Jersey"
+      "en_US": "Lob-Stars Jersey",
+	    "en_GB": "Lob-Stars Jersey",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Maillot des LobStars",
+      "fr_CA": "Maillot des LobStars",
+      "de_DE": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null",
+      "it_IT": "Null"
     },
     "main": "Sub Power Up",
     "brand": "Tentatek",
@@ -3244,7 +3613,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Navy College Sweat",
     "localizedName": {
       "ja_JP": "カレッジスウェット ネイビー",
-      "en_US": "Navy College Sweat"
+      "en_US": "Navy College Sweat",
+      "en_GB": "Navy College Sweat",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat université bleu",
+      "fr_CA": "Sweat université bleu",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Resistance Up",
     "brand": "Splash Mob",
@@ -3389,7 +3767,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Annaki Yellow Cuff",
     "localizedName": {
       "ja_JP": "アナアキニット キソデ",
-      "en_US": "Annaki Yellow Cuff"
+      "en_US": "Annaki Yellow Cuff",
+      "en_GB": "Annaki Yellow Cuff",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Pull grunge poignet jaune",
+      "fr_CA": "Pull grunge poignet jaune",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Respawn",
     "brand": "Annaki",
@@ -3446,7 +3833,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Octarian Retro",
     "localizedName": {
       "ja_JP": "オクタリアンレトロ",
-      "en_US": "Octarian Retro"
+      "en_US": "Octarian Retro",
+      "en_GB": "Octarian Retro",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat rétro Octarien",
+      "fr_CA": "Sweat rétro Octarien",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Respawn Punisher",
     "brand": "Cuttlegear",
@@ -3459,7 +3855,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Takoroka Jersey",
     "localizedName": {
       "ja_JP": "ヤコピステ",
-      "en_US": "Takoroka Jersey"
+      "en_US": "Takoroka Jersey",
+      "en_GB": "Takoroka Jersey",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat Cubic",
+      "fr_CA": "Sweat Cubic",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Power Up",
     "brand": "Takoroka",
@@ -3604,7 +4009,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Red-Check Shirt",
     "localizedName": {
       "ja_JP": "ギンガムチェック アカ",
-      "en_US": "Red-Check Shirt"
+      "en_US": "Red-Check Shirt",
+      "en_GB": "Red-Check Shirt",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Chemise de bûcheron",
+      "fr_CA": "Chemise de bûcheron",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Main)",
     "brand": "Zekko",
@@ -3969,7 +4383,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Chili Octo Aloha",
     "localizedName": {
       "ja_JP": "チリメンタコアロハ",
-      "en_US": "Chili Octo Aloha"
+      "en_US": "Chili Octo Aloha",
+      "en_GB": "Chili Octo Aloha",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Chemisette poulpe farniente",
+      "fr_CA": "Chemisette poulpe farniente",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Bomb Defense Up DX",
     "brand": "Krak-On",
@@ -3982,7 +4405,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Annaki Flannel Hoodie",
     "localizedName": {
       "ja_JP": "アナアキオンブレネル",
-      "en_US": "Annaki Flannel Hoodie"
+      "en_US": "Annaki Flannel Hoodie",
+      "en_GB": "Annaki Flannel Hoodie",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Chemise rustique Aroz",
+      "fr_CA": "Chemise rustique Aroz",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Bomb Defense Up DX",
     "brand": "Annaki",
@@ -3995,7 +4427,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Ink-Wash Shirt",
     "localizedName": {
       "ja_JP": "スミヌキシャツ",
-      "en_US": "Ink-Wash Shirt"
+      "en_US": "Ink-Wash Shirt",
+      "en_GB": "Ink-Wash Shirt",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Chemise tache blanche",
+      "fr_CA": "Chemise tache blanche",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Recovery Up",
     "brand": "Toni Kensa",
@@ -4008,7 +4449,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Dots-On-Dots Shirt",
     "localizedName": {
       "ja_JP": "レイヤードットシャツ",
-      "en_US": "Dots-On-Dots Shirt"
+      "en_US": "Dots-On-Dots Shirt",
+      "en_GB": "Dots-On-Dots Shirt",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Chemise à pois",
+      "fr_CA": "Chemise à pois",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Super Jump",
     "brand": "Skalop",
@@ -4021,7 +4471,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Toni K. Baseball Jersey",
     "localizedName": {
       "ja_JP": "タタキBBBシャツ",
-      "en_US": "Toni K. Baseball Jersey"
+      "en_US": "Toni K. Baseball Jersey",
+      "en_GB": "Toni K. Baseball Jersey",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Maillot baseball K",
+      "fr_CA": "Maillot baseball K",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Charge Up",
     "brand": "Toni Kensa",
@@ -4034,7 +4493,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Online Jersey",
     "localizedName": {
       "ja_JP": "BBシャツ プレミアム",
-      "en_US": "Online Jersey"
+      "en_US": "Online Jersey",
+      "en_GB": "Online Jersey",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Maillot baseball Premium",
+      "fr_CA": "Maillot baseball Premium",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": null,
     "brand": "Grizzco",
@@ -4069,7 +4537,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Forest Vest",
     "localizedName": {
       "ja_JP": "フォレストダウン",
-      "en_US": "Forest Vest"
+      "en_US": "Forest Vest",
+      "en_GB": "Forest Vest",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet sylvestre",
+      "fr_CA": "Gilet sylvestre",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Recovery Up",
     "brand": "Inkline",
@@ -4125,7 +4602,16 @@ angular.module('splatApp').clothes = function($scope) {
     "image": "../common/assets/img/gear/clothes/Clt_VST004.png",
     "localizedName": {
       "ja_JP": "イカゴッチンベスト",
-      "en_US": "Squid-Pattern Waistcoat"
+      "en_US": "Squid-Pattern Waistcoat",
+      "en_GB": "Squid-Pattern Waistcoat",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet motif calamar",
+      "fr_CA": "Gilet motif calamar",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "name": "Squid-Pattern Waistcoat",
     "main": "Special Power Up",
@@ -4205,7 +4691,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Silver Tentatek Vest",
     "localizedName": {
       "ja_JP": "アロメランベスト シルバー",
-      "en_US": "Silver Tentatek Vest"
+      "en_US": "Silver Tentatek Vest",
+      "en_GB": "Silver Tentatek Vest",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet argent OculR",
+      "fr_CA": "Gilet argent OculR",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Thermal Ink",
     "brand": "Tentatek",
@@ -4350,7 +4845,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Hothouse Hoodie",
     "localizedName": {
       "ja_JP": "ホタプラントパーカー",
-      "en_US": "Hothouse Hoodie"
+      "en_US": "Hothouse Hoodie",
+      "en_GB": "Hothouse Hoodie",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat zippé feuillage",
+      "fr_CA": "Sweat zippé feuillage",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Run Speed Up",
     "brand": "Skalop",
@@ -4407,7 +4911,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Black Hoodie",
     "localizedName": {
       "ja_JP": "ホタパーカー ブラック",
-      "en_US": "Black Hoodie"
+      "en_US": "Black Hoodie",
+      "en_GB": "Black Hoodie",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat capuche noir",
+      "fr_CA": "Sweat capuche noir",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Resistance Up",
     "brand": "Skalop",
@@ -4420,7 +4933,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Octo Support Hoodie",
     "localizedName": {
       "ja_JP": "おうえんパーカー(タコver.)",
-      "en_US": "Octo Support Hoodie"
+      "en_US": "Octo Support Hoodie",
+      "en_GB": "Octo Support Hoodie",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat zippé Octa",
+      "fr_CA": "Sweat zippé Octa",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Main Power Up",
     "brand": "SquidForce",
@@ -4543,7 +5065,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "North-Country Parka",
     "localizedName": {
       "ja_JP": "フロムキタグニ87",
-      "en_US": "North-Country Parka"
+      "en_US": "North-Country Parka",
+      "en_GB": "North-Country Parka",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Parka nordique",
+      "fr_CA": "Parka nordique",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": null,
     "brand": "Grizzco",
@@ -4556,7 +5087,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Octoleet Armor",
     "localizedName": {
       "ja_JP": "ゾネスティックプロテクター",
-      "en_US": "Octoleet Armor"
+      "en_US": "Octoleet Armor",
+      "en_GB": "Octoleet Armor",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Plastron octalien",
+      "fr_CA": "Plastron octalien",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": null,
     "brand": "Grizzco",
@@ -4569,7 +5109,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Record Shop Look EP",
     "localizedName": {
       "ja_JP": "レコヤルックEP",
-      "en_US": "Record Shop Look EP"
+      "en_US": "Record Shop Look EP",
+      "en_GB": "Record Shop Look EP",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Tablier vendeur de disques",
+      "fr_CA": "Tablier vendeur de disques",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": null,
     "brand": "Grizzco",
@@ -4582,7 +5131,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Dev Uniform",
     "localizedName": {
       "ja_JP": "デベロッパーズワークウエア",
-      "en_US": "Dev Uniform"
+      "en_US": "Dev Uniform",
+      "en_GB": "Dev Uniform",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet de développeur",
+      "fr_CA": "Gilet de développeur",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": null,
     "brand": "Grizzco",
@@ -4595,7 +5153,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Office Attire",
     "localizedName": {
       "ja_JP": "ジムパーソンアーマー",
-      "en_US": "Office Attire"
+      "en_US": "Office Attire",
+      "en_GB": "Office Attire",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Tenue de bureau",
+      "fr_CA": "Tenue de bureau",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": null,
     "brand": "Grizzco",
@@ -4607,8 +5174,17 @@ angular.module('splatApp').clothes = function($scope) {
     "image": "../common/assets/img/gear/placeholder.png",
     "name": "Mecha Body - AKM",
     "localizedName": {
-     "ja_JP": "メカボディ・AKM",
-     "en_US": "Mecha Body - AKM"
+      "ja_JP": "メカボディ・AKM",
+      "en_US": "Mecha Body - AKM",
+      "en_GB": "Mecha Body - AKM",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Armure Mécanique - AKM",
+      "fr_CA": "Armure Mécanique - AKM",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Sub)",
     "brand": "SquidForce",
@@ -4753,7 +5329,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Pearlescent Hoodie",
     "localizedName": {
       "ja_JP": "ヒメイトパーカー",
-      "en_US": "Pearlescent Hoodie"
+      "en_US": "Pearlescent Hoodie",
+      "en_GB": "Pearlescent Hoodie",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Sweat à capuche princier",
+      "fr_CA": "Sweat à capuche princier",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Respawn Punisher",
     "brand": "amiibo",
@@ -4766,7 +5351,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Marinated Top",
     "localizedName": {
       "ja_JP": "イイダチトップス",
-      "en_US": "Marinated Top"
+      "en_US": "Marinated Top",
+      "en_GB": "Marinated Top",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Top coralien",
+      "fr_CA": "Top coralien",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Special Power Up",
     "brand": "amiibo",
@@ -4779,7 +5373,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Enchanted Robe",
     "localizedName": {
       "ja_JP": "エンチャントローブ",
-      "en_US": "Enchanted Robe"
+      "en_US": "Enchanted Robe",
+      "en_GB": "Enchanted Robe",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Tunique magique",
+      "fr_CA": "Tunique magique",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Thermal Ink",
     "brand": "amiibo",
@@ -4792,7 +5395,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Steel Platemail",
     "localizedName": {
       "ja_JP": "タコティカルなよろい",
-      "en_US": "Steel Platemail"
+      "en_US": "Steel Platemail",
+      "en_GB": "Steel Platemail",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Armure d'Octaguerrier",
+      "fr_CA": "Armure d'Octaguerrier",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Saver (Sub)",
     "brand": "amiibo",
@@ -4805,7 +5417,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Fresh Fish Gloves",
     "localizedName": {
       "ja_JP": "ひれおくんのて",
-      "en_US": "Fresh Fish Gloves"
+      "en_US": "Fresh Fish Gloves",
+      "en_GB": "Fresh Fish Gloves",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Mains de mascotte",
+      "fr_CA": "Mains de mascotte",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Quick Super Jump",
     "brand": "amiibo",
@@ -4907,7 +5528,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Neo Octoling Armor",
     "localizedName": {
       "ja_JP": "タコゾネスプロテクターネオ",
-      "en_US": "Neo Octoling Armor"
+      "en_US": "Neo Octoling Armor",
+      "en_GB": "Neo Octoling Armor",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Plastron Octaling Néo",
+      "fr_CA": "Plastron Octaling Néo",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Haunt",
     "brand": "Cuttlegear",
@@ -4920,7 +5550,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Null Armor Replica",
     "localizedName": {
       "ja_JP": "ネルアーマー レプリカ",
-      "en_US": "Null Armor Replica"
+      "en_US": "Null Armor Replica",
+      "en_GB": "Null Armor Replica",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Armure Patapoulpe (réplique)",
+      "fr_CA": "Armure Patapoulpe (réplique)",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Ink Resistance Up",
     "brand": "Cuttlegear",
@@ -4933,7 +5572,16 @@ angular.module('splatApp').clothes = function($scope) {
     "name": "Old-Timey Clothes",
     "localizedName": {
       "ja_JP": "グランパなフク",
-      "en_US": "Old-Timey Clothes"
+      "en_US": "Old-Timey Clothes",
+      "en_GB": "Old-Timey Clothes",
+      "es_ES": "Null",
+      "es_MX": "Null",
+      "fr_FR": "Gilet zippé de papi",
+      "fr_CA": "Gilet zippé de papi",
+      "de_DE": "Null",
+      "it_IT": "Null",
+      "nl_NL": "Null",
+      "ru_RU": "Null"
     },
     "main": "Thermal Ink",
     "brand": "Cuttlegear",

@@ -97,7 +97,7 @@
                       <div class="row" ng-hide="screenshotMode">
                         <div class="col-xs-12">
                           <span id="version">
-                            Loadout v2.1.0
+                            Loadout v2.1.1
                             <span class="icon-button fa fa-question-circle-o" ng-controller="ModalCtrl" uib-tooltip="What's New?" ng-click="openChangelog()" tooltip-append-to-body="true"></span>
                             <span id="tutorial" class="icon-button fa fa-magic" ng-controller="splatController" uib-tooltip="Tutorial" ng-click="tutorial()" tooltip-append-to-body="true"></span>
                           </span>
@@ -237,7 +237,12 @@
                 </div>
               </div>
               <div class="row card" ability-box id="abilitybox">
-                <img fallback-img ng-repeat="skill in getStackableSkills()" id="{{'icon:' + skill.name}}" class="abilityicon" ability-menu uib-tooltip="{{skill.localizedName['en_US']}}"  tooltip-append-to-body="true" ng-click="loadout.setOpenSlot(skill)" draggable-ability skill="{{skill}}" ng-src="{{::skill.image}}">
+                <span ng-repeat="skill in getStackableSkills()">
+                  <img fallback-img  id="{{'icon:' + skill.name}}" class="abilityicon" ability-menu uib-tooltip="{{skill.localizedName['en_US']}}"  tooltip-append-to-body="true" ng-click="loadout.setOpenSlot(skill)" draggable-ability skill="{{skill}}" ng-src="{{::skill.image}}">
+                  <span style="position: relative; width: 0; height: 0">
+                      <span class="fa fa-info-circle fa-1" ng-controller="splatController" uib-tooltip="About: {{skill.localizedName['en_US']}}" ng-click="tutorial(skill.name)" tooltip-append-to-body="true"></span>
+                  </span>
+                </span>
                 <hr>
                 <img fallback-img ng-repeat="skill in getExclusiveSkills()" id="{{'icon:' + skill.name}}" class="abilityicon" ability-menu uib-tooltip="{{skill.localizedName['en_US']}}" tooltip-append-to-body="true"  ng-click="loadout.setOpenSlot(skill)" draggable-ability skill="{{::skill}}" ng-src="{{::skill.image}}">
               </div>

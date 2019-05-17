@@ -41,7 +41,7 @@ function Stat(name, calc, max) {
 
 angular.module('splatApp').stats = function ($scope) {
   $scope.stats = {
-    'Swim Speed': new Stat("Swim Speed", function(loadout) {
+    'Swim Speed': new Stat("Vitesse de nage", function(loadout) {
       var default_swim_speed = null;
       var swim_speed_parameters = null;
       if(loadout.weapon.speedLevel == 'Low') {
@@ -78,11 +78,11 @@ angular.module('splatApp').stats = function ($scope) {
       this.value = swim_speed;
       this.percentage = delta;
       this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
-      this.desc = "Distance Units/frame";
+      this.desc = "Unités de distance/frame";
       return this.value.toFixed(4);
     }, 2.4),
 
-    'Run Speed': new Stat("Run Speed", function(loadout) {
+    'Run Speed': new Stat("Vitesse à pieds", function(loadout) {
         var default_run_speed = null;
         var run_speed_parameters = null;
         if(loadout.weapon.speedLevel == 'Low') {
@@ -109,11 +109,11 @@ angular.module('splatApp').stats = function ($scope) {
         this.value = run_speed;
         this.percentage = delta;
         this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)})
-        this.desc = "Distance Units/frame";
+        this.desc = "Unités de distance/frame";
         return this.value.toFixed(4);
       }, 1.44),
 
-    'Run Speed (Enemy Ink)': new Stat("Run Speed (Enemy Ink)", function(loadout) {
+    'Run Speed (Enemy Ink)': new Stat("Vitesse à pieds (Encre ennemie)", function(loadout) {
         // TODO: Verify these results with Leanny
         var ink_resistance_parameters = $scope.parameters["Ink Resistance"]["Run"];
         var abilityScore = loadout.calcAbilityScore('Ink Resistance Up');
@@ -134,17 +134,17 @@ angular.module('splatApp').stats = function ($scope) {
         this.value = run_speed;
         this.percentage = delta;
         this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
-        this.desc = "Distance Units/frame";
+        this.desc = "Unités de distance/frame";
         return this.value.toFixed(4);
       }, 0.72),
 
-    'Run Speed (Firing)': new Stat("Run Speed (Firing)", function(loadout) {
+    'Run Speed (Firing)': new Stat("Vitesse à pieds (En tirant)", function(loadout) {
         if(loadout.weapon.class.toLowerCase() =='roller') {
           this.value = loadout.weapon.dashSpeed;
           this.percentage = 0.0;
-          this.name = "[+] Run Speed (Roll)";
+          this.name = "[+] Vitesse en roulant";
           this.label = "{value} DU/f".format({value: this.value.toFixed(2)});
-          this.desc = "Roll Speed for Rollers is constant.";
+          this.desc = "La vitesse des rouleaux est constante.";
           return this.value.toFixed(2);        
         }
 
@@ -168,20 +168,20 @@ angular.module('splatApp').stats = function ($scope) {
     
             this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
             this.percentage = ((result/min_param - 1) * 100).toFixed(1);            
-            this.name = "[+] Run Speed (Dash)";
+            this.name = "[+] Vitesse max en roulant";
             this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(result,4)});
-            this.desc = "Brush Speed is affected by Main Power Up.";
+            this.desc = "La vitesse des épinceaux est affecté par Arme principale +.";
             return this.value;
         }
 
         if(loadout.weapon.class.toLowerCase() == 'charger') {
-          this.name = "Run Speed (Charging)";
+          this.name = "Vitesse à pieds (En chargeant)";
         }
         else if(loadout.weapon.class.toLowerCase() == 'splatling' || loadout.weapon.class.toLowerCase() == 'brella') {
-          this.name = "[+] Run Speed (Firing)";
+          this.name = "[+] Vitesse à pieds (En tirant)";
         }
         else {
-          this.name = "Run Speed (Firing)";
+          this.name = "Vitesse à pieds (En tirant)";
         }
       
         var run_speed_parameters = $scope.parameters["Run Speed"]["Shooting"][loadout.weapon.shootingSpeed];
@@ -199,17 +199,17 @@ angular.module('splatApp').stats = function ($scope) {
         this.value = run_speed;
         this.percentage = delta;
         this.label = "{value} DU/f".format({value: $scope.toFixedTrimmed(this.value,4)});
-        this.desc = "Distance Units/frame";
+        this.desc = "Unités de distance/frame";
 
         if(isNaN(this.value)) {
           this.value = 0;
-          this.label = "Unavailable";
+          this.label = "Non disponible";
           this.desc = null;
         }
         return this.value.toFixed(4);
       }, 1.44),
 
-    'Ink Recovery Speed (Squid)': new Stat("Ink Recovery Speed (Squid)", function(loadout) {
+    'Ink Recovery Speed (Squid)': new Stat("Vitesse de recharge d'encre (Calamar)", function(loadout) {
       var ink_recovery_parameters = $scope.parameters["Ink Recovery Up"]["In Ink"];
       var abilityScore = loadout.calcAbilityScore('Ink Recovery Up');
       var p = this.calcP(abilityScore);       
@@ -225,12 +225,12 @@ angular.module('splatApp').stats = function ($scope) {
 
       this.value = delta;
       this.percentage = (100 - (100 / delta) * 100).toFixed(1);
-      this.desc = "{value}s from empty to full".format({value: refill_time.toFixed(2)})
+      this.desc = "{value}s de vide à plein".format({value: refill_time.toFixed(2)})
       this.label = "{value}s".format({value: refill_time.toFixed(2)})
       return this.value.toFixed(2);
     }, 154),
 
-    'Ink Recovery Speed (Kid)': new Stat("Ink Recovery Speed (Kid)", function(loadout) {
+    'Ink Recovery Speed (Kid)': new Stat("Vitesse de recharge d'encre (Enfant)", function(loadout) {
       var ink_recovery_parameters = $scope.parameters["Ink Recovery Up"]["Standing"];
       var abilityScore = loadout.calcAbilityScore('Ink Recovery Up');
       var p = this.calcP(abilityScore);       
@@ -246,12 +246,12 @@ angular.module('splatApp').stats = function ($scope) {
 
       this.value = delta;
       this.percentage = (100 - (100 / delta) * 100).toFixed(1);
-      this.desc = "{value}s from empty to full".format({value: refill_time.toFixed(2)})      
+      this.desc = "{value}s de vide à plein".format({value: refill_time.toFixed(2)})      
       this.label = "{value}s".format({value: refill_time.toFixed(2)})
       return this.value.toFixed(2);
     }, 273),
 
-    'Ink Consumption (Main)': new Stat("Ink Consumption (Main)", function(loadout) {
+    'Ink Consumption (Main)': new Stat("Consommation d'encre (Principal)", function(loadout) {
       var ink_saver_parameters = null;
       if(loadout.weapon.inkSaver == 'Low') {
         ink_saver_parameters = $scope.parameters["Ink Saver Main"]["Low"];
@@ -271,19 +271,19 @@ angular.module('splatApp').stats = function ($scope) {
 
       if(loadout.weapon.class == "Roller" || loadout.weapon.class == "Brush") {
         costPerShot = loadout.weapon.inkPerShotRolling * reduction * 60;
-        this.name = "[+] Ink Consumption (Main): Rolling";
-        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-        this.label = "{value}/second".format({value: $scope.toFixedTrimmed(costPerShot,3)});
+        this.name = "[+] Cons. d'encre (Pr.): En roulant";
+        this.desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        this.label = "{value}/seconde".format({value: $scope.toFixedTrimmed(costPerShot,3)});
       }
       else {
         costPerShot = loadout.weapon.inkPerShot * reduction;
-        this.name = "Ink Consumption (Main)";
-        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
-        this.label = "{value}% tank/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: loadout.weapon.shotUnit});
+        this.name = "Consommation d'encre (Principal)";
+        this.desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(100/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});       
+        this.label = "{value}% réservoir/{unit}".format({value: $scope.toFixedTrimmed(costPerShot,3), unit: loadout.weapon.shotUnit});
       }
 
       if(loadout.weapon.name.indexOf("Splattershot Jr.") !== -1) {
-        this.desc = "{totalShots} to empty ({reduction}% reduction)".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});                
+        this.desc = "{totalShots} pour vider ({reduction}% réduction)".format({totalShots: Math.floor(110/costPerShot), reduction: (100 - (reduction*100)).toFixed(1)});                
       }
       
       this.value = costPerShot;
@@ -296,13 +296,13 @@ angular.module('splatApp').stats = function ($scope) {
 
       if(isNaN(this.value)) {
         this.value = 0;
-        this.label = "Unavailable";
+        this.label = "Non disponible";
         this.desc = null;
       }
       return this.value;
     }, 100),
 
-    'Ink Consumption (Sub)': new Stat("Ink Consumption (Sub)", function(loadout) {
+    'Ink Consumption (Sub)': new Stat("Consommation d'encre (Secondaire)", function(loadout) {
       var ink_saver_sub_parameters = null;
       var sub = $scope.getSubByName(loadout.weapon.sub);
       
@@ -331,8 +331,8 @@ angular.module('splatApp').stats = function ($scope) {
       var reduction = this.calcRes(ink_saver_sub_parameters, p, s);      
       var costPerSub = sub.cost * reduction;
 
-      this.desc = "{reduction}% reduction".format({reduction: (100 - (reduction*100)).toFixed(1)})
-      this.label = "{value}% tank".format({value: $scope.toFixedTrimmed(costPerSub,3)})      
+      this.desc = "{reduction}% réduction".format({reduction: (100 - (reduction*100)).toFixed(1)})
+      this.label = "{value}% réservoir".format({value: $scope.toFixedTrimmed(costPerSub,3)})      
       this.localizedDesc = { reduction: (100 - (reduction*100)).toFixed(1), desc: 'DESC_SUB_COST' };
       this.value = costPerSub;
       this.percentage = (100 - (reduction*100)).toFixed(1);
@@ -345,7 +345,7 @@ angular.module('splatApp').stats = function ($scope) {
       return costPerSub;
     }, 100),
 
-    'Special Charge Speed': new Stat("Special Charge Speed", function(loadout) {
+    'Special Charge Speed': new Stat("Vitesse de charge du spécial", function(loadout) {
       var special_charge_speed_parameters = $scope.parameters["Special Charge Up"]["default"]
       var abilityScore = loadout.calcAbilityScore('Special Charge Up');
       var p = this.calcP(abilityScore);       
@@ -354,7 +354,7 @@ angular.module('splatApp').stats = function ($scope) {
 
       this.value = special_charge_speed;
       this.percentage = ((special_charge_speed*100) - 100).toFixed(1);
-      this.desc = "{value}p for special".format({value: Math.ceil(loadout.weapon.specialCost / special_charge_speed)});
+      this.desc = "{value}p pour le spécial".format({value: Math.ceil(loadout.weapon.specialCost / special_charge_speed)});
       this.label = "{value}%".format({value: (this.value*100).toFixed(1)});
 
       if($scope.logging) {
@@ -365,7 +365,7 @@ angular.module('splatApp').stats = function ($scope) {
       return (special_charge_speed * 100).toFixed(1);
     }, 1.3),
 
-    'Special Saved': new Stat("Special Saved", function(loadout) {
+    'Special Saved': new Stat("Spécial sauvé", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Special Saver');
       var equippedSpecial = $scope.getSpecialByName(loadout.weapon.special)
 
@@ -377,7 +377,7 @@ angular.module('splatApp').stats = function ($scope) {
       }
 
       if($scope.loadout.hasAbility('Respawn Punisher')) {
-        this.desc = "Respawn Punisher is affecting this stat.";
+        this.desc = "Retour Perdant affecte cette stat.";
       }      
       
       this.name = statValues.name;
@@ -388,11 +388,11 @@ angular.module('splatApp').stats = function ($scope) {
       return this.percentage;
     }, 100),
 
-    'Special Power': new Stat("Special Power", function(loadout) {
+    'Special Power': new Stat("Arme spéciale", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Special Power Up');
       var equippedSpecial = $scope.getSpecialByName(loadout.weapon.special)
       this.desc = null;
-      this.name = "Special Power (???)"
+      this.name = "Arme spéciale (???)"
 
       var special_power_up_parameters = null;
       switch(equippedSpecial.name) {
@@ -404,7 +404,7 @@ angular.module('splatApp').stats = function ($scope) {
           var max_duration = special_power_up_parameters[0] / 60;
           var min_duration = special_power_up_parameters[2] / 60;
 
-          this.name = "Special Power (Duration)";
+          this.name = "Arme spéciale (Durée)";
 
           if($scope.logging) {
             var special_power_up_log = {"Special Power Up (Curling Bomb Launcher)":duration,"AP:":abilityScore,"P":p,"S":s}
@@ -427,7 +427,7 @@ angular.module('splatApp').stats = function ($scope) {
           var max_duration = special_power_up_parameters[0] / 60;
           var min_duration = special_power_up_parameters[2] / 60;
 
-          this.name = "Special Power (Duration)";
+          this.name = "Arme spéciale (Durée)";
 
           if($scope.logging) {
             var special_power_up_log = {"Special Power Up (Other Bomb Launcher)":duration,"AP:":abilityScore,"P":p,"S":s}
@@ -455,7 +455,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power (Duration)";
+          this.name = "Arme spéciale (Durée)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -475,7 +475,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power (Duration)";
+          this.name = "Arme spéciale (Durée)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -495,7 +495,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power (Duration)";     
+          this.name = "Arme spéciale (Durée)";     
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -515,7 +515,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power (Duration)";        
+          this.name = "Arme spéciale (Durée)";        
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
           return duration;
 
@@ -535,8 +535,8 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
           
-          this.name = "Special Power (Baller HP)";       
-          this.label = "{value} HP".format({value: $scope.toFixedTrimmed(health,2)});
+          this.name = "Arme spéciale (PV de la Chromo-sphère)";       
+          this.label = "{value} PV".format({value: $scope.toFixedTrimmed(health,2)});
           return health;
 
         case 'Tenta Missiles':
@@ -555,7 +555,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power (Targeting Radius)";
+          this.name = "Arme spéciale (Taille du viseur)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(targeting_radius,2)})
           return targeting_radius;
 
@@ -575,10 +575,10 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power (Lethal Radius)";
+          this.name = "Arme spéciale (Rayon létal)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(lethal_radius,2)})
           // TODO: Ask Leanny how to convert the Lethal Radius values to Distance Units (DU/f)
-          // this.desc = "{value} Distance Units".format({value: (base*results).toFixed(1)})
+          // this.desc = "{value} Unités de distance".format({value: (base*results).toFixed(1)})
           return lethal_radius;
 
         case 'Bubble Blower':
@@ -598,7 +598,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power (Max Bubble Radius)";
+          this.name = "Arme spéciale (Rayon de la bulle)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(bubble_radius,2)})
           return bubble_radius;
 
@@ -618,7 +618,7 @@ angular.module('splatApp').stats = function ($scope) {
           console.log(special_power_up_log);
         }
         
-        this.name = "Special Power (Duration)";        
+        this.name = "Arme spéciale (Durée)";        
         this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)});
         return duration;
 
@@ -639,17 +639,17 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(special_power_up_log);
           }
 
-          this.name = "Special Power (Max Charge Time)";
+          this.name = "Special Power (Temps de charge)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(charge_time,4)})
           return charge_time;
       }
       return 0;
     }, 100),
 
-    'Sub Power': new Stat("Sub Power", function(loadout) {
+    'Sub Power': new Stat("Arme secondaire +", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Sub Power Up');
       var equippedSub = $scope.getSubByName(loadout.weapon.sub)
-      this.name = "Sub Power (Bomb Range)"
+      this.name = "Arme secondaire + (Portée de la bombe)"
       this.value = 0;
 
       var sub_power_up_parameters = null;
@@ -675,7 +675,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power (Bomb Range)";
+          this.name = "Arme secondaire + (Portée de la bombe)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(sub_range,2)})
           return sub_range;
 
@@ -695,7 +695,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power (Bomb Range)";
+          this.name = "Arme secondaire + (Portée de la bombe)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(sub_range,2)})
           return sub_range;     
 
@@ -731,8 +731,8 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power (Wall HP)";
-          this.label = "{value} HP".format({value: $scope.toFixedTrimmed(wall_hp,2)})
+          this.name = "Arme secondaire + (PV du mur)";
+          this.label = "{value} PV".format({value: $scope.toFixedTrimmed(wall_hp,2)})
           return wall_hp;
 
         case 'Sprinkler':
@@ -760,7 +760,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power (Duration)";
+          this.name = "Arme secondaire + (Durée)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
           return total_duration;          
 
@@ -790,7 +790,7 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power (Jump Speed to Beakon)";
+          this.name = "Arme secondaire + (Durée du super saut)";
           this.label = "{value}s".format({value: $scope.toFixedTrimmed(total_duration,2)})
           return total_duration;             
 
@@ -810,14 +810,14 @@ angular.module('splatApp').stats = function ($scope) {
             console.log(sub_power_up_debug_log);
           }
 
-          this.name = "Sub Power (Bomb Range)";
+          this.name = "Arme secondaire + (Portée de la bombe)";
           this.label = "{value}".format({value: $scope.toFixedTrimmed(distance,2)})
           return distance;
       }
       return 0;
     }, 100),
 
-    'Super Jump Time (Squid)': new Stat("Super Jump Time (Squid) ", function(loadout) {
+    'Super Jump Time (Squid)': new Stat("Durée du super saut (Calamar) ", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Quick Super Jump');
       var jump_parameters = $scope.parameters["Quick Super Jump"]["Jump"];
       var p = this.calcP(abilityScore);      
@@ -844,7 +844,7 @@ angular.module('splatApp').stats = function ($scope) {
       return total_duration;
     }, 100),
 
-    'Super Jump Time (Kid)': new Stat("Super Jump Time (Kid) ", function(loadout) {
+    'Super Jump Time (Kid)': new Stat("Durée du super saut (Enfant) ", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Quick Super Jump');
       var jump_parameters = $scope.parameters["Quick Super Jump"]["Jump"];
       var p = this.calcP(abilityScore);      
@@ -871,10 +871,10 @@ angular.module('splatApp').stats = function ($scope) {
       return total_duration;
     }, 100),
 
-    'Quick Respawn Time': new Stat("Quick Respawn Time", function(loadout) {
+    'Quick Respawn Time': new Stat("Temps de réapparition", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Quick Respawn');
-      this.name = "Quick Respawn Time";
-      this.desc = "Respawn time when splatted without splatting others.";
+      this.name = "Temps de réapparition";
+      this.desc = "Durée de réapparition quand éliminé sans avoir liquidé quelqu'un.";
 
       var death_frames_parameters = $scope.parameters["Quick Respawn"]["Die Frames"];
       var p = this.calcP(abilityScore);      
@@ -892,7 +892,7 @@ angular.module('splatApp').stats = function ($scope) {
       if(loadout.hasAbility('Respawn Punisher')) {
         total_duration += 1.13;
         max_duration += 1.13;
-        this.desc = "Respawn Punisher is affecting this stat.";
+        this.desc = "Retour Perdant affecte cette stat.";
       }
 
       this.percentage = Math.abs(((total_duration/max_duration - 1) * 100).toFixed(2));
@@ -907,7 +907,7 @@ angular.module('splatApp').stats = function ($scope) {
       return total_duration;
     }, 9.62),
 
-    'Tracking Time': new Stat("Tracking Time (Point Sensor)", function(loadout) {
+    'Tracking Time': new Stat("Durée de détection (Détecteur)", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Bomb Defense Up DX');
       var tracking_time_parameters = $scope.parameters["Cold Blooded"]["Point Sensor"];
       var p = this.calcP(abilityScore);      
@@ -918,7 +918,7 @@ angular.module('splatApp').stats = function ($scope) {
       var max_duration = 8;
       var min_duration = tracking_time_parameters[2] * 8;
 
-      this.name = "[+] Tracking Time (Point Sensor)"
+      this.name = "[+] Durée de détection (Détecteur)"
       this.value = $scope.toFixedTrimmed((duration/max_duration) * 100,2);
       this.percentage = ((duration/min_duration - 1) * 100).toFixed(1);
       
@@ -928,11 +928,11 @@ angular.module('splatApp').stats = function ($scope) {
       }
 
       this.label = "{value}s".format({value: $scope.toFixedTrimmed(duration,2)})
-      this.desc = "Point Sensor/Ink Mine duration";
+      this.desc = "Durée du détecteur/mine";
       return duration;
     }, 100),
 
-    'Main Power Up 1': new Stat("Main Power Up", function(loadout) {
+    'Main Power Up 1': new Stat("Arme principale +", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Main Power Up');
 
       if(loadout.weapon.type == ".52 Gal") {
@@ -1465,7 +1465,7 @@ angular.module('splatApp').stats = function ($scope) {
       //     this.value = $scope.toFixedTrimmed((result/max_param) * 100,2);
       //     this.percentage = ((result/min_param - 1) * 100).toFixed(1);
       //     result = result / 10.0;
-      //     this.label = "{value} HP".format({value: $scope.toFixedTrimmed(result,2)});
+      //     this.label = "{value} PV".format({value: $scope.toFixedTrimmed(result,2)});
       //     label_set = true;
       //   }
 
@@ -1490,13 +1490,13 @@ angular.module('splatApp').stats = function ($scope) {
 
       // Defaults
       this.value = 0;
-      this.name = "Main Power Up (Unused)";
-      this.label = "Unavailable".format({value: this.value});
+      this.name = "Arme principale + (Inutilisé)";
+      this.label = "Non disponible".format({value: this.value});
       this.desc = null;
       return this.value;
     }, 100),
 
-    'Main Power Up 2': new Stat("Main Power Up", function(loadout) {
+    'Main Power Up 2': new Stat("Arme principale +", function(loadout) {
       var abilityScore = loadout.calcAbilityScore('Main Power Up');
 
       if(loadout.weapon.type == ".52 Gal") {
@@ -1834,8 +1834,8 @@ angular.module('splatApp').stats = function ($scope) {
 
       // Defaults
       this.value = 0;
-      this.name = "Main Power Up (Unused)";
-      this.label = "Unavailable".format({value: this.value});
+      this.name = "Arme principale + (Inutilisé)";
+      this.label = "Non disponible".format({value: this.value});
       this.desc = null;
       return this.value;
     }, 100),
@@ -1930,10 +1930,10 @@ angular.module('splatApp').stats = function ($scope) {
   }
 
   var inkResistanceEffects = [
-    {"name":"Invulnerability Time","key":"Invuln Frames"},
-    {"name":"Damage Per Second","key":"Dmg Per Frame"},
-    {"name":"Damage Limit", "key":"Dmg Limit"},
-    {"name":"Jump Height", "key":"Jump"}      
+    {"name":"Durée d'invulnérabilitée","key":"Invuln Frames"},
+    {"name":"Dégâts par seconde","key":"Dmg Per Frame"},
+    {"name":"Limite de dégâts", "key":"Dmg Limit"},
+    {"name":"Hauteur de saut", "key":"Jump"}      
   ];
 
   $scope.getInkResistanceEffects = function () {
