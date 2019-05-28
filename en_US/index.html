@@ -97,7 +97,7 @@
                       <div class="row" ng-hide="screenshotMode">
                         <div class="col-xs-12">
                           <span id="version">
-                            Loadout v2.1.1
+                            Loadout v2.2.0
                             <span class="icon-button fa fa-question-circle-o" ng-controller="ModalCtrl" uib-tooltip="What's New?" ng-click="openChangelog()" tooltip-append-to-body="true"></span>
                             <span id="tutorial" class="icon-button fa fa-magic" ng-controller="splatController" uib-tooltip="Tutorial" ng-click="tutorial()" tooltip-append-to-body="true"></span>
                           </span>
@@ -263,8 +263,14 @@
                     </div>
                   </div>
                   <!-- TODO: Add checkbox for toggling "conditional" stats (LDE, OG, Comeback, etc) -->
-                  <!-- <input type="checkbox" ng-model="string"> -->
-                  <div id="disclaimer">Abilities marked with a [+] may be toggled by clicking on the name.</div>
+                  <div id="disclaimer">
+                    <span ng-repeat="conditionalAbility in getActiveConditionalAbilities()">
+                      <input id="{{'checkbox:' + conditionalAbility.name}}" type="checkbox" ng-model="conditionalAbilityCheckbox" ng-change="toggleConditionalAbilityCheckbox()">
+                      <span>{{conditionalAbility.localizedName['en_US'] || conditionalAbility.localizedName['en_US']}}</span>
+                    </span>
+                    <br>
+                    <span>Abilities marked with a [+] may be toggled by clicking on the name.</span>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
